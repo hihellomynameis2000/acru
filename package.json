@@ -1,0 +1,55 @@
+{
+  "name": "@acru/app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "next dev",
+    "dev:api": "npm run dev --workspace @acru/api",
+    "build": "next build",
+    "build:api": "npm run build --workspace @acru/api",
+    "start": "next start",
+    "start:standalone": "node .next/standalone/server.js",
+    "lint": "eslint . --max-warnings=0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:smoke": "playwright test",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "typecheck:api": "npm run typecheck --workspace @acru/api",
+    "validate": "npm run format:check && npm run lint && npm run typecheck && npm run typecheck:api && npm run test && npm run build && npm run build:api"
+  },
+  "dependencies": {
+    "@shopify/polaris-icons": "^9.3.1",
+    "@svg-maps/world": "^2.0.0",
+    "@types/qrcode": "^1.5.6",
+    "clsx": "^2.1.1",
+    "cryptocurrency-icons": "^0.18.1",
+    "lucide-react": "^0.541.0",
+    "next": "^16.0.7",
+    "qrcode": "^1.5.4",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "simple-icons": "^16.28.0",
+    "zod": "^4.1.13"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^25.3.0",
+    "@types/react": "^19.1.17",
+    "@types/react-dom": "^19.1.11",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "^16.0.7",
+    "prettier": "^3.8.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "packageManager": "npm@11.6.2"
+}

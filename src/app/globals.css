@@ -1,0 +1,17 @@
+/* Global stylesheet manifest. Keep rules in their owning shared or feature stylesheet. */
+@import "../components/styles/compatibility-portals.css";
+@import "../components/styles/foundation.css";
+@import "../features/dashboard/styles/dashboard.css";
+@import "../components/styles/compatibility-developers-partners.css";
+@import "../features/reports/styles/acceptance.css";
+@import "../components/styles/compatibility-integrations.css";
+@import "../features/settings/styles/settings.css";
+@import "../features/reports/styles/reports.css";
+@import "../components/styles/compatibility-auth-admin.css";
+@import "../features/payment-operations/styles/operations.css";
+@import "../features/products/styles/products.css";
+@import "../features/disputes/styles/disputes.css";
+@import "../features/customers/styles/customers.css";
+@import "../features/transactions/styles/transactions.css";
+@import "../features/payouts/styles/payouts.css";
+@import "../components/styles/drawer-motion.css";
