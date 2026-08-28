@@ -2641,6 +2641,31 @@ button:disabled {
   gap: 1px;
 }
 
+.collection-page-state {
+  display: grid;
+  gap: 18px;
+}
+
+.collection-page-state > header h1 {
+  margin: 0;
+  color: #f1f1f1;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.collection-page-state > header p {
+  margin: 5px 0 0;
+  color: #909090;
+  font-size: 11px;
+}
+
+.collection-page-state > section {
+  overflow: hidden;
+  border: 1px solid #3f3e3e;
+  border-radius: 12px;
+  background: #2a2929;
+}
+
 .ui-loading-row {
   height: 56px;
   border-bottom: 1px solid #3a3939;

@@ -55,7 +55,8 @@
 .create-button,
 .outline-button,
 .icon-button,
-.wallet-actions button {
+.wallet-actions button,
+.wallet-actions a {
   border: 0;
   color: #eeeeee;
   cursor: pointer;
@@ -772,7 +773,7 @@
   font-size: 13px;
 }
 
-.balance-summary-head button {
+.balance-summary-head a {
   border: 0;
   background: transparent;
   color: #48a7da;
@@ -978,7 +979,8 @@
   margin-top: 18px;
 }
 
-.wallet-actions button {
+.wallet-actions button,
+.wallet-actions a {
   display: flex;
   height: 40px;
   align-items: center;
@@ -989,6 +991,31 @@
   background: transparent;
   font-size: 15px;
   font-weight: 500;
+}
+
+.sales-granularity {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.sales-granularity select {
+  height: 42px;
+  appearance: none;
+  border: 1px solid #424141;
+  border-radius: 11px;
+  background: transparent;
+  color: #eeeeee;
+  cursor: pointer;
+  font: inherit;
+  padding: 0 42px 0 18px;
+}
+
+.sales-granularity svg {
+  position: absolute;
+  right: 15px;
+  width: 16px;
+  pointer-events: none;
 }
 
 .wallet-actions .primary-action {

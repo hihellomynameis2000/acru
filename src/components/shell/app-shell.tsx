@@ -50,6 +50,7 @@ const navItems: Array<{
       { href: "/payments/transactions", label: "Transactions", keywords: "charges money activity" },
       { href: "/payments/subscriptions", label: "Subscriptions", keywords: "recurring billing plans" },
       { href: "/payments/checkout", label: "Checkout", keywords: "payment page cart hosted checkout" },
+      { href: "/commerce/products", label: "Products", keywords: "catalog prices inventory commerce" },
       { href: "/payments/customers", label: "Customers", keywords: "merchants people accounts" },
       { href: "/payments/payouts", label: "Payouts", keywords: "withdrawals bank transfers" },
       { href: "/payments/disputes", label: "Disputes", keywords: "chargebacks evidence" },
@@ -113,6 +114,26 @@ const searchDestinations = navItems.flatMap((item) => [
   ...(item.children ?? []).map((child) => ({ ...child, icon: item.icon }))
 ]);
 
+function navGroupForPath(pathname: string) {
+  return (
+    navItems.find(
+      (item) =>
+        item.children &&
+        (pathname === item.href ||
+          pathname.startsWith(`${item.href}/`) ||
+          item.children.some((child) => pathname === child.href || pathname.startsWith(`${child.href}/`)))
+    )?.href ?? null
+  );
+}
+
+function navItemIsActive(pathname: string, item: (typeof navItems)[number]) {
+  return (
+    pathname === item.href ||
+    pathname.startsWith(`${item.href}/`) ||
+    Boolean(item.children?.some((child) => pathname === child.href || pathname.startsWith(`${child.href}/`)))
+  );
+}
+
 const workspaceAccounts = [
   {
     id: "northstar-studio",
@@ -157,7 +178,7 @@ const initialNotifications: Array<{
     title: "Payout scheduled",
     detail: "$98,443.12 to Wells Fargo •••• 4242",
     time: "Tomorrow",
-    href: "/balances",
+    href: "/payments/payouts",
     tone: "purple",
     icon: BankIcon,
     read: false
@@ -167,7 +188,7 @@ const initialNotifications: Array<{
     title: "2 disputes require attention",
     detail: "Responses are due before May 7",
     time: "12 min ago",
-    href: "/payments",
+    href: "/payments/disputes",
     tone: "gold",
     icon: AlertTriangleIcon,
     read: false
@@ -177,7 +198,7 @@ const initialNotifications: Array<{
     title: "3 information requests",
     detail: "Additional documents are needed",
     time: "1 hr ago",
-    href: "/settings",
+    href: "/settings/business",
     tone: "blue",
     icon: ClockIcon,
     read: false
@@ -187,7 +208,7 @@ const initialNotifications: Array<{
     title: "Payment succeeded",
     detail: "$8,320.00 received via USDC",
     time: "2 hrs ago",
-    href: "/payments",
+    href: "/payments/transactions",
     tone: "green",
     icon: CheckCircleIcon,
     read: true
@@ -222,9 +243,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const [notifications, setNotifications] = useState(initialNotifications);
   const [query, setQuery] = useState("");
   const [activeResult, setActiveResult] = useState(0);
-  const [openGroup, setOpenGroup] = useState<string | null>(
-    () => navItems.find((item) => item.children && pathname.startsWith(item.href))?.href ?? null
-  );
+  const [openGroup, setOpenGroup] = useState<string | null>(() => navGroupForPath(pathname));
   const results = useMemo(() => {
     const normalized = query.trim().toLowerCase();
     if (!normalized) return searchDestinations;
@@ -320,7 +339,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     setSearchOpen(false);
     setCommandOpen(false);
     setQuery("");
-    setOpenGroup(navItems.find((item) => item.children && result.href.startsWith(item.href))?.href ?? null);
+    setOpenGroup(navGroupForPath(result.href));
     router.push(result.href);
   }
 
@@ -329,7 +348,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       current.map((notification) => (notification.id === id ? { ...notification, read: true } : notification))
     );
     setNotificationOpen(false);
-    setOpenGroup(navItems.find((item) => item.children && href.startsWith(item.href))?.href ?? null);
+    setOpenGroup(navGroupForPath(href));
     router.push(href);
   }
 
@@ -672,7 +691,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
         <nav className="nav-group" aria-label="Primary navigation">
           {navItems.map((item) => {
-            const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
+            const active = navItemIsActive(pathname, item);
             if (item.children) {
               const expanded = openGroup === item.href;
               return (

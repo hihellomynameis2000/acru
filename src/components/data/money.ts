@@ -40,3 +40,11 @@ export function formatMoney(value: Money, locale = "en-US") {
     style: "currency"
   }).format(value.minorUnits / 100);
 }
+
+export function decimalAmount(minorUnits: number, precision = 2) {
+  if (!Number.isSafeInteger(minorUnits)) throw new RangeError("Money must use safe integer minor units.");
+  const sign = minorUnits < 0 ? "-" : "";
+  const absolute = Math.abs(minorUnits);
+  const factor = 10 ** precision;
+  return `${sign}${Math.floor(absolute / factor)}.${String(absolute % factor).padStart(precision, "0")}`;
+}

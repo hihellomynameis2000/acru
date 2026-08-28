@@ -311,6 +311,11 @@
   height: 14px;
 }
 
+.customer-verified-pill[data-status="review"] {
+  background: #453d2b;
+  color: #e0b455;
+}
+
 .customer-access-pill {
   background: #293540;
   color: #6eb9e3;
@@ -1249,4 +1254,69 @@
     padding-top: 14px;
     padding-left: 0;
   }
+}
+.customer-tab-content {
+  display: grid;
+  gap: 18px;
+  margin: 18px;
+  border: 1px solid #353535;
+  border-radius: 14px;
+  background: #242424;
+  padding: 20px;
+}
+
+.customer-tab-content h3 {
+  margin: 0;
+  color: #f2f2f2;
+  font-size: 16px;
+}
+
+.customer-tab-content dl,
+.customer-tab-content ol {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.customer-tab-content dl > div,
+.customer-tab-content li {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-top: 1px solid #353535;
+  color: #d8d8d8;
+}
+
+.customer-tab-content dt,
+.customer-tab-content small,
+.customer-tab-content label {
+  color: #9d9d9d;
+}
+
+.customer-tab-content label {
+  display: grid;
+  gap: 8px;
+}
+
+.customer-tab-content textarea {
+  min-height: 120px;
+  resize: vertical;
+  border: 1px solid #454545;
+  border-radius: 10px;
+  background: #1d1d1d;
+  color: #f2f2f2;
+  font: inherit;
+  padding: 12px;
+}
+
+.customer-tab-content > button {
+  width: fit-content;
+  border: 0;
+  border-radius: 9px;
+  background: #49a7dc;
+  color: white;
+  padding: 10px 16px;
 }

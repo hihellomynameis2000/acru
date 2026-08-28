@@ -1,4 +1,4 @@
-export type PageRequest<Filters extends object = Record<string, never>> = Filters & {
+export type PageRequest<Filters extends object = Record<never, never>> = Filters & {
   page: number;
   pageSize: number;
   query?: string;
@@ -11,11 +11,11 @@ export type PageResult<Item> = {
   totalItems: number;
 };
 
-export type ListAdapter<Item, Filters extends object = Record<string, never>> = {
+export type ListAdapter<Item, Filters extends object = Record<never, never>> = {
   list(request: PageRequest<Filters>, signal?: AbortSignal): Promise<PageResult<Item>>;
 };
 
-export function createFixtureListAdapter<Item, Filters extends object = Record<string, never>>({
+export function createFixtureListAdapter<Item, Filters extends object = Record<never, never>>({
   filter,
   latency = 0,
   seed

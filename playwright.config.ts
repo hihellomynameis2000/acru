@@ -6,6 +6,8 @@ const viewports = [
   { height: 1024, name: "tablet-768", width: 768 },
   { height: 844, name: "mobile-390", width: 390 }
 ];
+const externalBaseUrl = process.env.PLAYWRIGHT_BASE_URL;
+const baseURL = externalBaseUrl ?? "http://127.0.0.1:3100";
 
 export default defineConfig({
   expect: { timeout: 8_000 },
@@ -18,14 +20,16 @@ export default defineConfig({
   testMatch: "**/*.smoke.spec.ts",
   timeout: 120_000,
   use: {
-    baseURL: "http://127.0.0.1:3100",
+    baseURL,
     screenshot: "only-on-failure",
     trace: "retain-on-failure"
   },
-  webServer: {
-    command: "npm run dev -- --hostname 127.0.0.1 --port 3100",
-    reuseExistingServer: !process.env.CI,
-    timeout: 120_000,
-    url: "http://127.0.0.1:3100/dashboard"
-  }
+  webServer: externalBaseUrl
+    ? undefined
+    : {
+        command: "npm run dev -- --hostname 127.0.0.1 --port 3100",
+        reuseExistingServer: !process.env.CI,
+        timeout: 120_000,
+        url: "http://127.0.0.1:3100/dashboard"
+      }
 });

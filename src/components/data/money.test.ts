@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { addMoney, createMoney, formatMoney, minorUnitsFromDecimal } from "./money";
+import { addMoney, createMoney, decimalAmount, formatMoney, minorUnitsFromDecimal } from "./money";
 
 describe("money", () => {
   it("parses decimal input without floating-point arithmetic", () => {
@@ -20,5 +20,6 @@ describe("money", () => {
 
   it("formats minor units consistently", () => {
     expect(formatMoney(createMoney(294_325))).toBe("$2,943.25");
+    expect(decimalAmount(294_325)).toBe("2943.25");
   });
 });
