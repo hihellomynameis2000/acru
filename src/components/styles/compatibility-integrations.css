@@ -962,6 +962,10 @@
   font-size: 12px;
 }
 
+.partner-table-toolbar .ui-select-root {
+  width: 190px;
+}
+
 .partner-applicants-table {
   min-width: 1160px;
 }

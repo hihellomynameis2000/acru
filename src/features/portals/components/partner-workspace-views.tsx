@@ -24,6 +24,8 @@ import {
   useState
 } from "react";
 
+import { Select } from "@/components/ui/select";
+
 type Applicant = {
   id: string;
   name: string;
@@ -1251,13 +1253,13 @@ export function PartnerLinksView() {
             </label>
             <label>
               Merchant *
-              <select onChange={(event) => setMerchant(event.target.value)} value={merchant}>
+              <Select onChange={(event) => setMerchant(event.target.value)} value={merchant}>
                 <option>Bitunix</option>
                 <option>Lumen Digital</option>
                 <option>Northwind Coffee Co.</option>
                 <option>Crescent Retail</option>
                 <option>The Edge Markets</option>
-              </select>
+              </Select>
             </label>
             <label>
               Campaign name *
@@ -1832,30 +1834,30 @@ export function PartnerMarketingView() {
           <SearchIcon />
           <input onChange={(event) => setQuery(event.target.value)} placeholder="Search assets" value={query} />
         </label>
-        <select aria-label="Filter by merchant" onChange={(event) => setMerchant(event.target.value)} value={merchant}>
+        <Select aria-label="Filter by merchant" onChange={(event) => setMerchant(event.target.value)} value={merchant}>
           <option>All merchants</option>
           {merchants.map((item) => (
             <option key={item}>{item}</option>
           ))}
-        </select>
-        <select aria-label="Filter by campaign" onChange={(event) => setCampaign(event.target.value)} value={campaign}>
+        </Select>
+        <Select aria-label="Filter by campaign" onChange={(event) => setCampaign(event.target.value)} value={campaign}>
           <option>All campaigns</option>
           {campaigns.map((item) => (
             <option key={item}>{item}</option>
           ))}
-        </select>
-        <select aria-label="Filter by size" onChange={(event) => setSize(event.target.value)} value={size}>
+        </Select>
+        <Select aria-label="Filter by size" onChange={(event) => setSize(event.target.value)} value={size}>
           <option>All sizes</option>
           {sizes.map((item) => (
             <option key={item}>{item}</option>
           ))}
-        </select>
-        <select aria-label="Filter by format" onChange={(event) => setFormat(event.target.value)} value={format}>
+        </Select>
+        <Select aria-label="Filter by format" onChange={(event) => setFormat(event.target.value)} value={format}>
           <option>All formats</option>
           {formats.map((item) => (
             <option key={item}>{item}</option>
           ))}
-        </select>
+        </Select>
         <button onClick={clearFilters} type="button">
           Clear filters
         </button>
@@ -2504,7 +2506,7 @@ export function PartnerReportsView({ applicants }: { applicants: Applicant[] }) 
       </div>
 
       <section aria-label="Report filters" className="portal-card partner-report-filters partner-report-filter-grid">
-        <select
+        <Select
           aria-label="Date range"
           onChange={(event) => setRange(event.target.value as PartnerReportRange)}
           value={range}
@@ -2513,42 +2515,42 @@ export function PartnerReportsView({ applicants }: { applicants: Applicant[] }) 
           <option value="30D">Last 30 days</option>
           <option value="3M">Last 3 months</option>
           <option value="1Y">Last 12 months</option>
-        </select>
-        <select aria-label="Merchant" onChange={(event) => setMerchant(event.target.value)} value={merchant}>
+        </Select>
+        <Select aria-label="Merchant" onChange={(event) => setMerchant(event.target.value)} value={merchant}>
           <option>All merchants</option>
           {applicants.map((item) => (
             <option key={item.id}>{item.name}</option>
           ))}
-        </select>
-        <select aria-label="Campaign" onChange={(event) => setCampaign(event.target.value)} value={campaign}>
+        </Select>
+        <Select aria-label="Campaign" onChange={(event) => setCampaign(event.target.value)} value={campaign}>
           <option>All campaigns</option>
           <option>Main affiliate link</option>
           <option>Email newsletter</option>
           <option>Partner directory</option>
-        </select>
-        <select aria-label="Link" onChange={(event) => setLink(event.target.value)} value={link}>
+        </Select>
+        <Select aria-label="Link" onChange={(event) => setLink(event.target.value)} value={link}>
           <option>All links</option>
           <option>Primary referral link</option>
           <option>Campaign links</option>
-        </select>
-        <select aria-label="Status" onChange={(event) => setStatus(event.target.value)} value={status}>
+        </Select>
+        <Select aria-label="Status" onChange={(event) => setStatus(event.target.value)} value={status}>
           <option>All statuses</option>
           <option>Approved</option>
           <option>Pending</option>
           <option>Adjusted</option>
-        </select>
-        <select aria-label="Country" onChange={(event) => setCountry(event.target.value)} value={country}>
+        </Select>
+        <Select aria-label="Country" onChange={(event) => setCountry(event.target.value)} value={country}>
           <option>All countries</option>
           {partnerCountryData.map((item) => (
             <option key={item.code}>{item.name}</option>
           ))}
-        </select>
-        <select aria-label="Device" onChange={(event) => setDevice(event.target.value)} value={device}>
+        </Select>
+        <Select aria-label="Device" onChange={(event) => setDevice(event.target.value)} value={device}>
           <option>All devices</option>
           {partnerDeviceData.map((item) => (
             <option key={item.name}>{item.name}</option>
           ))}
-        </select>
+        </Select>
         <button onClick={clearFilters} type="button">
           Clear filters
         </button>

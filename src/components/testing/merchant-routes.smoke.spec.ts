@@ -229,6 +229,46 @@ test("password recovery is portal-aware, validated, and keyboard accessible", as
     .toBe(true);
 });
 
+test("every partner dropdown uses the ACRU listbox with keyboard dismissal", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop-1440");
+  await page.goto("/partners");
+  const navigation = page.getByRole("navigation", { name: "Partner workspace" });
+  const sections = [
+    { name: "Applications", selects: 1 },
+    { name: "Custom links", selects: 1 },
+    { name: "Marketing materials", selects: 4 },
+    { name: "Reports", selects: 7 }
+  ];
+
+  for (const section of sections) {
+    await navigation.getByRole("button", { name: section.name, exact: true }).click();
+    const selects = page.locator("select");
+    await expect(selects).toHaveCount(section.selects);
+    await expect(page.locator(".ui-select-root")).toHaveCount(section.selects);
+    await expect(page.locator("select:not(.ui-select)")).toHaveCount(0);
+
+    for (let index = 0; index < section.selects; index += 1) {
+      const select = selects.nth(index);
+      await select.click();
+      const listbox = page.getByRole("listbox");
+      await expect(listbox).toBeVisible();
+      expect(await listbox.getByRole("option").count()).toBeGreaterThan(1);
+      await select.press("Escape");
+      await expect(listbox).toHaveCount(0);
+      await expect(select).toBeFocused();
+    }
+
+    if (section.name === "Reports") {
+      const dateRange = selects.first();
+      await dateRange.click();
+      await page.getByRole("listbox", { name: "Date range" }).getByRole("option", { name: "Last 7 days" }).click();
+      await expect(dateRange).toHaveValue("7D");
+      await expect(dateRange).not.toBeFocused();
+      expect(await dateRange.evaluate((element) => getComputedStyle(element).outlineStyle)).toBe("none");
+    }
+  }
+});
+
 test("admin team metrics fill the available row without generic icons", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop-1440");
   await page.goto("/admin");

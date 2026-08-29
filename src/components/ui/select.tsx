@@ -152,7 +152,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectHTMLAttributes<HTMLSel
   );
 
   const selectOption = useCallback(
-    (index: number) => {
+    (index: number, restoreFocus = true) => {
       const select = selectRef.current;
       const option = options[index];
       if (!select || !option || option.disabled) return;
@@ -160,7 +160,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectHTMLAttributes<HTMLSel
       select.dispatchEvent(new Event("input", { bubbles: true }));
       select.dispatchEvent(new Event("change", { bubbles: true }));
       setActiveIndex(index);
-      closeListbox(true);
+      closeListbox(restoreFocus);
     },
     [closeListbox, options]
   );
@@ -276,7 +276,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectHTMLAttributes<HTMLSel
                   disabled={option.disabled}
                   id={`${optionIdPrefix}-${index}`}
                   key={`${option.value}-${index}`}
-                  onClick={() => selectOption(index)}
+                  onClick={() => selectOption(index, false)}
                   onMouseEnter={() => setActiveIndex(index)}
                   role="option"
                   tabIndex={-1}
