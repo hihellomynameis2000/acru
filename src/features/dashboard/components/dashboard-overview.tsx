@@ -29,6 +29,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 import { useListCollection } from "@/components/data/use-list-collection";
 import { CollectionPageState } from "@/components/ui/collection-state";
+import { Select } from "@/components/ui/select";
 import { SalesOverviewChart } from "@/features/dashboard/components/sales-overview-chart";
 import {
   activities,
@@ -341,12 +342,11 @@ function SalesOverview({ total, change, days, startDate, endDate, compare }: Das
         </div>
         <label className="sales-granularity">
           <span className="sr-only">Chart granularity</span>
-          <select value={granularity} onChange={(event) => setGranularity(event.target.value)}>
+          <Select value={granularity} onChange={(event) => setGranularity(event.target.value)}>
             <option>Daily</option>
             <option>Weekly</option>
             <option>Monthly</option>
-          </select>
-          <ChevronDownIcon aria-hidden="true" />
+          </Select>
         </label>
       </div>
       <SalesOverviewChart days={days} startDate={startDate} endDate={endDate} compare={compare} />

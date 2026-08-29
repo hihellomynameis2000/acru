@@ -141,3 +141,36 @@ test("invoice drawer remains readable below the standard mobile breakpoint", asy
   expect(geometry.statusContained).toBe(true);
   expect(geometry.summaryContained).toBe(true);
 });
+
+test("merchant selects use the ACRU listbox with complete keyboard behavior", async ({ page }) => {
+  await page.goto("/settings/business");
+
+  const businessStructure = page.getByRole("combobox", { name: /Business structure/ });
+  await businessStructure.click();
+  const listbox = page.getByRole("listbox", { name: "Business structure" });
+  await expect(listbox).toBeVisible();
+  await expect(listbox.getByRole("option", { name: "Limited liability company" })).toHaveAttribute(
+    "aria-selected",
+    "true"
+  );
+
+  await businessStructure.press("ArrowDown");
+  await businessStructure.press("Enter");
+  await expect(businessStructure).toHaveValue("Corporation");
+  await expect(listbox).toHaveCount(0);
+  await expect(businessStructure).toBeFocused();
+
+  await businessStructure.press(" ");
+  await expect(listbox).toBeVisible();
+  await businessStructure.press("Escape");
+  await expect(listbox).toHaveCount(0);
+  await expect(businessStructure).toBeFocused();
+
+  await page.goto("/reports/analytics");
+  const metric = page.getByRole("combobox", { name: "Payment performance metric" });
+  await metric.click();
+  const metricListbox = page.getByRole("listbox");
+  await expect(metricListbox).toBeVisible();
+  await metricListbox.getByRole("option", { name: "Net revenue" }).click();
+  await expect(metric).toHaveValue("Net revenue");
+});

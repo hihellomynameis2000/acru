@@ -11,7 +11,6 @@ import {
   CheckCircleIcon,
   CheckIcon,
   CheckSmallIcon,
-  ChevronDownIcon,
   ClockIcon,
   CreditCardIcon,
   ExportIcon,
@@ -35,6 +34,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { minorUnitsFromDecimal } from "@/components/data/money";
 import { useListCollection } from "@/components/data/use-list-collection";
 import { CollectionPageState } from "@/components/ui/collection-state";
+import { Select } from "@/components/ui/select";
 import { useToast } from "@/components/ui/toast";
 import { useDismissOnEscape } from "@/components/ui/use-dismiss-on-escape";
 import { DateRangePopover, WalletCard, type DateRange } from "@/features/dashboard/components/dashboard-overview";
@@ -456,12 +456,15 @@ export function AnalyticsPage() {
               <p>Processed volume and successful payments over time.</p>
             </div>
             <label>
-              <select onChange={(event) => setMetric(event.target.value)} value={metric}>
+              <Select
+                aria-label="Payment performance metric"
+                onChange={(event) => setMetric(event.target.value)}
+                value={metric}
+              >
                 <option>Gross volume</option>
                 <option>Net revenue</option>
                 <option>Payments</option>
-              </select>
-              <ChevronDownIcon />
+              </Select>
             </label>
           </header>
           <div className="report-chart-total">
@@ -654,7 +657,7 @@ export function AnalyticsPage() {
               <p>How customer payments move into your available balance.</p>
             </div>
             <label>
-              <select
+              <Select
                 aria-label="Payment flow period"
                 onChange={(event) => setPeriod(event.target.value as Period)}
                 value={period}
@@ -664,8 +667,7 @@ export function AnalyticsPage() {
                 <option value="3M">Last 3 months</option>
                 <option value="1Y">Last year</option>
                 <option value="Custom">Custom</option>
-              </select>
-              <ChevronDownIcon />
+              </Select>
             </label>
           </header>
           <div className="report-flow-scroll">
@@ -1070,12 +1072,11 @@ export function WalletPage() {
             </header>
             <label>
               From balance
-              <select>
+              <Select>
                 <option>USD · $118,048.66 available</option>
                 <option>USDC · 42,866.31 available</option>
                 <option>Platform credits · 18,400.00 available</option>
-              </select>
-              <ChevronDownIcon />
+              </Select>
             </label>
             <label>
               Amount
@@ -1093,12 +1094,11 @@ export function WalletPage() {
             </label>
             <label>
               Destination
-              <select>
+              <Select>
                 <option>Wells Fargo •••• 4242 · ACH</option>
                 <option>0x71F2…8A4C · Base</option>
                 <option>Acru workspace · Internal</option>
-              </select>
-              <ChevronDownIcon />
+              </Select>
             </label>
             <div className="report-dialog-note">
               <ShieldCheckMarkIcon />
@@ -1293,34 +1293,31 @@ export function ExportsPage() {
             </header>
             <label>
               Data to export
-              <select>
+              <Select>
                 <option>Payments</option>
                 <option>Balance transactions</option>
                 <option>Statements</option>
                 <option>Crypto settlements</option>
                 <option>Platform credits</option>
-              </select>
-              <ChevronDownIcon />
+              </Select>
             </label>
             <div className="report-dialog-grid">
               <label>
                 Date range
-                <select>
+                <Select>
                   <option>Aug 1–21, 2026</option>
                   <option>Last 30 days</option>
                   <option>Last quarter</option>
-                </select>
-                <ChevronDownIcon />
+                </Select>
               </label>
               <label>
                 Format
-                <select onChange={(event) => setExportFormat(event.target.value as ExportFormat)} value={exportFormat}>
+                <Select onChange={(event) => setExportFormat(event.target.value as ExportFormat)} value={exportFormat}>
                   <option>CSV</option>
                   <option>PDF</option>
                   <option>JSON</option>
                   <option>ZIP</option>
-                </select>
-                <ChevronDownIcon />
+                </Select>
               </label>
             </div>
             <div className="report-dialog-note">

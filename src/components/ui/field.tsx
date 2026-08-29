@@ -1,10 +1,11 @@
 "use client";
 
 import { SearchIcon, XIcon } from "@shopify/polaris-icons";
-import type { InputHTMLAttributes, ReactNode, SelectHTMLAttributes, TextareaHTMLAttributes } from "react";
+import type { InputHTMLAttributes, ReactNode, TextareaHTMLAttributes } from "react";
 import { forwardRef, useId } from "react";
 
 import { IconButton } from "@/components/ui/icon-button";
+import { Select } from "@/components/ui/select";
 import { cn } from "@/lib/cn";
 
 export function Field({
@@ -47,16 +48,7 @@ export const Input = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputE
   return <input {...props} aria-invalid={ariaInvalid} className={cn("ui-input", className)} ref={ref} />;
 });
 
-export const Select = forwardRef<HTMLSelectElement, SelectHTMLAttributes<HTMLSelectElement>>(function Select(
-  { className, children, ...props },
-  ref
-) {
-  return (
-    <select {...props} className={cn("ui-select", className)} ref={ref}>
-      {children}
-    </select>
-  );
-});
+export { Select };
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaHTMLAttributes<HTMLTextAreaElement>>(function Textarea(
   { className, ...props },

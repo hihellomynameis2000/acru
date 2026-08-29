@@ -50,6 +50,7 @@ import { useEffect, useMemo, useState } from "react";
 
 import { useListCollection } from "@/components/data/use-list-collection";
 import { CollectionPageState } from "@/components/ui/collection-state";
+import { Select } from "@/components/ui/select";
 import { useDismissOnEscape } from "@/components/ui/use-dismiss-on-escape";
 import {
   initialDevices,
@@ -208,12 +209,12 @@ function BusinessSettings({ notify }: { notify: (message: string) => void }) {
           </label>
           <label>
             Business structure
-            <select defaultValue="llc">
+            <Select defaultValue="llc">
               <option value="llc">Limited liability company</option>
               <option>Corporation</option>
               <option>Partnership</option>
               <option>Sole proprietor</option>
-            </select>
+            </Select>
           </label>
           <label>
             Employer identification number
@@ -224,21 +225,21 @@ function BusinessSettings({ notify }: { notify: (message: string) => void }) {
           </label>
           <label>
             Industry
-            <select defaultValue="software">
+            <Select defaultValue="software">
               <option value="software">Software & digital services</option>
               <option>Retail</option>
               <option>Professional services</option>
               <option>Hospitality</option>
-            </select>
+            </Select>
           </label>
           <label>
             Estimated annual volume
-            <select defaultValue="10m">
+            <Select defaultValue="10m">
               <option value="10m">$5M – $10M</option>
               <option>$1M – $5M</option>
               <option>$10M – $25M</option>
               <option>$25M+</option>
-            </select>
+            </Select>
           </label>
         </div>
         <div className="settings-inline-note">
@@ -287,19 +288,19 @@ function BusinessSettings({ notify }: { notify: (message: string) => void }) {
           </label>
           <label>
             Country
-            <select defaultValue="us">
+            <Select defaultValue="us">
               <option value="us">United States</option>
               <option>Canada</option>
               <option>United Kingdom</option>
-            </select>
+            </Select>
           </label>
           <label>
             Time zone
-            <select defaultValue="ny">
+            <Select defaultValue="ny">
               <option value="ny">America/New_York (ET)</option>
               <option>America/Chicago (CT)</option>
               <option>America/Los_Angeles (PT)</option>
-            </select>
+            </Select>
           </label>
         </div>
       </SettingsCard>
@@ -596,13 +597,13 @@ function TeamSettings({ notify }: { notify: (message: string) => void }) {
               </label>
               <label>
                 Role
-                <select name="role" defaultValue="Analyst">
+                <Select name="role" defaultValue="Analyst">
                   <option>Administrator</option>
                   <option>Finance</option>
                   <option>Developer</option>
                   <option>Support</option>
                   <option>Analyst</option>
-                </select>
+                </Select>
               </label>
             </div>
             <div className="settings-modal-note">
@@ -738,10 +739,10 @@ function BankingSettings({ notify }: { notify: (message: string) => void }) {
           <div className="settings-form-stack">
             <label>
               Payout timing
-              <select defaultValue="5pm">
+              <Select defaultValue="5pm">
                 <option value="5pm">5:00 PM Eastern Time</option>
                 <option>9:00 AM Eastern Time</option>
-              </select>
+              </Select>
             </label>
             <label>
               Minimum payout amount
@@ -814,11 +815,11 @@ function BankingSettings({ notify }: { notify: (message: string) => void }) {
         <div className="settings-form-grid two-column">
           <label>
             Settlement currency
-            <select defaultValue="usd">
+            <Select defaultValue="usd">
               <option value="usd">USD — US dollar</option>
               <option>EUR — Euro</option>
               <option>GBP — Pound sterling</option>
-            </select>
+            </Select>
           </label>
           <label>
             Statement descriptor
@@ -830,11 +831,11 @@ function BankingSettings({ notify }: { notify: (message: string) => void }) {
           </label>
           <label>
             Failed payout fallback
-            <select defaultValue="pause">
+            <Select defaultValue="pause">
               <option value="pause">Pause and notify finance team</option>
               <option>Retry primary account</option>
               <option>Use backup account</option>
-            </select>
+            </Select>
           </label>
         </div>
         <div className="settings-history-line">
@@ -924,10 +925,10 @@ function BankModal({ onClose, onComplete }: { onClose: () => void; onComplete: (
           </label>
           <label>
             Account type
-            <select>
+            <Select>
               <option>Business checking</option>
               <option>Business savings</option>
-            </select>
+            </Select>
           </label>
         </div>
         <footer>
@@ -1324,19 +1325,19 @@ function SecuritySettings({ notify }: { notify: (message: string) => void }) {
           <div className="settings-form-stack">
             <label>
               Automatic sign-out
-              <select value={sessionTimeout} onChange={(event) => setSessionTimeout(event.target.value)}>
+              <Select value={sessionTimeout} onChange={(event) => setSessionTimeout(event.target.value)}>
                 <option>4 hours</option>
                 <option>12 hours</option>
                 <option>24 hours</option>
                 <option>7 days</option>
-              </select>
+              </Select>
             </label>
             <label>
               Reauthentication for payouts
-              <select defaultValue="always">
+              <Select defaultValue="always">
                 <option value="always">Always require 2-step verification</option>
                 <option>Once per session</option>
-              </select>
+              </Select>
             </label>
           </div>
           <div className="settings-preference-row compact">
@@ -1622,19 +1623,19 @@ function NotificationSettings({ notify }: { notify: (message: string) => void })
           <div className="settings-form-stack">
             <label>
               Performance digest
-              <select value={digest} onChange={(event) => setDigest(event.target.value)}>
+              <Select value={digest} onChange={(event) => setDigest(event.target.value)}>
                 <option>Daily</option>
                 <option>Weekly</option>
                 <option>Monthly</option>
                 <option>Never</option>
-              </select>
+              </Select>
             </label>
             <label>
               Delivery time
-              <select defaultValue="monday">
+              <Select defaultValue="monday">
                 <option value="monday">Monday at 9:00 AM ET</option>
                 <option>Friday at 4:00 PM ET</option>
-              </select>
+              </Select>
             </label>
           </div>
           <div className="settings-digest-preview">
@@ -1664,24 +1665,24 @@ function NotificationSettings({ notify }: { notify: (message: string) => void })
             <div className="settings-form-grid two-column settings-spaced-grid">
               <label>
                 From
-                <select defaultValue="8pm">
+                <Select defaultValue="8pm">
                   <option value="8pm">8:00 PM</option>
                   <option>10:00 PM</option>
-                </select>
+                </Select>
               </label>
               <label>
                 Until
-                <select defaultValue="8am">
+                <Select defaultValue="8am">
                   <option value="8am">8:00 AM</option>
                   <option>7:00 AM</option>
-                </select>
+                </Select>
               </label>
               <label className="settings-wide-field">
                 Time zone
-                <select defaultValue="et">
+                <Select defaultValue="et">
                   <option value="et">America/New_York (ET)</option>
                   <option>America/Los_Angeles (PT)</option>
-                </select>
+                </Select>
               </label>
             </div>
           ) : null}
