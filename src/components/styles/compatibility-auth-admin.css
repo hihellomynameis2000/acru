@@ -1716,6 +1716,9 @@
   width: 17px;
   height: 17px;
 }
+.auth-progressive-field + .auth-primary svg {
+  display: none;
+}
 .auth-progressive-field {
   max-height: 0;
   opacity: 0;

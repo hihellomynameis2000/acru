@@ -191,6 +191,14 @@ test("analytics chart total aligns with its panel heading", async ({ page }) => 
   expect(geometry.totalBox!.x).toBeCloseTo(geometry.headingBox!.x, 3);
 });
 
+test("partner sign-up create account button has no arrow", async ({ page }) => {
+  await page.goto("/sign-up?portal=partner");
+
+  const createAccount = page.getByRole("button", { name: "Create account" });
+  await expect(createAccount).toBeVisible();
+  await expect(createAccount.locator("svg")).toBeHidden();
+});
+
 test("admin team metrics fill the available row without generic icons", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop-1440");
   await page.goto("/admin");
