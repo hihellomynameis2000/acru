@@ -12,6 +12,7 @@
   z-index: 40;
   grid-area: header;
   padding-left: 20px;
+  background: #222;
 }
 
 .partner-sidebar {
@@ -300,12 +301,11 @@
 }
 
 .partner-title-row .portal-kicker {
-  letter-spacing: 0;
-  text-transform: none;
+  display: none;
 }
 
 .partner-title-row h1 {
-  margin-top: 5px;
+  margin-top: 0;
   font-size: 36px;
   font-weight: 520;
 }
@@ -862,18 +862,13 @@
   min-height: 104px;
   padding: 15px;
   display: grid;
-  grid-template-columns: 34px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   align-items: start;
-  gap: 11px;
+  gap: 0;
 }
 
 .partner-application-metrics article > svg {
-  width: 34px;
-  height: 34px;
-  padding: 8px;
-  border-radius: 9px;
-  color: #6dc0ed;
-  background: rgb(73 167 220 / 12%);
+  display: none;
 }
 
 .partner-application-metrics article.success > svg {
@@ -1081,6 +1076,12 @@
   background: rgb(224 167 47 / 13%);
 }
 
+.partner-portal .portal-status {
+  min-width: max-content;
+  line-height: 1;
+  white-space: nowrap;
+}
+
 .portal-status.needs-information {
   color: #ef9696;
   background: rgb(240 90 105 / 13%);
@@ -1255,7 +1256,7 @@
 .partner-chart-range {
   padding: 3px;
   border: 1px solid #444;
-  border-radius: 9px;
+  border-radius: 999px;
   display: flex;
   background: #222;
 }
@@ -1265,7 +1266,7 @@
   height: 28px;
   padding: 0 9px;
   border: 0;
-  border-radius: 6px;
+  border-radius: 999px;
   color: #878787;
   background: transparent;
   cursor: pointer;
@@ -1367,6 +1368,7 @@
   stroke: #777;
   stroke-dasharray: 3 4;
   stroke-width: 1;
+  transition: all 55ms linear;
 }
 
 .partner-chart-point {
@@ -1379,6 +1381,7 @@
   fill: #4aa8dc;
   stroke: #d5f1ff;
   stroke-width: 2;
+  transition: all 55ms linear;
 }
 
 .partner-chart-label {
@@ -1406,7 +1409,7 @@
   box-shadow: 0 9px 24px rgb(0 0 0 / 30%);
   pointer-events: none;
   transform: translateX(-50%);
-  transition: left 120ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: left 55ms linear;
 }
 
 .partner-chart-tooltip span {
@@ -1425,7 +1428,7 @@
 
 .partner-merchant-bars > div {
   min-height: 51px;
-  border-top: 1px solid #393939;
+  border-top: 0;
   display: grid;
   grid-template-columns: 34px minmax(0, 1fr) 67px;
   align-items: center;
@@ -1503,21 +1506,15 @@
 
 .partner-dashboard-metrics article {
   min-width: 0;
-  min-height: 128px;
-  padding: 14px;
+  min-height: 108px;
+  padding: 15px 17px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .partner-dashboard-metric-icon {
-  width: 31px;
-  height: 31px;
-  border-radius: 8px;
-  display: grid;
-  place-items: center;
-  color: #5db4e3;
-  background: #30404a;
+  display: none;
 }
 
 .partner-dashboard-metric-icon svg {
@@ -1526,7 +1523,7 @@
 }
 
 .partner-dashboard-metrics p {
-  margin: 9px 0 3px;
+  margin: 0 0 3px;
   overflow: hidden;
   color: #999;
   font-size: 10px;

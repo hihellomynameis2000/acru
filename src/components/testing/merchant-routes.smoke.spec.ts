@@ -218,6 +218,124 @@ test("admin team metrics fill the available row without generic icons", async ({
   ).toBeLessThanOrEqual(1);
 });
 
+test("partner workspace uses the polished card, chart, drawer, badge, and map treatments", async ({
+  page
+}, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop-1440");
+  await page.goto("/partners");
+
+  await expect(page.getByRole("heading", { name: "Good morning, Alex" })).toBeVisible();
+  await expect(page.locator(".partner-title-row .portal-kicker")).toBeHidden();
+  expect(
+    await page
+      .locator(".partner-dashboard-metric-icon")
+      .evaluateAll((icons) => icons.every((icon) => getComputedStyle(icon).display === "none"))
+  ).toBe(true);
+
+  const earningsRange = page.locator(".partner-chart-range");
+  expect(await earningsRange.evaluate((element) => getComputedStyle(element).borderRadius)).toBe("999px");
+  expect(
+    await earningsRange
+      .locator("button")
+      .first()
+      .evaluate((element) => getComputedStyle(element).borderRadius)
+  ).toBe("999px");
+  const earningsHitbox = page.locator(".partner-chart-hitbox");
+  const hitbox = await earningsHitbox.boundingBox();
+  expect(hitbox).not.toBeNull();
+  await page.mouse.move(hitbox!.x + hitbox!.width * 0.2, hitbox!.y + hitbox!.height / 2);
+  const earningsTooltip = page.locator(".partner-chart-tooltip");
+  await expect(earningsTooltip).toBeVisible();
+  const tooltipMotion = await earningsTooltip.evaluate((element) => {
+    const style = getComputedStyle(element);
+    return { duration: style.transitionDuration, property: style.transitionProperty };
+  });
+  expect(tooltipMotion.property).toContain("left");
+  expect(tooltipMotion.duration).toBe("0.055s");
+
+  await page.getByRole("button", { name: "Earnings", exact: true }).click();
+  expect(
+    await page
+      .locator(".partner-merchant-bars > div")
+      .evaluateAll((rows) => rows.every((row) => getComputedStyle(row).borderTopWidth === "0px"))
+  ).toBe(true);
+
+  await page.getByRole("button", { name: "Applications", exact: true }).click();
+  expect(
+    await page
+      .locator(".partner-application-metrics article > svg")
+      .evaluateAll((icons) => icons.every((icon) => getComputedStyle(icon).display === "none"))
+  ).toBe(true);
+  await page.locator(".partner-table-toolbar select").selectOption({ label: "Pending review" });
+  const pendingReview = page.locator(".portal-status.pending-review").first();
+  await expect(pendingReview).toHaveText("Pending review");
+  const pendingStyle = await pendingReview.evaluate((element) => {
+    const bounds = element.getBoundingClientRect();
+    return { height: bounds.height, whiteSpace: getComputedStyle(element).whiteSpace };
+  });
+  expect(pendingStyle.whiteSpace).toBe("nowrap");
+  expect(pendingStyle.height).toBeLessThanOrEqual(28);
+
+  await page.getByRole("button", { name: "Reports", exact: true }).click();
+  expect(
+    await page
+      .locator(".partner-data-metrics article > span")
+      .evaluateAll((icons) => icons.every((icon) => getComputedStyle(icon).display === "none"))
+  ).toBe(true);
+  expect(
+    await page.locator(".partner-report-chart-legend nav").evaluate((element) => getComputedStyle(element).borderRadius)
+  ).toBe("999px");
+  expect(
+    await page
+      .locator('.partner-report-filters select[aria-label="Date range"]')
+      .evaluate((element) => getComputedStyle(element).borderRadius)
+  ).toBe("999px");
+
+  const reportGeometry = await Promise.all([
+    page.locator(".partner-report-chart").boundingBox(),
+    page.locator(".partner-report-chart-plot svg").boundingBox()
+  ]).then(([card, chart]) => ({ card, chart }));
+  expect(reportGeometry.card).not.toBeNull();
+  expect(reportGeometry.chart).not.toBeNull();
+  expect(reportGeometry.chart!.height).toBeGreaterThan(300);
+  expect(
+    reportGeometry.card!.y + reportGeometry.card!.height - (reportGeometry.chart!.y + reportGeometry.chart!.height)
+  ).toBeLessThanOrEqual(16);
+
+  const mapStyle = await page.locator(".partner-world-map-shell").evaluate((element) => {
+    const style = getComputedStyle(element);
+    const country = element.querySelector("path");
+    const countryStyle = country ? getComputedStyle(country) : null;
+    return {
+      backgroundColor: style.backgroundColor,
+      backgroundImage: style.backgroundImage,
+      borderWidth: style.borderTopWidth,
+      countryStroke: countryStyle?.stroke
+    };
+  });
+  expect(mapStyle.backgroundColor).toBe("rgba(0, 0, 0, 0)");
+  expect(mapStyle.backgroundImage).toBe("none");
+  expect(mapStyle.borderWidth).toBe("0px");
+  expect(["none", "rgba(0, 0, 0, 0)", "transparent"]).toContain(mapStyle.countryStroke);
+
+  await page
+    .getByRole("navigation", { name: "Partner workspace" })
+    .getByRole("button", { name: "Merchants", exact: true })
+    .click();
+  await page.locator(".partner-data-table tbody tr").first().click();
+  const drawerColor = await page
+    .locator(".partner-merchant-drawer")
+    .evaluate((element) => getComputedStyle(element).backgroundColor);
+  const sidebarColor = await page
+    .locator(".partner-sidebar")
+    .evaluate((element) => getComputedStyle(element).backgroundColor);
+  const headerColor = await page
+    .locator(".portal-header")
+    .evaluate((element) => getComputedStyle(element).backgroundColor);
+  expect(drawerColor).toBe(sidebarColor);
+  expect(drawerColor).toBe(headerColor);
+});
+
 test("banking payout summary keeps the balance clear of its label", async ({ page }) => {
   await page.goto("/settings/banking-payouts");
 
