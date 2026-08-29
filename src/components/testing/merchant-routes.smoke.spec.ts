@@ -103,3 +103,41 @@ test("critical merchant forms, filtering, focus, and Escape behavior", async ({ 
   await page.keyboard.press("Escape");
   await expect(subscriptionDialog).toHaveCount(0);
 });
+
+test("invoice drawer remains readable below the standard mobile breakpoint", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "mobile-390");
+  await page.setViewportSize({ height: 824, width: 281 });
+  await page.goto("/payments/invoices");
+
+  const draftInvoice = page.getByRole("row", { name: /Aug 7, 2026.*Draft Atlas Design/ });
+  await draftInvoice.locator("td").first().click();
+
+  const drawer = page.locator(".ops-drawer");
+  await expect(drawer).toBeVisible();
+  const geometry = await drawer.evaluate((element) => {
+    const drawerRect = element.getBoundingClientRect();
+    const summary = element.querySelector(".ops-summary-grid");
+    const summaryRect = summary?.getBoundingClientRect();
+    const sections = summary ? Array.from(summary.children).map((child) => child.getBoundingClientRect()) : [];
+    const status = summary?.querySelector(".ops-status");
+    const statusRect = status?.getBoundingClientRect();
+    return {
+      drawerTop: drawerRect.top,
+      statusContained:
+        Boolean(summaryRect && statusRect) &&
+        statusRect!.left >= summaryRect!.left &&
+        statusRect!.right <= summaryRect!.right,
+      statusText: status?.textContent?.trim(),
+      statusWidth: statusRect?.width ?? 0,
+      summaryContained:
+        Boolean(summaryRect) &&
+        sections.every((section) => section.left >= summaryRect!.left && section.right <= summaryRect!.right)
+    };
+  });
+
+  expect(geometry.drawerTop).toBe(64);
+  expect(geometry.statusText).toBe("Draft");
+  expect(geometry.statusWidth).toBeLessThanOrEqual(80);
+  expect(geometry.statusContained).toBe(true);
+  expect(geometry.summaryContained).toBe(true);
+});

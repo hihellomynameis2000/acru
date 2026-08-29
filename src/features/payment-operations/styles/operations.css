@@ -377,6 +377,7 @@
 .ops-type-pill {
   display: inline-flex;
   height: 23px;
+  flex: 0 0 auto;
   align-items: center;
   gap: 5px;
   border-radius: 999px;
@@ -385,6 +386,7 @@
   padding: 0 9px;
   font-size: 9px;
   font-weight: 500;
+  white-space: nowrap;
 }
 .ops-status svg {
   width: 13px;
@@ -656,6 +658,9 @@
   color: #eee;
   font-size: 15px;
   font-weight: 500;
+}
+.ops-summary-grid .ops-status {
+  justify-self: start;
 }
 .ops-detail-card {
   min-width: 0;
@@ -1210,6 +1215,9 @@
 }
 
 @media (max-width: 620px) {
+  .ops-drawer {
+    top: 64px;
+  }
   .ops-page-heading {
     align-items: flex-start;
     flex-direction: column;
@@ -1249,6 +1257,23 @@
   .ops-drawer-body {
     padding-right: 16px;
     padding-left: 16px;
+  }
+  .ops-summary-grid,
+  .ops-performance-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ops-summary-grid > div,
+  .ops-performance-grid > div {
+    min-width: 0;
+  }
+  .ops-summary-grid > div:nth-child(2),
+  .ops-performance-grid > div:nth-child(2) {
+    border-right: 0;
+  }
+  .ops-summary-grid > div:last-child,
+  .ops-performance-grid > div:last-child {
+    grid-column: 1 / -1;
+    border-top: 1px solid #414040;
   }
   .ops-detail-two-column {
     grid-template-columns: 1fr;
