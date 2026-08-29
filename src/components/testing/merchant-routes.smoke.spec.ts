@@ -339,6 +339,21 @@ test("partner workspace uses the polished card, chart, drawer, badge, and map tr
   expect(
     reportGeometry.card!.y + reportGeometry.card!.height - (reportGeometry.chart!.y + reportGeometry.chart!.height)
   ).toBeLessThanOrEqual(16);
+  const reportRange = page.locator(".partner-report-chart-legend nav");
+  for (const range of ["30D", "7D", "3M", "1Y"]) {
+    await reportRange.getByRole("button", { name: range, exact: true }).click();
+    const plottedSeries = await page.locator(".partner-report-chart-plot .series").evaluateAll((series) =>
+      series.map((path) => {
+        const bounds = (path as SVGGraphicsElement).getBBox();
+        return { height: bounds.height, top: bounds.y };
+      })
+    );
+    expect(plottedSeries).toHaveLength(3);
+    for (const series of plottedSeries) {
+      expect(series.height).toBeGreaterThan(110);
+      expect(series.top).toBeLessThan(45);
+    }
+  }
 
   const mapStyle = await page.locator(".partner-world-map-shell").evaluate((element) => {
     const style = getComputedStyle(element);
