@@ -1167,6 +1167,11 @@
   align-items: center;
   gap: 15px;
 }
+.settings-balance-hero > div:first-child > div {
+  display: grid;
+  min-width: 0;
+  gap: 4px;
+}
 .settings-hero-icon {
   display: grid;
   width: 52px;
@@ -1195,8 +1200,10 @@
   font-weight: 540;
 }
 .settings-balance-hero > div:first-child strong {
+  white-space: nowrap;
   font-size: 23px;
   letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
 }
 .settings-balance-hero span {
   color: #7f8c91;

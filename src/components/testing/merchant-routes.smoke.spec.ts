@@ -174,3 +174,23 @@ test("merchant selects use the ACRU listbox with complete keyboard behavior", as
   await metricListbox.getByRole("option", { name: "Net revenue" }).click();
   await expect(metric).toHaveValue("Net revenue");
 });
+
+test("banking payout summary keeps the balance clear of its label", async ({ page }) => {
+  await page.goto("/settings/banking-payouts");
+
+  const summary = page.locator(".settings-balance-hero > div").first();
+  const label = summary.getByText("Available to pay out", { exact: true });
+  const balance = summary.getByText("$284,913.20", { exact: true });
+  const geometry = await Promise.all([label.boundingBox(), balance.boundingBox(), summary.boundingBox()]).then(
+    ([labelBox, balanceBox, summaryBox]) => ({ labelBox, balanceBox, summaryBox })
+  );
+
+  expect(geometry.labelBox).not.toBeNull();
+  expect(geometry.balanceBox).not.toBeNull();
+  expect(geometry.summaryBox).not.toBeNull();
+  expect(geometry.balanceBox!.y).toBeGreaterThanOrEqual(geometry.labelBox!.y + geometry.labelBox!.height);
+  expect(geometry.balanceBox!.x).toBeGreaterThanOrEqual(geometry.summaryBox!.x);
+  expect(geometry.balanceBox!.x + geometry.balanceBox!.width).toBeLessThanOrEqual(
+    geometry.summaryBox!.x + geometry.summaryBox!.width + 1
+  );
+});
