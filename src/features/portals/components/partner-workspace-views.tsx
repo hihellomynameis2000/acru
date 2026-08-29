@@ -507,9 +507,6 @@ export function PartnerPayoutsView({
     <>
       <section className="partner-payout-kpis" aria-label="Payout overview">
         <article>
-          <span className="partner-payout-kpi-icon">
-            <MoneyIcon />
-          </span>
           <div>
             <p>Available to withdraw</p>
             <strong>{balanceDisplay}</strong>
@@ -519,9 +516,6 @@ export function PartnerPayoutsView({
           </div>
         </article>
         <article>
-          <span className="partner-payout-kpi-icon">
-            <ChartVerticalIcon />
-          </span>
           <div>
             <p>Pending release</p>
             <strong>{pendingDisplay}</strong>
@@ -529,9 +523,6 @@ export function PartnerPayoutsView({
           </div>
         </article>
         <article>
-          <span className="partner-payout-kpi-icon">
-            <BankIcon />
-          </span>
           <div>
             <p>Next payout date</p>
             <strong>Aug 28, 2026</strong>
@@ -539,9 +530,6 @@ export function PartnerPayoutsView({
           </div>
         </article>
         <article>
-          <span className="partner-payout-kpi-icon">
-            <CheckCircleIcon />
-          </span>
           <div>
             <p>Lifetime paid</p>
             <strong>$96,842.34</strong>

@@ -354,6 +354,18 @@ test("partner workspace uses the polished card, chart, drawer, badge, and map tr
   expect(pendingStyle.whiteSpace).toBe("nowrap");
   expect(pendingStyle.height).toBeLessThanOrEqual(28);
 
+  await page.getByRole("button", { name: "Payouts", exact: true }).click();
+  const payoutCards = page.locator(".partner-payout-kpis > article");
+  await expect(payoutCards).toHaveCount(4);
+  await expect(page.locator(".partner-payout-kpis .partner-payout-kpi-icon")).toHaveCount(0);
+  const payoutCardGeometry = await Promise.all([
+    payoutCards.first().boundingBox(),
+    payoutCards.first().locator("div").boundingBox()
+  ]).then(([card, content]) => ({ card, content }));
+  expect(payoutCardGeometry.card).not.toBeNull();
+  expect(payoutCardGeometry.content).not.toBeNull();
+  expect(payoutCardGeometry.content!.x - payoutCardGeometry.card!.x).toBeLessThanOrEqual(18);
+
   await page.getByRole("button", { name: "Reports", exact: true }).click();
   expect(
     await page

@@ -1857,11 +1857,8 @@ body:has(.docs-workspace),
 }
 
 .partner-payout-kpis > article {
-  display: grid;
+  display: block;
   min-height: 118px;
-  grid-template-columns: 42px minmax(0, 1fr);
-  align-items: start;
-  gap: 12px;
   padding: 17px;
   border: 1px solid #414141;
   border-radius: 11px;
