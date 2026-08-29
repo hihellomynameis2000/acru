@@ -191,6 +191,33 @@ test("analytics chart total aligns with its panel heading", async ({ page }) => 
   expect(geometry.totalBox!.x).toBeCloseTo(geometry.headingBox!.x, 3);
 });
 
+test("admin team metrics fill the available row without generic icons", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop-1440");
+  await page.goto("/admin");
+  await page.getByRole("button", { name: "Team", exact: true }).click();
+
+  const grid = page.locator(".admin-metric-grid");
+  const cards = grid.locator("article");
+  await expect(cards).toHaveCount(5);
+  expect(
+    await grid
+      .locator(".admin-metric-icon")
+      .evaluateAll((icons) => icons.every((icon) => getComputedStyle(icon).display === "none"))
+  ).toBe(true);
+
+  const geometry = await Promise.all([grid.boundingBox(), cards.last().boundingBox()]).then(
+    ([gridBox, lastCardBox]) => ({
+      gridBox,
+      lastCardBox
+    })
+  );
+  expect(geometry.gridBox).not.toBeNull();
+  expect(geometry.lastCardBox).not.toBeNull();
+  expect(
+    Math.abs(geometry.lastCardBox!.x + geometry.lastCardBox!.width - (geometry.gridBox!.x + geometry.gridBox!.width))
+  ).toBeLessThanOrEqual(1);
+});
+
 test("banking payout summary keeps the balance clear of its label", async ({ page }) => {
   await page.goto("/settings/banking-payouts");
 

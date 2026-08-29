@@ -2997,7 +2997,7 @@
 
 .admin-metric-grid {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 12px;
   margin-bottom: 14px;
 }
@@ -3016,21 +3016,11 @@
 }
 
 .admin-metric-icon {
-  display: grid;
-  width: 31px;
-  height: 31px;
-  place-items: center;
-  color: #50afe2;
-  border-radius: 9px;
-  background: linear-gradient(0deg, rgb(68 152 206 / 26%) 0%, rgb(125 196 239 / 7%) 100%);
-}
-
-.admin-metric-icon svg {
-  width: 17px;
+  display: none;
 }
 
 .admin-metric-grid p {
-  margin: 11px 0 3px;
+  margin: 0 0 3px;
   color: #b2b2b2;
   font-size: 11px;
 }
