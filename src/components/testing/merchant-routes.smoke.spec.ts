@@ -194,3 +194,22 @@ test("banking payout summary keeps the balance clear of its label", async ({ pag
     geometry.summaryBox!.x + geometry.summaryBox!.width + 1
   );
 });
+
+test("submitted onboarding links to ACRU documentation with clear spacing", async ({ page }) => {
+  await page.goto("/onboarding?preview=1&step=submitted");
+
+  const actions = page.locator(".submitted-actions");
+  const documentation = page.getByRole("link", { name: "View documentation" });
+  await expect(documentation).toHaveAttribute("href", "/developers/documentation");
+
+  const spacing = await Promise.all([actions.boundingBox(), documentation.boundingBox()]).then(
+    ([actionsBox, documentationBox]) => ({ actionsBox, documentationBox })
+  );
+  expect(spacing.actionsBox).not.toBeNull();
+  expect(spacing.documentationBox).not.toBeNull();
+  expect(spacing.documentationBox!.y - (spacing.actionsBox!.y + spacing.actionsBox!.height)).toBeGreaterThanOrEqual(14);
+
+  await documentation.click();
+  await expect(page).toHaveURL(/\/developers\/documentation$/);
+  await expect(page.getByRole("heading", { name: "Documentation", exact: true })).toBeVisible();
+});
