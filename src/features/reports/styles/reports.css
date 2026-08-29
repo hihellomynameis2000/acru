@@ -483,7 +483,7 @@
 }
 
 .report-chart-total {
-  margin: 15px 0 2px 36px;
+  margin: 15px 0 2px;
   display: flex;
   align-items: baseline;
   gap: 7px;

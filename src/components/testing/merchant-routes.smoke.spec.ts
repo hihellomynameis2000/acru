@@ -175,6 +175,22 @@ test("merchant selects use the ACRU listbox with complete keyboard behavior", as
   await expect(metric).toHaveValue("Net revenue");
 });
 
+test("analytics chart total aligns with its panel heading", async ({ page }) => {
+  await page.goto("/reports/analytics");
+
+  const panel = page.locator(".report-performance");
+  const heading = panel.getByRole("heading", { name: "Payment performance" });
+  const total = panel.getByText("$8,420,588", { exact: true });
+  const geometry = await Promise.all([heading.boundingBox(), total.boundingBox()]).then(([headingBox, totalBox]) => ({
+    headingBox,
+    totalBox
+  }));
+
+  expect(geometry.headingBox).not.toBeNull();
+  expect(geometry.totalBox).not.toBeNull();
+  expect(geometry.totalBox!.x).toBeCloseTo(geometry.headingBox!.x, 3);
+});
+
 test("banking payout summary keeps the balance clear of its label", async ({ page }) => {
   await page.goto("/settings/banking-payouts");
 
