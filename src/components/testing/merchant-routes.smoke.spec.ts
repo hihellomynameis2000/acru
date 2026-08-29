@@ -199,6 +199,36 @@ test("partner sign-up create account button has no arrow", async ({ page }) => {
   await expect(createAccount.locator("svg")).toBeHidden();
 });
 
+test("password recovery is portal-aware, validated, and keyboard accessible", async ({ page }) => {
+  await page.goto("/sign-in?portal=partner");
+  const forgotPassword = page.getByRole("link", { name: "Forgot password?" });
+  await expect(forgotPassword).toHaveAttribute("href", "/forgot-password?portal=partner");
+  await forgotPassword.click();
+
+  await expect(page).toHaveURL(/\/forgot-password\?portal=partner$/);
+  await expect(page.getByRole("heading", { name: "Reset your partner password" })).toBeVisible();
+  await expect(page.locator(".app-shell")).toHaveCount(0);
+  const email = page.getByRole("textbox", { name: "Email address" });
+  const submit = page.getByRole("button", { name: "Send reset link" });
+  await expect(email).toBeFocused();
+  await expect(submit).toBeDisabled();
+
+  await email.fill("alex@northstar.test");
+  await expect(submit).toBeEnabled();
+  await submit.click();
+
+  const successHeading = page.getByRole("heading", { name: "Check your email" });
+  await expect(successHeading).toBeVisible();
+  await expect(successHeading).toBeFocused();
+  await expect(page.getByText("alex@northstar.test")).toBeVisible();
+  await page.getByRole("button", { name: "Resend email" }).click();
+  await expect(page.getByText("A new link is on its way.")).toBeVisible();
+  await expect(page.getByRole("link", { name: "Back to sign in" })).toHaveAttribute("href", "/sign-in?portal=partner");
+  await expect
+    .poll(() => page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1))
+    .toBe(true);
+});
+
 test("admin team metrics fill the available row without generic icons", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop-1440");
   await page.goto("/admin");

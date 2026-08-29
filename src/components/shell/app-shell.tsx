@@ -222,7 +222,7 @@ function ShellIcon({ icon: Icon, className }: { icon: PolarisIcon; className?: s
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
-  const authRoute = ["/login", "/sign-in", "/sign-up", "/confirm-email"].includes(pathname);
+  const authRoute = ["/login", "/sign-in", "/sign-up", "/forgot-password", "/confirm-email"].includes(pathname);
   const onboardingRoute = pathname === "/onboarding";
   const standalonePortalRoute = pathname === "/sandbox" || pathname === "/partners" || pathname === "/admin";
   const searchRef = useRef<HTMLDivElement>(null);

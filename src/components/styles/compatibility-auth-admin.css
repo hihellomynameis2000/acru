@@ -1802,6 +1802,12 @@
 }
 .auth-confirm-icon svg {
   width: 22px;
+  color: inherit;
+  fill: currentColor;
+  stroke: currentColor;
+}
+.auth-confirm-icon svg path {
+  fill: currentColor;
 }
 .auth-confirm-heading {
   margin-bottom: 24px;
@@ -1833,6 +1839,115 @@
 .auth-confirm-card strong {
   color: #dadddf;
   font-weight: 500;
+}
+.auth-recovery-icon {
+  margin-bottom: 20px;
+}
+.auth-recovery-icon svg {
+  height: 22px;
+}
+.auth-secondary {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid #414347;
+  border-radius: 9px;
+  background: #252526;
+  color: #f1f2f3;
+  font:
+    500 14px/1 var(--font-poppins),
+    sans-serif;
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    transform 180ms ease;
+}
+.auth-secondary:hover {
+  border-color: #55575b;
+  background: #2b2b2c;
+  transform: translateY(-1px);
+}
+.auth-secondary:disabled {
+  opacity: 0.55;
+  cursor: wait;
+  transform: none;
+}
+.auth-secondary:focus-visible {
+  outline: 2px solid #67b7e4;
+  outline-offset: 3px;
+}
+.auth-recovery-note,
+.auth-recovery-privacy {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  border: 1px solid #36393c;
+  border-radius: 11px;
+  background: #202122;
+  color: #85898e;
+}
+.auth-recovery-note {
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.auth-recovery-privacy {
+  padding: 13px 14px;
+  margin-top: 18px;
+}
+.auth-recovery-note > svg,
+.auth-recovery-privacy > svg {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  color: #73bce5;
+  fill: currentColor;
+  stroke: currentColor;
+}
+.auth-recovery-note > svg path,
+.auth-recovery-privacy > svg path {
+  fill: currentColor;
+}
+.auth-recovery-note p,
+.auth-recovery-privacy p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.auth-recovery-note strong,
+.auth-recovery-note span {
+  display: block;
+}
+.auth-recovery-note strong {
+  margin-bottom: 2px;
+  color: #dcdee1;
+  font-weight: 500;
+}
+.auth-recovery-switch {
+  margin-top: 18px;
+}
+.auth-heading h1:focus {
+  outline: none;
+}
+
+@media (max-width: 520px) {
+  .auth-page {
+    padding: 20px 20px 18px;
+  }
+
+  .auth-panel {
+    padding: 30px 0 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auth-page *,
+  .auth-page *::before,
+  .auth-page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+    animation-duration: 1ms !important;
+  }
 }
 .auth-spinner {
   width: 15px;
