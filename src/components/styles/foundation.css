@@ -2077,9 +2077,18 @@ button:disabled {
     box-shadow 170ms ease-in-out;
 }
 
-.button > svg {
+.button > span {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.button svg {
   width: 17px;
   height: 17px;
+  flex: 0 0 auto;
 }
 
 .button-small {
@@ -2251,7 +2260,9 @@ button:disabled {
 .ui-dialog-footer,
 .ui-drawer-footer {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
+  flex-wrap: wrap;
   gap: 9px;
   border-top: 1px solid #3f3e3e;
   padding: 14px 22px;

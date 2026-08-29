@@ -70,6 +70,32 @@ test("critical merchant forms, filtering, focus, and Escape behavior", async ({ 
 
   await page.goto("/payments/subscriptions");
   await expect(page.getByRole("heading", { name: "Subscriptions" })).toBeVisible();
+
+  await page.getByRole("row", { name: /Nathan Bariac/ }).click();
+  const subscriptionDrawer = page.getByRole("dialog", { name: "Pro plan" });
+  await expect(subscriptionDrawer).toBeVisible();
+
+  const drawerActionSizes = await subscriptionDrawer.locator(".ui-drawer-footer .button").evaluateAll((buttons) =>
+    buttons.map((button) => {
+      const buttonRect = button.getBoundingClientRect();
+      const iconRect = button.querySelector("svg")?.getBoundingClientRect();
+      return {
+        buttonHeight: buttonRect.height,
+        iconHeight: iconRect?.height ?? 0,
+        iconWidth: iconRect?.width ?? 0
+      };
+    })
+  );
+  expect(drawerActionSizes.length).toBeGreaterThan(0);
+  for (const size of drawerActionSizes) {
+    expect(size.buttonHeight).toBeLessThanOrEqual(44);
+    expect(size.iconHeight).toBeLessThanOrEqual(20);
+    expect(size.iconWidth).toBeLessThanOrEqual(20);
+  }
+
+  await page.keyboard.press("Escape");
+  await expect(subscriptionDrawer).toHaveCount(0);
+
   await page.locator(".ops-create-button").click();
   const subscriptionDialog = page.getByRole("dialog", { name: "Create subscription" });
   await expect(subscriptionDialog).toBeVisible();
