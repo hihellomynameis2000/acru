@@ -21,8 +21,8 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { FormEvent, useEffect, useState } from "react";
 
+import { InfiniteTableFooter, useInfiniteRows } from "@/components/ui/infinite-table";
 import { Select } from "@/components/ui/select";
-import { TablePagination } from "@/components/ui/table-pagination";
 import {
   PartnerLinksView,
   PartnerMarketingView,
@@ -965,7 +965,6 @@ export function PartnerPortalPage() {
   const [showForm, setShowForm] = useState(false);
   const [query, setQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState("All statuses");
-  const [page, setPage] = useState(1);
   const [selectedApplicationId, setSelectedApplicationId] = useState(starterApplicants[0].id);
   const [copied, setCopied] = useState(false);
   const [availableBalance, setAvailableBalance] = useState(18420.48);
@@ -984,10 +983,14 @@ export function PartnerPortalPage() {
       (statusFilter === "All statuses" || applicant.status === statusFilter)
     );
   });
-  const pageSize = 6;
-  const pageCount = Math.max(1, Math.ceil(filteredApplicants.length / pageSize));
-  const currentPage = Math.min(page, pageCount);
-  const visibleApplicants = filteredApplicants.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+  const {
+    loadMore: loadMoreApplicants,
+    visibleCount: visibleApplicantCount,
+    visibleItems: visibleApplicants
+  } = useInfiniteRows(filteredApplicants, {
+    batchSize: 6,
+    resetKey: `${query}|${statusFilter}`
+  });
   const earningApplicants = applicants.filter((applicant) => applicant.status === "Approved");
   const approvedCount = earningApplicants.length;
   const attributedVolume = earningApplicants.reduce(
@@ -1051,7 +1054,6 @@ export function PartnerPortalPage() {
     setEmail("");
     setShowForm(false);
     setTab("Applications");
-    setPage(1);
   }
   async function copyReferral() {
     await navigator.clipboard.writeText("https://merchants.acrudevelopment.com/sign-up?ref=PTR-NORTHSTAR");
@@ -1478,7 +1480,6 @@ export function PartnerPortalPage() {
                     <input
                       onChange={(event) => {
                         setQuery(event.target.value);
-                        setPage(1);
                       }}
                       placeholder="Search applicants"
                       value={query}
@@ -1488,7 +1489,6 @@ export function PartnerPortalPage() {
                     aria-label="Application status"
                     onChange={(event) => {
                       setStatusFilter(event.target.value);
-                      setPage(1);
                     }}
                     value={statusFilter}
                   >
@@ -1560,12 +1560,11 @@ export function PartnerPortalPage() {
                   </tbody>
                 </table>
               </div>
-              <TablePagination
-                className="partner-pagination"
-                onPageChange={setPage}
-                page={currentPage}
-                pageSize={pageSize}
+              <InfiniteTableFooter
+                itemLabel="applications"
+                onLoadMore={loadMoreApplicants}
                 totalItems={filteredApplicants.length}
+                visibleItems={visibleApplicantCount}
               />
             </section>
             {selectedApplication ? (

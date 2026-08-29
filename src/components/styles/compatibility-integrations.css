@@ -1097,58 +1097,6 @@
   background: rgb(75 191 117 / 13%);
 }
 
-.partner-pagination {
-  min-height: 66px;
-  padding: 0 20px;
-  border-top: 1px solid #3c3c3c;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: #8d8d8d;
-  font-size: 11px;
-}
-
-.partner-pagination > div {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.partner-pagination button {
-  min-width: 30px;
-  height: 30px;
-  padding: 0 9px;
-  border: 1px solid #484848;
-  border-radius: 6px;
-  color: #ddd;
-  background: #2c2c2c;
-  cursor: pointer;
-  font: inherit;
-  font-size: 10px;
-}
-
-.partner-pagination button.active,
-.partner-pagination button[aria-current="page"] {
-  color: #f3f3f3;
-  border-color: #5a5a5a;
-  background: #454545;
-}
-
-.partner-pagination button:hover:not(:disabled):not(.active):not([aria-current="page"]) {
-  color: #eee;
-  background: #393939;
-}
-
-.partner-pagination button:focus-visible {
-  outline: 2px solid #777;
-  outline-offset: 2px;
-}
-
-.partner-pagination button:disabled {
-  cursor: not-allowed;
-  opacity: 0.35;
-}
-
 .partner-earnings-balance {
   min-height: 240px;
   margin-bottom: 16px;

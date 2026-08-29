@@ -24,6 +24,7 @@ import {
   useState
 } from "react";
 
+import { InfiniteTableFooter, useInfiniteRows } from "@/components/ui/infinite-table";
 import { Select } from "@/components/ui/select";
 
 type Applicant = {
@@ -270,7 +271,14 @@ export function PartnerMerchantsView({ applicants }: { applicants: Applicant[] }
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<Applicant | null>(null);
   const approved = applicants.filter((item) => item.status === "Approved");
-  const rows = approved.filter((item) => `${item.name} ${item.email}`.toLowerCase().includes(query.toLowerCase()));
+  const filteredRows = approved.filter((item) =>
+    `${item.name} ${item.email}`.toLowerCase().includes(query.toLowerCase())
+  );
+  const {
+    loadMore,
+    visibleCount,
+    visibleItems: rows
+  } = useInfiniteRows(filteredRows, { batchSize: 6, resetKey: query });
   const selectedIndex = selected
     ? Math.max(
         0,
@@ -352,15 +360,12 @@ export function PartnerMerchantsView({ applicants }: { applicants: Applicant[] }
             </tbody>
           </table>
         </div>
-        <footer>
-          Showing {rows.length} approved merchants{" "}
-          <span>
-            <button disabled>‹</button>
-            <button className="active">1</button>
-            <button>2</button>
-            <button>›</button>
-          </span>
-        </footer>
+        <InfiniteTableFooter
+          itemLabel="approved merchants"
+          onLoadMore={loadMore}
+          totalItems={filteredRows.length}
+          visibleItems={visibleCount}
+        />
       </section>
       {selected ? (
         <aside className="partner-merchant-drawer">
@@ -502,6 +507,7 @@ export function PartnerPayoutsView({
   ];
   const balanceDisplay = `$${availableBalance.toLocaleString(undefined, { minimumFractionDigits: 2 })}`;
   const pendingDisplay = `$${pendingBalance.toLocaleString(undefined, { minimumFractionDigits: 2 })}`;
+  const { loadMore, visibleCount, visibleItems: visiblePayoutRows } = useInfiniteRows(payoutRows, { batchSize: 5 });
 
   return (
     <>
@@ -560,7 +566,7 @@ export function PartnerPayoutsView({
                 </tr>
               </thead>
               <tbody>
-                {payoutRows.map((item) => (
+                {visiblePayoutRows.map((item) => (
                   <tr key={item.id}>
                     <td>{item.date}</td>
                     <td>
@@ -596,15 +602,12 @@ export function PartnerPayoutsView({
               </tbody>
             </table>
           </div>
-          <footer>
-            <p>Showing {payoutRows.length} of 12 payouts</p>
-            <span>
-              <button className="active" type="button">
-                1
-              </button>
-              <button type="button">2</button>
-            </span>
-          </footer>
+          <InfiniteTableFooter
+            itemLabel="payouts"
+            onLoadMore={loadMore}
+            totalItems={payoutRows.length}
+            visibleItems={visibleCount}
+          />
         </article>
 
         <aside className="portal-card partner-payout-methods-card">
@@ -786,10 +789,15 @@ export function PartnerReferralsView({ applicants }: { applicants: Applicant[] }
       subId: "subid_9a3d7c2e"
     }
   ];
-  const rows = applicants.slice(0, 7).filter((item) => {
+  const filteredRows = applicants.slice(0, 7).filter((item) => {
     const normalized = query.trim().toLowerCase();
     return !normalized || `${item.name} ${item.email} ${item.status}`.toLowerCase().includes(normalized);
   });
+  const {
+    loadMore,
+    visibleCount,
+    visibleItems: rows
+  } = useInfiniteRows(filteredRows, { batchSize: 5, resetKey: query });
   const selectedIndex = selected
     ? Math.max(
         0,
@@ -932,22 +940,12 @@ export function PartnerReferralsView({ applicants }: { applicants: Applicant[] }
             </tbody>
           </table>
         </div>
-        <footer>
-          Showing {rows.length} of 1,248 referrals
-          <span>
-            <button disabled type="button">
-              ‹
-            </button>
-            <button className="active" type="button">
-              1
-            </button>
-            <button type="button">2</button>
-            <button type="button">3</button>
-            <button type="button">…</button>
-            <button type="button">125</button>
-            <button type="button">›</button>
-          </span>
-        </footer>
+        <InfiniteTableFooter
+          itemLabel="referrals"
+          onLoadMore={loadMore}
+          totalItems={filteredRows.length}
+          visibleItems={visibleCount}
+        />
       </article>
 
       {selected ? (
@@ -1154,6 +1152,15 @@ export function PartnerLinksView() {
   const [created, setCreated] = useState(links[0]);
   const [qrDataUrl, setQrDataUrl] = useState("");
   const [copied, setCopied] = useState(false);
+  const [linkQuery, setLinkQuery] = useState("");
+  const filteredLinks = links.filter((link) =>
+    `${link.name} ${link.merchant} ${link.alias}`.toLowerCase().includes(linkQuery.trim().toLowerCase())
+  );
+  const {
+    loadMore: loadMoreLinks,
+    visibleCount: visibleLinkCount,
+    visibleItems: visibleLinks
+  } = useInfiniteRows(filteredLinks, { batchSize: 4, resetKey: linkQuery });
 
   useEffect(() => {
     let active = true;
@@ -1365,7 +1372,11 @@ export function PartnerLinksView() {
             </div>
             <label>
               <SearchIcon />
-              <input placeholder="Search saved links" />
+              <input
+                onChange={(event) => setLinkQuery(event.target.value)}
+                placeholder="Search saved links"
+                value={linkQuery}
+              />
             </label>
           </header>
           <div className="portal-table-wrap">
@@ -1384,7 +1395,7 @@ export function PartnerLinksView() {
                 </tr>
               </thead>
               <tbody>
-                {links.map((link) => (
+                {visibleLinks.map((link) => (
                   <tr key={link.shortUrl}>
                     <td>
                       <b>{link.name}</b>
@@ -1419,16 +1430,12 @@ export function PartnerLinksView() {
               </tbody>
             </table>
           </div>
-          <footer>
-            Showing 1–{links.length} of 12 links
-            <span>
-              <button className="active" type="button">
-                1
-              </button>
-              <button type="button">2</button>
-              <button type="button">›</button>
-            </span>
-          </footer>
+          <InfiniteTableFooter
+            itemLabel="links"
+            onLoadMore={loadMoreLinks}
+            totalItems={filteredLinks.length}
+            visibleItems={visibleLinkCount}
+          />
         </article>
 
         <aside className="portal-card partner-top-links">
@@ -1740,6 +1747,12 @@ export function PartnerMarketingView() {
       (format === "All formats" || asset.format === format)
     );
   });
+  const marketingResetKey = [category, query, merchant, campaign, size, format].join("|");
+  const {
+    loadMore: loadMoreAssets,
+    visibleCount: visibleAssetCount,
+    visibleItems: visibleAssets
+  } = useInfiniteRows(filteredAssets, { batchSize: 6, resetKey: marketingResetKey });
 
   function flash(message: string) {
     setNotice(message);
@@ -1942,7 +1955,7 @@ export function PartnerMarketingView() {
               </tr>
             </thead>
             <tbody>
-              {filteredAssets.map((asset) => (
+              {visibleAssets.map((asset) => (
                 <tr key={asset.id}>
                   <td>
                     <button className="partner-marketing-table-preview" onClick={() => setPreview(asset)} type="button">
@@ -1987,15 +2000,12 @@ export function PartnerMarketingView() {
             </tbody>
           </table>
         </div>
-        <footer>
-          Showing {filteredAssets.length} of {marketingAssets.filter((asset) => asset.category === category).length}{" "}
-          assets
-          <span>
-            <button className="active" type="button">
-              1
-            </button>
-          </span>
-        </footer>
+        <InfiniteTableFooter
+          itemLabel="assets"
+          onLoadMore={loadMoreAssets}
+          totalItems={filteredAssets.length}
+          visibleItems={visibleAssetCount}
+        />
       </section>
 
       {preview ? (
@@ -2366,7 +2376,7 @@ export function PartnerReportsView({ applicants }: { applicants: Applicant[] }) 
   const conversions = Math.round(1248 * metricScale);
   const revenue = 96842.34 * metricScale;
   const commission = 18420 * metricScale;
-  const rows = createPartnerReportRows(tab)
+  const reportRows = createPartnerReportRows(tab)
     .map((row) => ({
       ...row,
       clicks: Math.round(row.clicks * scopeScale),
@@ -2380,6 +2390,12 @@ export function PartnerReportsView({ applicants }: { applicants: Applicant[] }) 
       const comparison = typeof a === "string" && typeof b === "string" ? a.localeCompare(b) : Number(a) - Number(b);
       return ascending ? comparison : -comparison;
     });
+  const reportResetKey = [tab, range, merchant, campaign, link, status, country, device].join("|");
+  const {
+    loadMore: loadMoreReportRows,
+    visibleCount: visibleReportRowCount,
+    visibleItems: visibleReportRows
+  } = useInfiniteRows(reportRows, { batchSize: 5, resetKey: reportResetKey });
   const firstColumn =
     tab === "Performance" ? "Date" : tab === "Merchants" ? "Merchant" : tab === "Links" ? "Link" : "Source";
   const countryTooltipData = countryTooltip ? partnerCountryDataByCode.get(countryTooltip.code) : undefined;
@@ -2453,7 +2469,7 @@ export function PartnerReportsView({ applicants }: { applicants: Applicant[] }) 
   function exportReport() {
     const csv = [
       [firstColumn, "Clicks", "Conversions", "Conversion rate", "Revenue", "Commission", "EPC", "AOV"].join(","),
-      ...rows.map((row) =>
+      ...reportRows.map((row) =>
         [
           `"${row.label}"`,
           row.clicks,
@@ -2697,7 +2713,7 @@ export function PartnerReportsView({ applicants }: { applicants: Applicant[] }) 
             <h2>{tab} breakdown</h2>
             <p>Revenue and commission efficiency for the selected reporting scope.</p>
           </div>
-          <span>{rows.length} rows</span>
+          <span>{reportRows.length} rows</span>
         </header>
         <div className="portal-table-wrap">
           <table>
@@ -2722,7 +2738,7 @@ export function PartnerReportsView({ applicants }: { applicants: Applicant[] }) 
               </tr>
             </thead>
             <tbody>
-              {rows.map((row) => (
+              {visibleReportRows.map((row) => (
                 <tr key={row.label}>
                   <td>
                     <b>{row.label}</b>
@@ -2741,14 +2757,12 @@ export function PartnerReportsView({ applicants }: { applicants: Applicant[] }) 
             </tbody>
           </table>
         </div>
-        <footer>
-          Showing 1–{rows.length} of {rows.length}
-          <span>
-            <button className="active" type="button">
-              1
-            </button>
-          </span>
-        </footer>
+        <InfiniteTableFooter
+          itemLabel="rows"
+          onLoadMore={loadMoreReportRows}
+          totalItems={reportRows.length}
+          visibleItems={visibleReportRowCount}
+        />
       </section>
     </>
   );

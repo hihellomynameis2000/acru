@@ -1354,6 +1354,40 @@ body:has(.docs-workspace),
   gap: 5px;
 }
 
+.partner-data-table > .partner-infinite-footer {
+  position: relative;
+}
+
+.partner-infinite-footer > button {
+  min-width: 92px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.partner-infinite-footer > button:hover {
+  color: #f5f5f5;
+  border-color: #5a5a5a;
+  background: #373737;
+}
+
+.partner-infinite-footer > button:focus-visible {
+  outline: 2px solid #55b6e8;
+  outline-offset: 2px;
+}
+
+.partner-infinite-footer .partner-infinite-end {
+  color: #777;
+}
+
+.partner-infinite-sentinel {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
 .partner-data-table footer button.active,
 .partner-library-tabs button.active {
   color: #07141b;

@@ -269,6 +269,31 @@ test("every partner dropdown uses the ACRU listbox with keyboard dismissal", asy
   }
 });
 
+test("partner tables stream every available row without pagination", async ({ page }) => {
+  await page.goto("/partners");
+  const navigation = page.getByRole("navigation", { name: "Partner workspace" });
+  const sections = [
+    { name: "Applications", rows: 9, table: ".partner-applicants-table" },
+    { name: "Merchants", rows: 4, table: ".partner-data-table table" },
+    { name: "Payouts", rows: 5, table: ".partner-payout-history table" },
+    { name: "Referrals", rows: 7, table: ".partner-referral-table table" },
+    { name: "Custom links", rows: 5, table: ".partner-saved-links table" },
+    { name: "Marketing materials", rows: 4, table: ".partner-marketing-library table" },
+    { name: "Reports", rows: 7, table: ".partner-report-table table" }
+  ];
+
+  for (const section of sections) {
+    await navigation.getByRole("button", { name: section.name, exact: true }).click();
+    const table = page.locator(section.table);
+    const footer = page.locator(".partner-infinite-footer");
+    await footer.scrollIntoViewIfNeeded();
+    await expect(table.locator("tbody tr")).toHaveCount(section.rows);
+    await expect(footer).toContainText(`Showing ${section.rows} of ${section.rows}`);
+    await expect(footer.locator(".partner-infinite-end")).toBeVisible();
+    await expect(page.locator(".partner-pagination")).toHaveCount(0);
+  }
+});
+
 test("admin team metrics fill the available row without generic icons", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop-1440");
   await page.goto("/admin");
