@@ -213,3 +213,35 @@ test("submitted onboarding links to ACRU documentation with clear spacing", asyn
   await expect(page).toHaveURL(/\/developers\/documentation$/);
   await expect(page.getByRole("heading", { name: "Documentation", exact: true })).toBeVisible();
 });
+
+test("refund related activity keeps status badges compact", async ({ page }) => {
+  await page.goto("/payments/refunds");
+  await page.locator(".ops-table tbody tr").first().click();
+
+  const drawer = page.locator(".ops-drawer");
+  await drawer.getByRole("button", { name: "Related activity" }).click();
+  const relatedRow = drawer.locator(".ops-related-row");
+  const status = relatedRow.locator(".ops-status");
+  await expect(status).toHaveText("Succeeded");
+
+  const geometry = await relatedRow.evaluate((row) => {
+    const leadingIcon = row.querySelector(":scope > span:first-child")?.getBoundingClientRect();
+    const badge = row.querySelector(":scope > .ops-status")?.getBoundingClientRect();
+    const badgeIcon = row.querySelector(":scope > .ops-status svg")?.getBoundingClientRect();
+    return {
+      badgeHeight: badge?.height ?? 0,
+      badgeIconCentered:
+        Boolean(badge && badgeIcon) &&
+        Math.abs(badge!.top + badge!.height / 2 - (badgeIcon!.top + badgeIcon!.height / 2)) <= 1,
+      badgeWidth: badge?.width ?? 0,
+      leadingIconHeight: leadingIcon?.height ?? 0,
+      leadingIconWidth: leadingIcon?.width ?? 0
+    };
+  });
+
+  expect(geometry.leadingIconHeight).toBeCloseTo(34, 3);
+  expect(geometry.leadingIconWidth).toBeCloseTo(34, 3);
+  expect(geometry.badgeHeight).toBeLessThanOrEqual(24);
+  expect(geometry.badgeWidth).toBeGreaterThan(geometry.badgeHeight);
+  expect(geometry.badgeIconCentered).toBe(true);
+});

@@ -884,7 +884,7 @@
   align-items: center;
   gap: 10px;
 }
-.ops-related-row > span {
+.ops-related-row > span:first-child {
   display: grid;
   width: 34px;
   height: 34px;
@@ -893,7 +893,7 @@
   background: #3d3435;
   color: #df777f;
 }
-.ops-related-row svg {
+.ops-related-row > span:first-child svg {
   width: 17px;
   height: 17px;
 }
