@@ -3094,7 +3094,7 @@
   align-items: center;
   gap: 6px;
   border: 1px solid #454343;
-  border-radius: 9px;
+  border-radius: 999px;
   background: #302f2f;
   padding-left: 12px;
 }
@@ -3226,7 +3226,13 @@
 }
 
 .admin-trend-card {
+  min-width: 0;
+  overflow: hidden;
   padding-bottom: 4px;
+}
+
+.admin-trend-card > header > div:first-child {
+  min-width: 0;
 }
 
 .admin-trend-card header p {
@@ -3254,6 +3260,8 @@
 
 .admin-range {
   display: flex;
+  max-width: 100%;
+  flex: 0 1 auto;
   min-height: 36px;
   align-items: center;
   padding: 2px;
@@ -3290,7 +3298,7 @@
   width: 100%;
   height: 230px;
   padding: 8px 12px 2px;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .admin-trend-card svg line {
@@ -3471,6 +3479,8 @@
 }
 
 .admin-table-card {
+  min-width: 0;
+  overflow: hidden;
   margin-bottom: 12px;
 }
 
@@ -3484,8 +3494,14 @@
 
 .admin-table-toolbar label {
   position: relative;
+  min-width: 0;
   width: min(330px, 100%);
   margin-left: auto;
+}
+
+.admin-table-toolbar select {
+  min-width: 0;
+  max-width: 100%;
 }
 
 .admin-table-toolbar input {
@@ -3494,7 +3510,11 @@
 }
 
 .admin-table-wrap {
+  width: 100%;
+  min-width: 0;
   overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
 }
 
 .admin-table-wrap table,
@@ -3769,12 +3789,23 @@
 
 .admin-split-view {
   display: grid;
+  min-width: 0;
   grid-template-columns: minmax(0, 1fr) 350px;
+  align-items: start;
   gap: 12px;
 }
 
+.admin-split-view > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
 .admin-side-profile {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
   align-self: start;
+  overflow: hidden;
   padding: 14px;
 }
 
@@ -3785,6 +3816,23 @@
 .admin-side-profile .admin-trend-card {
   margin-top: 12px;
   background: #302f2f;
+}
+
+.admin-side-profile .admin-trend-card > header {
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.admin-side-profile .admin-trend-card > header > div:first-child {
+  flex: 1 1 150px;
+}
+
+.admin-side-profile .admin-range {
+  margin-left: auto;
+}
+
+.admin-side-profile .admin-range button {
+  padding-inline: 10px;
 }
 
 .admin-side-profile .admin-trend-card svg {
@@ -4119,9 +4167,18 @@
   }
 
   .admin-workspace span,
-  .admin-sidebar nav span,
   .admin-logout {
     display: none;
+  }
+
+  .admin-sidebar nav span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
 
   .admin-global-search {
@@ -4198,5 +4255,14 @@
   .admin-table-toolbar label {
     width: 100%;
     margin-left: 0;
+  }
+
+  .admin-side-profile .admin-range {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .admin-side-profile .admin-range button {
+    flex: 1;
   }
 }

@@ -214,6 +214,50 @@ test("admin access has no self-registration journey", async ({ page }) => {
   await expect(page.getByText("Create an Acru admin account")).toHaveCount(0);
 });
 
+test("admin partner detail contains wide data and chart controls at every breakpoint", async ({ page }) => {
+  await page.addInitScript(() => {
+    window.localStorage.setItem(
+      "acru-session",
+      JSON.stringify({ email: "admin-smoke@acru.test", portal: "admin", provider: "email", verified: true })
+    );
+  });
+  await page.goto("/admin");
+  await page.getByRole("button", { name: "Partners", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Partners", exact: true })).toBeVisible();
+
+  const geometry = await page.evaluate(() => {
+    const tableCard = document.querySelector<HTMLElement>(".admin-split-view .admin-table-card");
+    const tableWrap = document.querySelector<HTMLElement>(".admin-split-view .admin-table-wrap");
+    const sideProfile = document.querySelector<HTMLElement>(".admin-side-profile");
+    const trendCard = sideProfile?.querySelector<HTMLElement>(".admin-trend-card");
+    const range = trendCard?.querySelector<HTMLElement>(".admin-range");
+    const bounds = (element: HTMLElement | null | undefined) => element?.getBoundingClientRect();
+
+    return {
+      documentWidth: document.documentElement.scrollWidth,
+      viewportWidth: document.documentElement.clientWidth,
+      range: bounds(range),
+      sideProfile: bounds(sideProfile),
+      tableCard: bounds(tableCard),
+      tableOverflow: tableWrap ? getComputedStyle(tableWrap).overflowX : null,
+      tableScrollWidth: tableWrap?.scrollWidth ?? 0,
+      tableViewportWidth: tableWrap?.clientWidth ?? 0,
+      tableWrap: bounds(tableWrap),
+      trendCard: bounds(trendCard)
+    };
+  });
+
+  expect(geometry.documentWidth).toBeLessThanOrEqual(geometry.viewportWidth + 1);
+  expect(geometry.tableOverflow).toBe("auto");
+  expect(geometry.tableScrollWidth).toBeGreaterThanOrEqual(geometry.tableViewportWidth);
+  expect(geometry.tableWrap!.left).toBeGreaterThanOrEqual(geometry.tableCard!.left);
+  expect(geometry.tableWrap!.right).toBeLessThanOrEqual(geometry.tableCard!.right + 1);
+  expect(geometry.trendCard!.left).toBeGreaterThanOrEqual(geometry.sideProfile!.left);
+  expect(geometry.trendCard!.right).toBeLessThanOrEqual(geometry.sideProfile!.right + 1);
+  expect(geometry.range!.left).toBeGreaterThanOrEqual(geometry.trendCard!.left);
+  expect(geometry.range!.right).toBeLessThanOrEqual(geometry.trendCard!.right + 1);
+});
+
 test("password recovery is portal-aware, validated, and keyboard accessible", async ({ page }) => {
   await page.goto("/sign-in?portal=partner");
   const forgotPassword = page.getByRole("link", { name: "Forgot password?" });
