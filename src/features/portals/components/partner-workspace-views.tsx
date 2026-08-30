@@ -21,6 +21,7 @@ import {
   KeyboardEvent as ReactKeyboardEvent,
   PointerEvent as ReactPointerEvent,
   useEffect,
+  useRef,
   useState
 } from "react";
 
@@ -360,12 +361,7 @@ export function PartnerMerchantsView({ applicants }: { applicants: Applicant[] }
             </tbody>
           </table>
         </div>
-        <InfiniteTableFooter
-          itemLabel="approved merchants"
-          onLoadMore={loadMore}
-          totalItems={filteredRows.length}
-          visibleItems={visibleCount}
-        />
+        <InfiniteTableFooter onLoadMore={loadMore} totalItems={filteredRows.length} visibleItems={visibleCount} />
       </section>
       {selected ? (
         <aside className="partner-merchant-drawer">
@@ -602,12 +598,7 @@ export function PartnerPayoutsView({
               </tbody>
             </table>
           </div>
-          <InfiniteTableFooter
-            itemLabel="payouts"
-            onLoadMore={loadMore}
-            totalItems={payoutRows.length}
-            visibleItems={visibleCount}
-          />
+          <InfiniteTableFooter onLoadMore={loadMore} totalItems={payoutRows.length} visibleItems={visibleCount} />
         </article>
 
         <aside className="portal-card partner-payout-methods-card">
@@ -940,12 +931,7 @@ export function PartnerReferralsView({ applicants }: { applicants: Applicant[] }
             </tbody>
           </table>
         </div>
-        <InfiniteTableFooter
-          itemLabel="referrals"
-          onLoadMore={loadMore}
-          totalItems={filteredRows.length}
-          visibleItems={visibleCount}
-        />
+        <InfiniteTableFooter onLoadMore={loadMore} totalItems={filteredRows.length} visibleItems={visibleCount} />
       </article>
 
       {selected ? (
@@ -1431,7 +1417,6 @@ export function PartnerLinksView() {
             </table>
           </div>
           <InfiniteTableFooter
-            itemLabel="links"
             onLoadMore={loadMoreLinks}
             totalItems={filteredLinks.length}
             visibleItems={visibleLinkCount}
@@ -2001,7 +1986,6 @@ export function PartnerMarketingView() {
           </table>
         </div>
         <InfiniteTableFooter
-          itemLabel="assets"
           onLoadMore={loadMoreAssets}
           totalItems={filteredAssets.length}
           visibleItems={visibleAssetCount}
@@ -2139,10 +2123,13 @@ function PartnerReportChart({
   onRangeChange: (range: PartnerReportRange) => void;
 }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const plotRef = useRef<HTMLDivElement>(null);
+  const [plotSize, setPlotSize] = useState({ height: 218, width: 720 });
   const data = partnerReportTrend[range];
-  const width = 720;
+  const width = plotSize.width;
+  const height = plotSize.height;
   const top = 24;
-  const bottom = 170;
+  const bottom = height - 28;
   const xFor = (index: number) => 18 + (index * (width - 36)) / (data.labels.length - 1);
   const pointsFor = (values: number[]) => {
     const minimum = Math.min(...values);
@@ -2164,6 +2151,26 @@ function PartnerReportChart({
   const conversionPath = smoothPath(conversionPoints);
   const commissionPath = smoothPath(commissionPoints);
   const clickArea = `${clickPath} L ${width - 18} ${bottom} L 18 ${bottom} Z`;
+
+  useEffect(() => {
+    const plot = plotRef.current;
+    if (!plot) return;
+
+    const updateSize = () => {
+      const bounds = plot.getBoundingClientRect();
+      const nextSize = {
+        height: Math.max(198, Math.round(bounds.height)),
+        width: Math.max(280, Math.round(bounds.width))
+      };
+      setPlotSize((current) =>
+        current.height === nextSize.height && current.width === nextSize.width ? current : nextSize
+      );
+    };
+
+    const observer = new ResizeObserver(updateSize);
+    observer.observe(plot);
+    return () => observer.disconnect();
+  }, []);
 
   function moveTooltip(event: React.PointerEvent<SVGRectElement>) {
     const bounds = event.currentTarget.getBoundingClientRect();
@@ -2193,12 +2200,12 @@ function PartnerReportChart({
           ))}
         </nav>
       </div>
-      <div className="partner-report-chart-plot">
+      <div className="partner-report-chart-plot" ref={plotRef}>
         <svg
           aria-label="Clicks, conversions, and commission over time"
-          preserveAspectRatio="none"
+          preserveAspectRatio="xMidYMid meet"
           role="img"
-          viewBox="0 0 720 198"
+          viewBox={`0 0 ${width} ${height}`}
         >
           <defs>
             <linearGradient id="partnerReportClicksArea" x1="0" x2="0" y1="0" y2="1">
@@ -2206,9 +2213,10 @@ function PartnerReportChart({
               <stop offset="100%" stopColor="#4caedf" stopOpacity="0" />
             </linearGradient>
           </defs>
-          {[36, 80, 124, 170].map((y) => (
-            <line className="grid" key={y} x1="18" x2="702" y1={y} y2={y} />
-          ))}
+          {[0.08, 0.38, 0.68, 1].map((position) => {
+            const y = top + (bottom - top) * position;
+            return <line className="grid" key={position} x1="18" x2={width - 18} y1={y} y2={y} />;
+          })}
           <path className="area" d={clickArea} />
           <path className="series clicks" d={clickPath} />
           <path className="series conversions" d={conversionPath} />
@@ -2244,20 +2252,20 @@ function PartnerReportChart({
           )}
           <rect
             className="hitbox"
-            height="158"
+            height={Math.max(1, bottom - 18)}
             onPointerDown={moveTooltip}
             onPointerMove={moveTooltip}
-            width="684"
+            width={width - 36}
             x="18"
             y="18"
           />
-          <text x="18" y="193">
+          <text x="18" y={height - 5}>
             {data.labels[0]}
           </text>
-          <text textAnchor="middle" x="360" y="193">
+          <text textAnchor="middle" x={width / 2} y={height - 5}>
             {data.labels[Math.floor(data.labels.length / 2)]}
           </text>
-          <text textAnchor="end" x="702" y="193">
+          <text textAnchor="end" x={width - 18} y={height - 5}>
             {data.labels.at(-1)}
           </text>
         </svg>
@@ -2758,7 +2766,6 @@ export function PartnerReportsView({ applicants }: { applicants: Applicant[] }) 
           </table>
         </div>
         <InfiniteTableFooter
-          itemLabel="rows"
           onLoadMore={loadMoreReportRows}
           totalItems={reportRows.length}
           visibleItems={visibleReportRowCount}

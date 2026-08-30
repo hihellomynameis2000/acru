@@ -31,12 +31,10 @@ export function useInfiniteRows<T>(items: T[], { batchSize = 10, resetKey = "" }
 }
 
 export function InfiniteTableFooter({
-  itemLabel = "rows",
   onLoadMore,
   totalItems,
   visibleItems
 }: {
-  itemLabel?: string;
   onLoadMore: () => void;
   totalItems: number;
   visibleItems: number;
@@ -58,18 +56,13 @@ export function InfiniteTableFooter({
     return () => observer.disconnect();
   }, [hasMore, onLoadMore, totalItems, visibleItems]);
 
+  if (!hasMore) return null;
+
   return (
     <footer className="partner-infinite-footer">
-      <span aria-live="polite">
-        Showing {visibleItems} of {totalItems} {itemLabel}
-      </span>
-      {hasMore ? (
-        <button onClick={onLoadMore} type="button">
-          Load more
-        </button>
-      ) : (
-        <span className="partner-infinite-end">{totalItems ? `All ${itemLabel} loaded` : `No ${itemLabel}`}</span>
-      )}
+      <button onClick={onLoadMore} type="button">
+        Load more
+      </button>
       <span aria-hidden className="partner-infinite-sentinel" ref={sentinel} />
     </footer>
   );

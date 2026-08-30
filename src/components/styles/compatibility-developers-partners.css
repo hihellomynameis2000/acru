@@ -1356,6 +1356,7 @@ body:has(.docs-workspace),
 
 .partner-data-table > .partner-infinite-footer {
   position: relative;
+  justify-content: flex-end;
 }
 
 .partner-infinite-footer > button {
@@ -1373,10 +1374,6 @@ body:has(.docs-workspace),
 .partner-infinite-footer > button:focus-visible {
   outline: 2px solid #55b6e8;
   outline-offset: 2px;
-}
-
-.partner-infinite-footer .partner-infinite-end {
-  color: #777;
 }
 
 .partner-infinite-sentinel {
@@ -2009,21 +2006,46 @@ body:has(.docs-workspace),
 }
 
 .partner-payout-table-method .partner-payout-method-preview {
-  width: 44px;
-  height: 34px;
-  flex-basis: 44px;
-  border-radius: 7px;
+  width: 35px;
+  height: 27px;
+  flex-basis: 35px;
+  border-radius: 6px;
 }
 
 .partner-payout-table-method .partner-payout-method-preview.ach img {
-  width: 35px;
+  width: 28px;
   height: auto;
 }
 
+.partner-payout-table-method .partner-payout-method-preview.usdc img {
+  width: 19px;
+  height: 19px;
+}
+
 .partner-payout-methods-card {
+  display: flex;
   overflow: hidden;
-  align-self: start;
+  height: 100%;
+  flex-direction: column;
+  align-self: stretch;
   border-radius: 11px;
+}
+
+.partner-payout-methods-card .partner-payout-method-preview {
+  width: 48px;
+  height: 34px;
+  flex-basis: 48px;
+  border-radius: 7px;
+}
+
+.partner-payout-methods-card .partner-payout-method-preview.ach img {
+  width: 38px;
+  height: auto;
+}
+
+.partner-payout-methods-card .partner-payout-method-preview.usdc img {
+  width: 23px;
+  height: 23px;
 }
 
 .partner-payout-methods-card > header,
@@ -2050,7 +2072,8 @@ body:has(.docs-workspace),
   display: grid;
   width: 100%;
   min-height: 102px;
-  grid-template-columns: 60px minmax(0, 1fr);
+  flex: 1 1 0;
+  grid-template-columns: 48px minmax(0, 1fr);
   align-items: center;
   gap: 12px;
   padding: 13px 15px;

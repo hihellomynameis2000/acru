@@ -1561,7 +1561,6 @@ export function PartnerPortalPage() {
                 </table>
               </div>
               <InfiniteTableFooter
-                itemLabel="applications"
                 onLoadMore={loadMoreApplicants}
                 totalItems={filteredApplicants.length}
                 visibleItems={visibleApplicantCount}

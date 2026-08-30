@@ -273,23 +273,26 @@ test("partner tables stream every available row without pagination", async ({ pa
   await page.goto("/partners");
   const navigation = page.getByRole("navigation", { name: "Partner workspace" });
   const sections = [
-    { name: "Applications", rows: 9, table: ".partner-applicants-table" },
+    { loadsMore: true, name: "Applications", rows: 9, table: ".partner-applicants-table" },
     { name: "Merchants", rows: 4, table: ".partner-data-table table" },
     { name: "Payouts", rows: 5, table: ".partner-payout-history table" },
-    { name: "Referrals", rows: 7, table: ".partner-referral-table table" },
-    { name: "Custom links", rows: 5, table: ".partner-saved-links table" },
+    { loadsMore: true, name: "Referrals", rows: 7, table: ".partner-referral-table table" },
+    { loadsMore: true, name: "Custom links", rows: 5, table: ".partner-saved-links table" },
     { name: "Marketing materials", rows: 4, table: ".partner-marketing-library table" },
-    { name: "Reports", rows: 7, table: ".partner-report-table table" }
+    { loadsMore: true, name: "Reports", rows: 7, table: ".partner-report-table table" }
   ];
 
   for (const section of sections) {
     await navigation.getByRole("button", { name: section.name, exact: true }).click();
     const table = page.locator(section.table);
     const footer = page.locator(".partner-infinite-footer");
-    await footer.scrollIntoViewIfNeeded();
-    await expect(table.locator("tbody tr")).toHaveCount(section.rows);
-    await expect(footer).toContainText(`Showing ${section.rows} of ${section.rows}`);
-    await expect(footer.locator(".partner-infinite-end")).toBeVisible();
+    const rows = table.locator("tbody tr");
+    if (section.loadsMore && (await rows.count()) < section.rows) {
+      await footer.getByRole("button", { name: "Load more" }).click();
+    }
+    await expect(rows).toHaveCount(section.rows);
+    await expect(footer).toHaveCount(0);
+    await expect(page.getByText(/All .* loaded/)).toHaveCount(0);
     await expect(page.locator(".partner-pagination")).toHaveCount(0);
   }
 });
@@ -390,6 +393,19 @@ test("partner workspace uses the polished card, chart, drawer, badge, and map tr
   expect(payoutCardGeometry.card).not.toBeNull();
   expect(payoutCardGeometry.content).not.toBeNull();
   expect(payoutCardGeometry.content!.x - payoutCardGeometry.card!.x).toBeLessThanOrEqual(18);
+  const payoutMethodTile = page.locator(".partner-payout-table-method .partner-payout-method-preview").first();
+  expect((await payoutMethodTile.boundingBox())?.height).toBe(27);
+  const payoutMethodCardTile = page.locator(".partner-payout-methods-card .partner-payout-method-preview").first();
+  expect((await payoutMethodCardTile.boundingBox())?.height).toBe(34);
+  const payoutWorkspaceGeometry = await Promise.all([
+    page.locator(".partner-payout-history").boundingBox(),
+    page.locator(".partner-payout-methods-card").boundingBox()
+  ]).then(([history, methods]) => ({ history, methods }));
+  expect(payoutWorkspaceGeometry.history).not.toBeNull();
+  expect(payoutWorkspaceGeometry.methods).not.toBeNull();
+  expect(
+    Math.abs(payoutWorkspaceGeometry.history!.height - payoutWorkspaceGeometry.methods!.height)
+  ).toBeLessThanOrEqual(1);
 
   await page.getByRole("button", { name: "Reports", exact: true }).click();
   expect(
@@ -464,6 +480,37 @@ test("partner workspace uses the polished card, chart, drawer, badge, and map tr
     .evaluate((element) => getComputedStyle(element).backgroundColor);
   expect(drawerColor).toBe(sidebarColor);
   expect(drawerColor).toBe(headerColor);
+});
+
+test("partner report chart keeps its responsive geometry at phone width", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "mobile-390");
+  await page.goto("/partners");
+  await page.getByRole("button", { name: "Reports", exact: true }).click();
+
+  const chart = page.locator(".partner-report-chart-plot svg");
+  await expect(chart).toBeVisible();
+  await expect
+    .poll(async () =>
+      chart.evaluate((element) => {
+        const bounds = element.getBoundingClientRect();
+        const viewBox = element.getAttribute("viewBox")?.split(/\s+/).map(Number) ?? [];
+        return Math.abs((viewBox[2] ?? 0) - bounds.width) + Math.abs((viewBox[3] ?? 0) - bounds.height);
+      })
+    )
+    .toBeLessThanOrEqual(2);
+
+  const geometry = await chart.evaluate((element) => {
+    const bounds = element.getBoundingClientRect();
+    const viewBox = element.getAttribute("viewBox")?.split(/\s+/).map(Number) ?? [];
+    return {
+      documentWidth: document.documentElement.scrollWidth,
+      viewportWidth: document.documentElement.clientWidth,
+      renderedRatio: bounds.width / bounds.height,
+      viewBoxRatio: (viewBox[2] ?? 1) / (viewBox[3] ?? 1)
+    };
+  });
+  expect(Math.abs(geometry.renderedRatio - geometry.viewBoxRatio)).toBeLessThan(0.02);
+  expect(geometry.documentWidth).toBeLessThanOrEqual(geometry.viewportWidth + 1);
 });
 
 test("banking payout summary keeps the balance clear of its label", async ({ page }) => {
