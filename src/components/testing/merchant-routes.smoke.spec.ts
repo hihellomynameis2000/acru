@@ -324,6 +324,32 @@ test("admin team metrics fill the available row without generic icons", async ({
   ).toBeLessThanOrEqual(1);
 });
 
+test("admin reporting date range uses the merchant neutral pill treatment", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop-1440");
+  await page.goto("/admin");
+  await page.getByRole("button", { name: "Reports", exact: true }).click();
+
+  const range = page.locator(".admin-range");
+  const active = range.locator("button.active");
+  const styles = await Promise.all([
+    range.evaluate((element) => {
+      const style = getComputedStyle(element);
+      return { borderRadius: style.borderRadius, height: element.getBoundingClientRect().height };
+    }),
+    active.evaluate((element) => {
+      const style = getComputedStyle(element);
+      return { background: style.backgroundColor, borderRadius: style.borderRadius, color: style.color };
+    })
+  ]).then(([control, selected]) => ({ control, selected }));
+
+  expect(styles.control.borderRadius).toBe("999px");
+  expect(styles.control.height).toBeGreaterThanOrEqual(36);
+  expect(styles.selected.borderRadius).toBe("999px");
+  expect(styles.selected.background).toBe("rgb(59, 58, 58)");
+  expect(styles.selected.background).not.toBe("rgb(75, 173, 223)");
+  expect(styles.selected.color).toBe("rgb(238, 238, 238)");
+});
+
 test("partner workspace uses the polished card, chart, drawer, badge, and map treatments", async ({
   page
 }, testInfo) => {

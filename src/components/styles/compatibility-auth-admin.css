@@ -3254,22 +3254,35 @@
 
 .admin-range {
   display: flex;
+  min-height: 36px;
+  align-items: center;
   padding: 2px;
   border: 1px solid #494747;
-  border-radius: 8px;
+  border-radius: 999px;
+  background: transparent;
 }
 
 .admin-range button {
-  min-height: 24px;
-  padding: 0 8px;
+  min-height: 30px;
+  padding: 0 13px;
   border: 0;
+  border-radius: 999px;
+  color: #eee;
+  outline: none;
   background: transparent;
   font-size: 10px;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 .admin-range button.active {
-  color: #08141b;
-  background: #4baddf;
+  color: #eee;
+  background: #3b3a3a;
+}
+
+.admin-range button:focus-visible {
+  outline: 2px solid #888;
+  outline-offset: 2px;
 }
 
 .admin-trend-card svg {
