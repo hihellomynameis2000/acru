@@ -50,15 +50,23 @@ import { useEffect, useMemo, useState } from "react";
 
 import { useListCollection } from "@/components/data/use-list-collection";
 import { CollectionPageState } from "@/components/ui/collection-state";
+import { Dialog } from "@/components/ui/dialog";
 import { Select } from "@/components/ui/select";
 import { useDismissOnEscape } from "@/components/ui/use-dismiss-on-escape";
 import {
   initialDevices,
   initialNotificationPreferences,
   notificationRows,
+  capabilitiesForTeamAccess,
+  createTeamPermissionPreset,
   roleCards,
   settingsSnapshotAdapter,
+  summarizeTeamAccess,
+  teamInviteRoles,
   teamMembers,
+  teamPermissionGroups,
+  type TeamAccessLevel,
+  type TeamInviteRole,
   type Channel
 } from "@/features/settings/data/settings";
 
@@ -344,12 +352,324 @@ function BusinessSettings({ notify }: { notify: (message: string) => void }) {
   );
 }
 
+type TeamInviteSubmission = {
+  name: string;
+  email: string;
+  role: TeamInviteRole;
+  permissions: Record<string, TeamAccessLevel>;
+  sessionDuration: string;
+  locationAlerts: boolean;
+};
+
+const teamAccessLevelLabels: Record<Exclude<TeamAccessLevel, "none">, string> = {
+  view: "View only",
+  operate: "Operate",
+  manage: "Manage"
+};
+
+function TeamInviteDialog({
+  memberEmails,
+  onInvite,
+  onOpenChange
+}: {
+  memberEmails: string[];
+  onInvite: (invite: TeamInviteSubmission) => void;
+  onOpenChange: (open: boolean) => void;
+}) {
+  const [role, setRole] = useState<TeamInviteRole>("Analyst");
+  const [permissions, setPermissions] = useState<Record<string, TeamAccessLevel>>(() =>
+    createTeamPermissionPreset("Analyst")
+  );
+  const [customized, setCustomized] = useState(false);
+  const [sessionDuration, setSessionDuration] = useState("12 hours");
+  const [locationAlerts, setLocationAlerts] = useState(true);
+  const [formError, setFormError] = useState("");
+  const rolePreset = useMemo(() => createTeamPermissionPreset(role), [role]);
+  const summary = summarizeTeamAccess(permissions);
+
+  function setPermission(pageId: string, level: TeamAccessLevel) {
+    setPermissions((current) => ({ ...current, [pageId]: level }));
+    setCustomized(true);
+    setFormError("");
+  }
+
+  function applyRole(nextRole: TeamInviteRole) {
+    setRole(nextRole);
+    setPermissions(createTeamPermissionPreset(nextRole));
+    setCustomized(false);
+    setFormError("");
+  }
+
+  function setEveryPermission(level: TeamAccessLevel) {
+    setPermissions(
+      Object.fromEntries(teamPermissionGroups.flatMap((group) => group.pages.map((page) => [page.id, level] as const)))
+    );
+    setCustomized(true);
+    setFormError("");
+  }
+
+  function submitInvite(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const name = String(data.get("name") ?? "").trim();
+    const email = String(data.get("email") ?? "")
+      .trim()
+      .toLowerCase();
+
+    if (memberEmails.some((memberEmail) => memberEmail.toLowerCase() === email)) {
+      setFormError("This email already belongs to a member of this workspace.");
+      return;
+    }
+    if (!summary.enabledPages) {
+      setFormError("Select at least one page this teammate can access.");
+      return;
+    }
+
+    onInvite({ email, locationAlerts, name, permissions, role, sessionDuration });
+  }
+
+  return (
+    <Dialog
+      className="settings-invite-dialog"
+      description="Grant only the page-level access they need. Security enrollment is required before first access."
+      footer={
+        <>
+          <span className="settings-invite-footer-summary">
+            <ShieldCheck /> {summary.enabledPages} pages · 2-step required
+          </span>
+          <button className="settings-tertiary-button" type="button" onClick={() => onOpenChange(false)}>
+            Cancel
+          </button>
+          <button className="settings-primary-button" type="submit" form="team-invite-form">
+            <Send /> Send secure invitation
+          </button>
+        </>
+      }
+      onOpenChange={onOpenChange}
+      open
+      title="Invite a team member"
+    >
+      <form className="settings-invite-form" id="team-invite-form" onSubmit={submitInvite}>
+        <section className="settings-invite-section settings-invite-identity">
+          <header>
+            <div>
+              <h3>Member details</h3>
+              <p>Use their individual work address. Shared inboxes should not be granted workspace access.</p>
+            </div>
+          </header>
+          <div className="settings-form-grid settings-invite-identity-grid">
+            <label>
+              Full name
+              <input autoComplete="name" data-autofocus name="name" required placeholder="Jordan Lee" />
+            </label>
+            <label>
+              Work email
+              <input autoComplete="email" name="email" type="email" required placeholder="jordan@company.com" />
+            </label>
+            <label>
+              Role template
+              <Select
+                aria-label="Role template"
+                value={role}
+                onChange={(event) => applyRole(event.target.value as TeamInviteRole)}
+              >
+                {teamInviteRoles.map((item) => (
+                  <option key={item}>{item}</option>
+                ))}
+              </Select>
+            </label>
+          </div>
+          <p className="settings-role-template-note">
+            <Settings2 /> {customized ? `${role} template · customized below` : `${role} permission template applied`}
+          </p>
+        </section>
+
+        <section className="settings-invite-section settings-invite-permissions">
+          <header className="settings-permission-heading">
+            <div>
+              <h3>Page access & permission level</h3>
+              <p>Every page is independently gated. Higher levels include the capabilities shown with checkmarks.</p>
+            </div>
+            <div className="settings-permission-summary" aria-live="polite">
+              <strong>{summary.enabledPages}</strong> pages
+              <span>{summary.operatedPages} operate</span>
+              <span>{summary.managedPages} manage</span>
+            </div>
+          </header>
+          <div className="settings-permission-actions">
+            <button type="button" onClick={() => setEveryPermission("view")}>
+              Select all as view only
+            </button>
+            <button type="button" onClick={() => setEveryPermission("none")}>
+              Clear all
+            </button>
+          </div>
+
+          <div className="settings-permission-groups">
+            {teamPermissionGroups.map((group) => {
+              const enabledInGroup = group.pages.filter((page) => permissions[page.id] !== "none").length;
+              return (
+                <section className="settings-permission-group" key={group.id}>
+                  <header>
+                    <div>
+                      <h4>{group.title}</h4>
+                      <p>{group.description}</p>
+                    </div>
+                    <span>
+                      {enabledInGroup}/{group.pages.length} pages
+                    </span>
+                  </header>
+                  <div>
+                    {group.pages.map((page) => {
+                      const level = permissions[page.id] ?? "none";
+                      const enabled = level !== "none";
+                      const activeCapabilities = new Set(capabilitiesForTeamAccess(page, level));
+                      const presetLevel = rolePreset[page.id];
+                      return (
+                        <article className="settings-permission-row" data-enabled={enabled || undefined} key={page.id}>
+                          <label className="settings-page-access-check">
+                            <input
+                              aria-label={`Allow access to ${page.label}`}
+                              checked={enabled}
+                              onChange={(event) =>
+                                setPermission(
+                                  page.id,
+                                  event.target.checked ? (presetLevel === "none" ? "view" : presetLevel) : "none"
+                                )
+                              }
+                              type="checkbox"
+                            />
+                            <span aria-hidden="true">
+                              <Check />
+                            </span>
+                            <span>
+                              <strong>
+                                {page.label}
+                                {page.sensitive ? <em>Sensitive</em> : null}
+                              </strong>
+                              <small>{page.route}</small>
+                              <small>{page.description}</small>
+                            </span>
+                          </label>
+
+                          <label className="settings-page-level">
+                            <span>Access level</span>
+                            <Select
+                              aria-label={`${page.label} access level`}
+                              disabled={!enabled}
+                              value={level}
+                              onChange={(event) => setPermission(page.id, event.target.value as TeamAccessLevel)}
+                            >
+                              <option value="none">No access</option>
+                              {Object.entries(teamAccessLevelLabels).map(([value, label]) => (
+                                <option key={value} value={value}>
+                                  {label}
+                                </option>
+                              ))}
+                            </Select>
+                          </label>
+
+                          <ul aria-label={`${page.label} capabilities`} className="settings-page-capabilities">
+                            {page.capabilities.map((capability) => (
+                              <li data-active={activeCapabilities.has(capability) || undefined} key={capability}>
+                                <span aria-hidden="true">
+                                  <Check />
+                                </span>
+                                {capability}
+                              </li>
+                            ))}
+                          </ul>
+                        </article>
+                      );
+                    })}
+                  </div>
+                </section>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className="settings-invite-section settings-invite-security">
+          <header>
+            <div>
+              <h3>Mandatory security policy</h3>
+              <p>These controls apply to every non-owner team member and cannot be removed from this invitation.</p>
+            </div>
+            <StatusPill>
+              <LockKeyhole /> Enforced
+            </StatusPill>
+          </header>
+          <div className="settings-required-security-list">
+            <article>
+              <span>
+                <Check />
+              </span>
+              <div>
+                <strong>2-step verification before first access</strong>
+                <small>The invitation remains locked until the member enrolls an authenticator app or passkey.</small>
+              </div>
+              <StatusPill>Required</StatusPill>
+            </article>
+            <article>
+              <span>
+                <Check />
+              </span>
+              <div>
+                <strong>Step-up authentication for sensitive actions</strong>
+                <small>Required for refunds, payouts, bank changes, live keys, exports, and permission changes.</small>
+              </div>
+              <StatusPill>Required</StatusPill>
+            </article>
+            <article>
+              <span>
+                <Check />
+              </span>
+              <div>
+                <strong>Strong authentication method</strong>
+                <small>Authenticator apps, passkeys, and hardware security keys are accepted. SMS alone is not.</small>
+              </div>
+              <StatusPill>Required</StatusPill>
+            </article>
+          </div>
+          <div className="settings-invite-session-policy">
+            <label>
+              Maximum session duration
+              <Select value={sessionDuration} onChange={(event) => setSessionDuration(event.target.value)}>
+                <option>4 hours</option>
+                <option>8 hours</option>
+                <option>12 hours</option>
+                <option>24 hours</option>
+              </Select>
+            </label>
+            <label className="settings-security-alert-check">
+              <input
+                checked={locationAlerts}
+                onChange={(event) => setLocationAlerts(event.target.checked)}
+                type="checkbox"
+              />
+              <span>
+                <strong>New location alerts</strong>
+                <small>Notify workspace administrators when this member signs in from a new location.</small>
+              </span>
+            </label>
+          </div>
+        </section>
+
+        {formError ? (
+          <p aria-live="assertive" className="settings-invite-error" role="alert">
+            <AlertTriangle /> {formError}
+          </p>
+        ) : null}
+      </form>
+    </Dialog>
+  );
+}
+
 function TeamSettings({ notify }: { notify: (message: string) => void }) {
   const [members, setMembers] = useState(teamMembers);
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
   const [inviteOpen, setInviteOpen] = useState(false);
-  useDismissOnEscape(inviteOpen, () => setInviteOpen(false));
   const pageSize = 5;
   const filtered = useMemo(
     () =>
@@ -361,33 +681,37 @@ function TeamSettings({ notify }: { notify: (message: string) => void }) {
   const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
   const visibleMembers = filtered.slice((page - 1) * pageSize, page * pageSize);
 
-  function invite(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const email = String(data.get("email") ?? "");
-    const name = String(data.get("name") ?? "New teammate");
-    const role = String(data.get("role") ?? "Analyst");
+  const activeMembers = members.filter((member) => member.active !== "Invite pending").length;
+  const membersNeedingTwoFactor = members.filter((member) => !member.twoFactor).length;
+  const twoFactorCoverage = members.length
+    ? Math.round(((members.length - membersNeedingTwoFactor) / members.length) * 100)
+    : 100;
+  const pendingInvitations = members.filter((member) => member.active === "Invite pending").length;
+
+  function invite(submission: TeamInviteSubmission) {
+    const accessSummary = summarizeTeamAccess(submission.permissions);
     setMembers((current) => [
       ...current,
       {
         id: Date.now(),
-        name,
-        email,
-        initials: name
+        name: submission.name,
+        email: submission.email,
+        initials: submission.name
           .split(" ")
           .map((part) => part[0])
           .join("")
           .slice(0, 2)
           .toUpperCase(),
-        role,
-        scope: role === "Finance" ? "Payouts & reports" : "View only",
+        role: submission.role,
+        scope: `${accessSummary.enabledPages} pages · ${accessSummary.managedPages} manage`,
         active: "Invite pending",
         twoFactor: false,
         tone: "slate"
       }
     ]);
+    setPage(Math.ceil((members.length + 1) / pageSize));
     setInviteOpen(false);
-    notify(`Invitation sent to ${email}`);
+    notify(`Secure invitation sent to ${submission.email} · 2-step setup required`);
   }
 
   return (
@@ -409,7 +733,7 @@ function TeamSettings({ notify }: { notify: (message: string) => void }) {
           </span>
           <div>
             <small>Active members</small>
-            <strong>{members.length}</strong>
+            <strong>{activeMembers}</strong>
             <em>Across 5 role groups</em>
           </div>
         </article>
@@ -419,8 +743,10 @@ function TeamSettings({ notify }: { notify: (message: string) => void }) {
           </span>
           <div>
             <small>2-step coverage</small>
-            <strong>71%</strong>
-            <em>2 members need attention</em>
+            <strong>{twoFactorCoverage}%</strong>
+            <em>
+              {membersNeedingTwoFactor} {membersNeedingTwoFactor === 1 ? "member needs" : "members need"} attention
+            </em>
           </div>
         </article>
         <article>
@@ -429,8 +755,8 @@ function TeamSettings({ notify }: { notify: (message: string) => void }) {
           </span>
           <div>
             <small>Pending invitations</small>
-            <strong>2</strong>
-            <em>Oldest invite sent 3 days ago</em>
+            <strong>{pendingInvitations}</strong>
+            <em>{pendingInvitations ? "Access blocked until security setup" : "No outstanding invitations"}</em>
           </div>
         </article>
       </div>
@@ -560,69 +886,11 @@ function TeamSettings({ notify }: { notify: (message: string) => void }) {
       </SettingsCard>
 
       {inviteOpen ? (
-        <div
-          className="settings-modal-backdrop"
-          role="presentation"
-          onMouseDown={(event) => {
-            if (event.target === event.currentTarget) setInviteOpen(false);
-          }}
-        >
-          <form
-            className="settings-modal"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="invite-title"
-            onSubmit={invite}
-          >
-            <header>
-              <span>
-                <UserPlus />
-              </span>
-              <div>
-                <h2 id="invite-title">Invite a team member</h2>
-                <p>They’ll receive an email to join this workspace.</p>
-              </div>
-              <button type="button" onClick={() => setInviteOpen(false)} aria-label="Close">
-                <X />
-              </button>
-            </header>
-            <div className="settings-form-grid">
-              <label>
-                Full name
-                <input name="name" required placeholder="Jordan Lee" />
-              </label>
-              <label>
-                Email address
-                <input name="email" type="email" required placeholder="jordan@company.com" />
-              </label>
-              <label>
-                Role
-                <Select name="role" defaultValue="Analyst">
-                  <option>Administrator</option>
-                  <option>Finance</option>
-                  <option>Developer</option>
-                  <option>Support</option>
-                  <option>Analyst</option>
-                </Select>
-              </label>
-            </div>
-            <div className="settings-modal-note">
-              <ShieldCheck />
-              <span>
-                <strong>Security enforced</strong>New members must set up 2-step verification before accessing sensitive
-                information.
-              </span>
-            </div>
-            <footer>
-              <button className="settings-tertiary-button" type="button" onClick={() => setInviteOpen(false)}>
-                Cancel
-              </button>
-              <button className="settings-primary-button" type="submit">
-                <Send /> Send invitation
-              </button>
-            </footer>
-          </form>
-        </div>
+        <TeamInviteDialog
+          memberEmails={members.map((member) => member.email)}
+          onInvite={invite}
+          onOpenChange={setInviteOpen}
+        />
       ) : null}
     </div>
   );

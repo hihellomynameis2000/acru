@@ -2,7 +2,7 @@
 
 import { XIcon } from "@shopify/polaris-icons";
 import type { ReactNode } from "react";
-import { useId, useRef } from "react";
+import { useCallback, useId, useRef } from "react";
 
 import { Button } from "@/components/ui/button";
 import { IconButton } from "@/components/ui/icon-button";
@@ -30,7 +30,7 @@ export function Dialog({
   const panelRef = useRef<HTMLElement>(null);
   const titleId = useId();
   const descriptionId = useId();
-  const close = () => onOpenChange(false);
+  const close = useCallback(() => onOpenChange(false), [onOpenChange]);
   useFocusTrap(panelRef, open, close);
 
   if (!open) return null;

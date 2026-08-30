@@ -559,6 +559,61 @@ test("banking payout summary keeps the balance clear of its label", async ({ pag
   );
 });
 
+test("team invitations enforce detailed page permissions and 2-step security", async ({ page }, testInfo) => {
+  await page.goto("/settings/team");
+  const inviteButton = page.getByRole("button", { name: "Invite member", exact: true });
+  await inviteButton.click();
+
+  const dialog = page.getByRole("dialog", { name: "Invite a team member" });
+  await expect(dialog).toBeVisible();
+  await expect(dialog.locator(".settings-permission-row")).toHaveCount(24);
+  await expect(dialog.getByText("Required", { exact: true })).toHaveCount(3);
+  await expect(dialog.getByText("2-step verification before first access", { exact: true })).toBeVisible();
+  await expect(dialog.getByText(/SMS alone is not/)).toBeVisible();
+
+  await dialog.getByLabel("Role template").selectOption("Finance");
+  const payoutLevel = dialog.getByLabel("Payouts access level", { exact: true });
+  const developerLevel = dialog.getByLabel("Developers & API access level", { exact: true });
+  await expect(payoutLevel).toHaveValue("manage");
+  await expect(developerLevel).toBeDisabled();
+
+  const payoutAccess = dialog.getByLabel("Allow access to Payouts", { exact: true });
+  await payoutAccess.click({ force: true });
+  await expect(payoutLevel).toBeDisabled();
+  await payoutAccess.click({ force: true });
+  await expect(payoutLevel).toBeEnabled();
+  await expect(payoutLevel).toHaveValue("manage");
+
+  const geometry = await dialog.evaluate((element) => ({
+    dialogWidth: element.getBoundingClientRect().width,
+    documentWidth: document.documentElement.scrollWidth,
+    viewportWidth: document.documentElement.clientWidth
+  }));
+  expect(geometry.dialogWidth).toBeLessThanOrEqual(geometry.viewportWidth);
+  expect(geometry.documentWidth).toBeLessThanOrEqual(geometry.viewportWidth + 1);
+
+  const suffix = testInfo.project.name.replace(/\W/g, "");
+  const memberName = `Secure Member ${suffix}`;
+  await dialog.getByLabel("Full name").fill(memberName);
+  await dialog.getByLabel("Work email").fill(`secure-${suffix}@northstar.studio`);
+  await dialog.getByRole("button", { name: "Send secure invitation" }).click();
+  await expect(dialog).toHaveCount(0);
+
+  const invitedRow = page.locator(".settings-team-row").filter({ hasText: memberName });
+  await expect(invitedRow).toBeVisible();
+  await expect(invitedRow.getByText("Required", { exact: true })).toBeVisible();
+
+  await inviteButton.click();
+  const duplicateDialog = page.getByRole("dialog", { name: "Invite a team member" });
+  await duplicateDialog.getByLabel("Full name").fill("Duplicate Member");
+  await duplicateDialog.getByLabel("Work email").fill("christian@northstar.studio");
+  await duplicateDialog.getByRole("button", { name: "Send secure invitation" }).click();
+  await expect(duplicateDialog.getByRole("alert")).toHaveText(/already belongs to a member/);
+  await page.keyboard.press("Escape");
+  await expect(duplicateDialog).toHaveCount(0);
+  await expect(inviteButton).toBeFocused();
+});
+
 test("submitted onboarding links to ACRU documentation with clear spacing", async ({ page }) => {
   await page.goto("/onboarding?preview=1&step=submitted");
 
