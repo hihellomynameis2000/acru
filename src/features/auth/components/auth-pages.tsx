@@ -182,10 +182,14 @@ export function SignInPage({ portal = "merchant" }: { portal?: AcruPortal }) {
         <h1>{copy.signInTitle}</h1>
         <p>{copy.signInBody}</p>
       </header>
-      <SocialButton onClick={continueWithGoogle} label="Continue with Google" />
-      <div className="auth-divider">
-        <span>or continue with email</span>
-      </div>
+      {portal !== "admin" ? (
+        <>
+          <SocialButton onClick={continueWithGoogle} label="Continue with Google" />
+          <div className="auth-divider">
+            <span>or continue with email</span>
+          </div>
+        </>
+      ) : null}
       <form className="auth-form" onSubmit={submit}>
         <label>
           <span>Email address</span>

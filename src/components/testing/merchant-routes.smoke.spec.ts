@@ -204,6 +204,9 @@ test("admin access has no self-registration journey", async ({ page }) => {
 
   await expect(page.getByRole("heading", { name: "Sign in to Acru Admin" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Create an account" })).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "Continue with Google" })).toHaveCount(0);
+  await expect(page.getByText("or continue with email")).toHaveCount(0);
+  await expect(page.getByRole("textbox", { name: "Email address" })).toBeVisible();
 
   await page.goto("/sign-up?portal=admin");
   await expect(page).toHaveURL(/\/sign-in\?portal=admin$/);
