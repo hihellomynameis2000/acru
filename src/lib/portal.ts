@@ -33,6 +33,7 @@ export function signInPathForPortal(portal: AcruPortal) {
 }
 
 export function signUpPathForPortal(portal: AcruPortal) {
+  if (portal === "admin") return signInPathForPortal(portal);
   return `/sign-up${portalQuery(portal)}`;
 }
 
@@ -41,6 +42,7 @@ export function forgotPasswordPathForPortal(portal: AcruPortal) {
 }
 
 export function confirmationPathForPortal(portal: AcruPortal) {
+  if (portal === "admin") return signInPathForPortal(portal);
   return `/confirm-email${portalQuery(portal)}`;
 }
 

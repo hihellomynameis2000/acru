@@ -48,37 +48,43 @@ function GoogleMark() {
   );
 }
 
-const portalAuthCopy: Record<
-  AcruPortal,
-  { signInTitle: string; signInBody: string; signUpTitle: string; signUpBody: string; newLabel: string }
-> = {
+const portalSignInCopy: Record<AcruPortal, { signInTitle: string; signInBody: string }> = {
   merchant: {
     signInTitle: "Sign in to Acru",
-    signInBody: "Access your payments workspace securely.",
+    signInBody: "Access your payments workspace securely."
+  },
+  sandbox: {
+    signInTitle: "Sign in to the API sandbox",
+    signInBody: "Test direct API connections in an isolated environment."
+  },
+  partner: {
+    signInTitle: "Sign in to Acru Partners",
+    signInBody: "Manage referred accounts, clients, and partner activity."
+  },
+  admin: {
+    signInTitle: "Sign in to Acru Admin",
+    signInBody: "Review merchants, risk, pricing, payouts, and platform operations."
+  }
+};
+
+const portalRegistrationCopy: Record<
+  Exclude<AcruPortal, "admin">,
+  { signUpTitle: string; signUpBody: string; newLabel: string }
+> = {
+  merchant: {
     signUpTitle: "Get started with Acru",
     signUpBody: "One secure account for payments, risk, and settlement.",
     newLabel: "New to Acru?"
   },
   sandbox: {
-    signInTitle: "Sign in to the API sandbox",
-    signInBody: "Test direct API connections in an isolated environment.",
     signUpTitle: "Create a sandbox account",
     signUpBody: "Build and validate your Acru integration with test data.",
     newLabel: "Need sandbox access?"
   },
   partner: {
-    signInTitle: "Sign in to Acru Partners",
-    signInBody: "Manage referred accounts, clients, and partner activity.",
     signUpTitle: "Join Acru Partners",
     signUpBody: "Create your partner account and start managing referrals.",
     newLabel: "New to Acru Partners?"
-  },
-  admin: {
-    signInTitle: "Sign in to Acru Admin",
-    signInBody: "Review merchants, risk, pricing, payouts, and platform operations.",
-    signUpTitle: "Create an Acru admin account",
-    signUpBody: "Administrator access is limited to approved Acru team members.",
-    newLabel: "Need administrator access?"
   }
 };
 
@@ -147,7 +153,8 @@ export function SignInPage({ portal = "merchant" }: { portal?: AcruPortal }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [submitting, setSubmitting] = useState(false);
-  const copy = portalAuthCopy[portal];
+  const copy = portalSignInCopy[portal];
+  const registrationCopy = portal === "admin" ? null : portalRegistrationCopy[portal];
 
   function continueWithGoogle() {
     saveSession({
@@ -204,9 +211,11 @@ export function SignInPage({ portal = "merchant" }: { portal?: AcruPortal }) {
           {submitting ? <i className="auth-spinner" /> : null}
         </button>
       </form>
-      <p className="auth-switch">
-        {copy.newLabel} <Link href={signUpPathForPortal(portal)}>Create an account</Link>
-      </p>
+      {registrationCopy ? (
+        <p className="auth-switch">
+          {registrationCopy.newLabel} <Link href={signUpPathForPortal(portal)}>Create an account</Link>
+        </p>
+      ) : null}
     </AuthFrame>
   );
 }
@@ -329,7 +338,13 @@ export function SignUpPage({ portal = "merchant" }: { portal?: AcruPortal }) {
   const [password, setPassword] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const emailReady = useMemo(() => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()), [email]);
-  const copy = portalAuthCopy[portal];
+  const copy = portal === "admin" ? null : portalRegistrationCopy[portal];
+
+  useEffect(() => {
+    if (portal === "admin") router.replace(signInPathForPortal("admin"));
+  }, [portal, router]);
+
+  if (!copy) return null;
 
   function continueWithGoogle() {
     saveSession({

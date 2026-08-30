@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { portalForHostname } from "@/lib/portal";
 
 const AUTH_PATHS = new Set(["/sign-in", "/sign-up", "/forgot-password", "/confirm-email"]);
+const ADMIN_PROVISIONED_ONLY_PATHS = new Set(["/sign-up", "/confirm-email"]);
 
 export function proxy(request: NextRequest) {
   const host = request.headers.get("host") ?? "";
@@ -19,6 +20,11 @@ export function proxy(request: NextRequest) {
   const pathname = url.pathname;
 
   if (AUTH_PATHS.has(pathname)) {
+    if (managedHost && portal === "admin" && ADMIN_PROVISIONED_ONLY_PATHS.has(pathname)) {
+      url.pathname = "/sign-in";
+      url.search = "";
+      return NextResponse.redirect(url);
+    }
     if (managedHost) {
       const expectedPortal = portal === "merchant" ? null : portal;
       if (url.searchParams.get("portal") !== expectedPortal) {

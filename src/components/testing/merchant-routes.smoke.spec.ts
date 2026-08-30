@@ -199,6 +199,18 @@ test("partner sign-up create account button has no arrow", async ({ page }) => {
   await expect(createAccount.locator("svg")).toBeHidden();
 });
 
+test("admin access has no self-registration journey", async ({ page }) => {
+  await page.goto("/sign-in?portal=admin");
+
+  await expect(page.getByRole("heading", { name: "Sign in to Acru Admin" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Create an account" })).toHaveCount(0);
+
+  await page.goto("/sign-up?portal=admin");
+  await expect(page).toHaveURL(/\/sign-in\?portal=admin$/);
+  await expect(page.getByRole("heading", { name: "Sign in to Acru Admin" })).toBeVisible();
+  await expect(page.getByText("Create an Acru admin account")).toHaveCount(0);
+});
+
 test("password recovery is portal-aware, validated, and keyboard accessible", async ({ page }) => {
   await page.goto("/sign-in?portal=partner");
   const forgotPassword = page.getByRole("link", { name: "Forgot password?" });
