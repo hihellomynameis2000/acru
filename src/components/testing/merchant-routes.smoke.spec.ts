@@ -2,6 +2,63 @@ import { expect, test } from "@playwright/test";
 
 import { merchantRoutes } from "@/components/shell/merchant-routes";
 
+test("public homepage is responsive, branded, and links to real policies", async ({ page }, testInfo) => {
+  await page.goto("/");
+
+  await expect(page.getByRole("heading", { name: "Payments infrastructure, built for scale." })).toBeVisible();
+  await expect(
+    page.getByRole("img", { name: "Acru merchant dashboard showing revenue, wallet balance, and business controls" })
+  ).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Payments fueling growth, built for scale." })).toBeVisible();
+  await expect(page.getByRole("img", { name: "Payment methods connected to an approved Acru payment" })).toBeVisible();
+  await expect(page.locator(".app-shell")).toHaveCount(0);
+
+  const stage = page.locator(".marketing-product-stage");
+  const stageGeometry = await stage.evaluate((element) => {
+    const bounds = element.getBoundingClientRect();
+    return {
+      documentWidth: document.documentElement.scrollWidth,
+      height: bounds.height,
+      right: bounds.right,
+      viewportWidth: document.documentElement.clientWidth,
+      width: bounds.width
+    };
+  });
+  expect(stageGeometry.documentWidth).toBeLessThanOrEqual(stageGeometry.viewportWidth + 1);
+  expect(stageGeometry.right).toBeLessThanOrEqual(stageGeometry.viewportWidth + 1);
+  expect(Math.abs(stageGeometry.width - stageGeometry.height)).toBeLessThanOrEqual(1);
+
+  const productRail = page.locator(".marketing-capability-track");
+  await expect.poll(() => productRail.evaluate((element) => element.scrollWidth > element.clientWidth)).toBe(true);
+  await page.getByRole("button", { name: "Next product" }).click();
+  await expect(page.getByRole("button", { name: "Show Checkout" })).toHaveAttribute("aria-pressed", "true");
+
+  const footer = page.getByRole("contentinfo");
+  await expect(footer.getByRole("link", { name: "Privacy policy" })).toHaveAttribute("href", "/legal/privacy");
+  await expect(footer.getByRole("link", { name: "Terms of service" })).toHaveAttribute("href", "/legal/terms");
+  await expect(footer.getByText(/Acru is not a bank/)).toBeVisible();
+
+  if (testInfo.project.name === "mobile-390") {
+    const menu = page.locator(".marketing-mobile-menu summary");
+    await expect(menu).toBeVisible();
+    await expect(page.getByRole("navigation", { name: "Main navigation" })).toBeHidden();
+    await menu.click();
+    await expect(page.getByRole("navigation", { name: "Mobile navigation" })).toBeVisible();
+  }
+});
+
+test("public policy pages render outside the authenticated console", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop-1440");
+  await page.goto("/legal/privacy");
+
+  await expect(page.getByRole("heading", { name: "Privacy policy", level: 1 })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Information we collect" })).toBeVisible();
+  await expect(page.locator(".app-shell")).toHaveCount(0);
+  await expect
+    .poll(() => page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1))
+    .toBe(true);
+});
+
 test("every merchant route renders without runtime or horizontal-overflow failures", async ({ page }, testInfo) => {
   const runtimeErrors: string[] = [];
   page.on("pageerror", (error) => runtimeErrors.push(error.message));

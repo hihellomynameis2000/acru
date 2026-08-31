@@ -223,6 +223,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
   const authRoute = ["/login", "/sign-in", "/sign-up", "/forgot-password", "/confirm-email"].includes(pathname);
+  const publicRoute = pathname === "/" || pathname.startsWith("/legal/");
   const onboardingRoute = pathname === "/onboarding";
   const standalonePortalRoute = pathname === "/sandbox" || pathname === "/partners" || pathname === "/admin";
   const searchRef = useRef<HTMLDivElement>(null);
@@ -239,7 +240,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const [organizationOpen, setOrganizationOpen] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [activeWorkspaceId, setActiveWorkspaceId] = useState(workspaceAccounts[0].id);
-  const [accessReady, setAccessReady] = useState(authRoute);
+  const [accessReady, setAccessReady] = useState(authRoute || publicRoute);
   const [notifications, setNotifications] = useState(initialNotifications);
   const [query, setQuery] = useState("");
   const [activeResult, setActiveResult] = useState(0);
@@ -255,7 +256,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const unreadCount = notifications.filter((notification) => !notification.read).length;
 
   useEffect(() => {
-    if (authRoute) return;
+    if (authRoute || publicRoute) return;
     const timer = window.setTimeout(() => {
       setAccessReady(false);
       if (["localhost", "127.0.0.1"].includes(window.location.hostname)) {
@@ -275,7 +276,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       setAccessReady(true);
     }, 0);
     return () => window.clearTimeout(timer);
-  }, [authRoute, onboardingRoute, pathname, router]);
+  }, [authRoute, onboardingRoute, pathname, publicRoute, router]);
 
   useEffect(() => {
     function handleShortcut(event: KeyboardEvent) {
@@ -366,7 +367,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const activeWorkspace =
     workspaceAccounts.find((workspace) => workspace.id === activeWorkspaceId) ?? workspaceAccounts[0];
 
-  if (authRoute) return <>{children}</>;
+  if (authRoute || publicRoute) return <>{children}</>;
   if (!accessReady)
     return (
       <main className="onboarding-loading">

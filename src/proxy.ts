@@ -76,7 +76,7 @@ export function proxy(request: NextRequest) {
   }
 
   if (portal === "merchant") {
-    if (pathname === "/") {
+    if (pathname === "/" && hostname === "merchants.acrudevelopment.com") {
       url.pathname = "/dashboard";
       return NextResponse.redirect(url);
     }
