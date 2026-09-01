@@ -33,7 +33,6 @@ export function MarketingMobileMenu() {
       >
         <div className="marketing-mobile-menu-panel">
           <div className="marketing-mobile-menu-heading">
-            <span>Menu</span>
             <button aria-label="Close navigation" onClick={closeMenu} type="button">
               <XIcon aria-hidden="true" />
             </button>

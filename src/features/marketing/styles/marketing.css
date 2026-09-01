@@ -29,11 +29,13 @@
 }
 
 .marketing-header {
-  position: relative;
-  z-index: 20;
+  position: sticky;
+  z-index: 50;
+  top: 0;
   min-height: 72px;
   border-bottom: 1px solid rgb(51 76 93 / 8%);
-  background: rgb(255 255 255 / 94%);
+  background: rgb(255 255 255 / 92%);
+  backdrop-filter: blur(18px) saturate(140%);
 }
 
 .marketing-header-inner {
@@ -63,7 +65,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(30px, 4vw, 58px);
+  gap: clamp(2px, 0.8vw, 10px);
 }
 
 .marketing-navigation a,
@@ -74,30 +76,15 @@
 }
 
 .marketing-navigation a {
-  position: relative;
-  padding: 12px 0;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background 140ms ease;
 }
 
-.marketing-navigation a::after {
-  position: absolute;
-  right: 0;
-  bottom: 6px;
-  left: 0;
-  height: 2px;
-  border-radius: 99px;
-  background: var(--marketing-blue);
-  content: "";
-  opacity: 0;
-  transform: scaleX(0.4);
-  transition:
-    opacity 160ms ease,
-    transform 160ms ease;
-}
-
-.marketing-navigation a:hover::after,
-.marketing-navigation a:focus-visible::after {
-  opacity: 1;
-  transform: scaleX(1);
+.marketing-navigation a:hover,
+.marketing-navigation a:focus-visible,
+.marketing-sign-in:hover {
+  background: #f1f2f2;
 }
 
 .marketing-sign-in {
@@ -105,7 +92,9 @@
   align-items: center;
   justify-self: end;
   gap: 9px;
-  padding: 12px 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 140ms ease;
 }
 
 .marketing-sign-in svg {
@@ -124,11 +113,16 @@
   height: 40px;
   padding: 0;
   place-items: center;
-  border: 1px solid #d9e5ea;
-  border-radius: 13px;
+  border: 0;
+  border-radius: 8px;
   color: #294555;
-  background: #eef6fa;
+  background: transparent;
   cursor: pointer;
+  transition: background 140ms ease;
+}
+
+.marketing-mobile-menu-trigger:hover {
+  background: #f1f2f2;
 }
 
 .marketing-mobile-menu-trigger svg {
@@ -139,23 +133,23 @@
 .marketing-mobile-menu-dialog {
   width: auto;
   max-width: none;
-  max-height: calc(100dvh - 76px);
+  max-height: none;
   padding: 0;
   border: 0;
   color: var(--marketing-ink);
-  background: transparent;
+  background: #fff;
 }
 
 .marketing-mobile-menu-dialog::backdrop {
-  background: rgb(35 55 66 / 16%);
-  backdrop-filter: blur(2px);
+  background: transparent;
 }
 
 .marketing-mobile-menu-panel {
-  padding: 18px 20px 22px;
+  min-height: 100%;
+  padding: 8px 16px 24px;
   border: 0;
-  border-top: 1px solid #e1e8eb;
-  border-radius: 0 0 20px 20px;
+  border-top: 1px solid #edf0f1;
+  border-radius: 0;
   background: #fff;
 }
 
@@ -163,16 +157,8 @@
   display: flex;
   min-height: 48px;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 0 0 12px;
-}
-
-.marketing-mobile-menu-heading span {
-  color: #294555;
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: -0.04em;
+  justify-content: flex-end;
+  padding: 0;
 }
 
 .marketing-mobile-menu-heading button {
@@ -182,11 +168,16 @@
   flex: 0 0 auto;
   padding: 0;
   place-items: center;
-  border: 1px solid #dce6ea;
-  border-radius: 50%;
+  border: 0;
+  border-radius: 8px;
   color: #294555;
-  background: #f1f6f8;
+  background: transparent;
   cursor: pointer;
+  transition: background 140ms ease;
+}
+
+.marketing-mobile-menu-heading button:hover {
+  background: #f1f2f2;
 }
 
 .marketing-mobile-menu-heading button svg {
@@ -196,7 +187,7 @@
 
 .marketing-mobile-menu nav {
   display: grid;
-  border-top: 1px solid #e5ebee;
+  gap: 2px;
 }
 
 .marketing-mobile-menu nav a {
@@ -205,14 +196,20 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 0 2px;
-  border-bottom: 1px solid #e5ebee;
-  border-radius: 0;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 8px;
   color: #2f4b5b;
   background: transparent;
   font-size: 15px;
   font-weight: 560;
   letter-spacing: -0.02em;
+  transition: background 140ms ease;
+}
+
+.marketing-mobile-menu nav a:hover,
+.marketing-mobile-menu-sign-in:hover {
+  background: #f1f2f2;
 }
 
 .marketing-mobile-menu-sign-in svg {
@@ -222,24 +219,24 @@
 }
 
 .marketing-mobile-menu-sign-in {
-  display: grid;
+  display: flex;
   min-height: 52px;
   align-items: center;
   gap: 11px;
-  margin-top: 12px;
+  margin-top: 8px;
   padding: 0 14px;
-  border: 1px solid #dce6ea;
-  border-radius: 14px;
+  border: 0;
+  border-radius: 8px;
   color: #294555 !important;
-  background: #f1f6f8;
+  background: transparent;
   font-size: 14px;
   font-weight: 600;
-  grid-template-columns: auto 1fr;
+  transition: background 140ms ease;
 }
 
 .marketing-mobile-menu button:focus-visible,
 .marketing-mobile-menu a:focus-visible {
-  outline: 2px solid #9ecde2;
+  outline: 2px solid #8d989e;
   outline-offset: 2px;
 }
 
@@ -290,24 +287,24 @@
 .marketing-hero-actions {
   display: flex;
   align-items: center;
-  gap: 34px;
+  gap: 12px;
   margin-top: 34px;
 }
 
 .marketing-primary-action,
 .marketing-secondary-action {
   display: inline-flex;
-  min-height: 54px;
+  width: 164px;
+  height: 40px;
   align-items: center;
   justify-content: center;
-  border-radius: 9px;
-  font-size: 16px;
+  border-radius: 5px;
+  font-size: 13px;
   font-weight: 600;
 }
 
 .marketing-primary-action {
-  min-width: 230px;
-  padding: 0 30px;
+  padding: 0 20px;
   color: #fff !important;
   background: #49a2d5;
   transition: background 160ms ease;
@@ -318,19 +315,13 @@
 }
 
 .marketing-secondary-action {
-  gap: 8px;
-  padding: 0 4px;
+  padding: 0 20px;
+  background: #f1f2f2;
+  transition: background 160ms ease;
 }
 
-.marketing-secondary-action span {
-  font-size: 28px;
-  font-weight: 400;
-  line-height: 1;
-  transition: transform 160ms ease;
-}
-
-.marketing-secondary-action:hover span {
-  transform: translateX(4px);
+.marketing-secondary-action:hover {
+  background: #e7e9ea;
 }
 
 .marketing-product-stage {
@@ -885,6 +876,25 @@
 
 .marketing-final-cta h2 {
   max-width: 760px;
+}
+
+.marketing-final-cta-action {
+  display: inline-flex;
+  width: 164px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
+  border-radius: 5px;
+  color: #fff !important;
+  background: #49a2d5;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 160ms ease;
+}
+
+.marketing-final-cta-action:hover {
+  background: #358fca;
 }
 
 .marketing-footer {
@@ -1619,6 +1629,7 @@
   .marketing-mobile-menu-dialog {
     inset: 58px 0 auto;
     width: 100%;
+    height: calc(100dvh - 58px);
     margin: 0;
   }
 

@@ -27,7 +27,7 @@ export function MarketingHome() {
                 Learn more
               </Link>
               <a className="marketing-secondary-action" href="mailto:sales@acru.com?subject=Acru%20platform%20demo">
-                See a demo <span aria-hidden="true">›</span>
+                See a demo
               </a>
             </div>
           </div>
@@ -108,6 +108,9 @@ export function MarketingHome() {
 
         <section className="marketing-final-cta" id="pricing">
           <h2>Make your financial infrastructure an advantage.</h2>
+          <Link className="marketing-final-cta-action" href="/sign-up">
+            Apply now
+          </Link>
         </section>
       </main>
 

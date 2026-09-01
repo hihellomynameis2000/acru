@@ -21,6 +21,20 @@ test("public homepage is responsive, branded, and links to real policies", async
   await expect(page.getByText("A platform that grows with you", { exact: true })).toHaveCount(0);
   await expect(page.getByText(/Tell us what you are building/)).toHaveCount(0);
   await expect(page.locator(".app-shell")).toHaveCount(0);
+  await expect(page.getByRole("link", { name: "Apply now" })).toHaveAttribute("href", "/sign-up");
+  await expect
+    .poll(() => page.locator(".marketing-header").evaluate((element) => getComputedStyle(element).position))
+    .toBe("sticky");
+
+  await page.locator(".marketing-intro").evaluate((element) => element.scrollIntoView({ block: "start" }));
+  await expect
+    .poll(() =>
+      page
+        .locator(".marketing-scroll-reveal-word")
+        .last()
+        .evaluate((element) => ({ color: getComputedStyle(element).color, opacity: getComputedStyle(element).opacity }))
+    )
+    .toEqual({ color: "rgb(51, 76, 93)", opacity: "1" });
 
   const stage = page.locator(".marketing-product-stage");
   const stageGeometry = await stage.evaluate((element) => {
@@ -43,6 +57,31 @@ test("public homepage is responsive, branded, and links to real policies", async
   await expect(page.getByRole("button", { name: "Show Checkout" })).toHaveAttribute("aria-pressed", "true");
 
   if (testInfo.project.name === "desktop-1440") {
+    const primaryAction = page.getByRole("link", { name: "Learn more" });
+    const secondaryAction = page.getByRole("link", { name: "See a demo" });
+    const applyAction = page.getByRole("link", { name: "Apply now" });
+    const actionSizes = await Promise.all(
+      [primaryAction, secondaryAction, applyAction].map((action) =>
+        action.evaluate((element) => {
+          const bounds = element.getBoundingClientRect();
+          return { height: bounds.height, width: bounds.width };
+        })
+      )
+    );
+    expect(actionSizes).toEqual([
+      { height: 40, width: 164 },
+      { height: 40, width: 164 },
+      { height: 40, width: 164 }
+    ]);
+
+    const productsNavigation = page.getByRole("navigation", { name: "Main navigation" }).getByRole("link", {
+      name: "Products"
+    });
+    await productsNavigation.hover();
+    await expect
+      .poll(() => productsNavigation.evaluate((element) => getComputedStyle(element).backgroundColor))
+      .toBe("rgb(241, 242, 242)");
+
     const nextButton = page.getByRole("button", { name: "Next product" });
     await nextButton.hover();
     await expect
@@ -81,7 +120,8 @@ test("public homepage is responsive, branded, and links to real policies", async
     await expect(mobileSignIn).toBeVisible();
     await expect
       .poll(() => mobileSignIn.evaluate((element) => getComputedStyle(element).backgroundColor))
-      .toBe("rgb(241, 246, 248)");
+      .toBe("rgba(0, 0, 0, 0)");
+    await expect(page.getByText("Menu", { exact: true })).toHaveCount(0);
     await expect(page.getByRole("button", { name: "Close navigation" })).toBeFocused();
 
     const menuGeometry = await page.locator(".marketing-mobile-menu-dialog").evaluate((element) => {
