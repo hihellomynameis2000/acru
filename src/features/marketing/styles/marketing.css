@@ -379,7 +379,7 @@
 .marketing-scroll-reveal-word {
   --word-progress: 0;
 
-  color: #171717;
+  color: var(--marketing-ink);
   font-weight: 500;
   opacity: calc(0.34 + (var(--word-progress) * 0.66));
   transition: opacity 80ms linear;
