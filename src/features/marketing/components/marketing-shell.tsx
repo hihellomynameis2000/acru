@@ -1,7 +1,8 @@
-import { MenuIcon, ProfileIcon } from "@shopify/polaris-icons";
+import { ProfileIcon } from "@shopify/polaris-icons";
 import Image from "next/image";
 import Link from "next/link";
 
+import { MarketingMobileMenu } from "@/features/marketing/components/marketing-mobile-menu";
 import { footerColumns, marketingNavigation } from "@/features/marketing/data/marketing";
 
 export function MarketingHeader() {
@@ -25,22 +26,7 @@ export function MarketingHeader() {
           Sign in
         </Link>
 
-        <details className="marketing-mobile-menu">
-          <summary aria-label="Open navigation">
-            <MenuIcon aria-hidden="true" />
-          </summary>
-          <nav aria-label="Mobile navigation">
-            {marketingNavigation.map((item) => (
-              <Link href={item.href} key={item.label}>
-                {item.label}
-              </Link>
-            ))}
-            <Link href="/sign-in">
-              <ProfileIcon aria-hidden="true" />
-              Sign in
-            </Link>
-          </nav>
-        </details>
+        <MarketingMobileMenu />
       </div>
     </header>
   );

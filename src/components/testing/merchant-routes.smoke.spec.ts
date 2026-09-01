@@ -39,11 +39,38 @@ test("public homepage is responsive, branded, and links to real policies", async
   await expect(footer.getByText(/Acru is not a bank/)).toBeVisible();
 
   if (testInfo.project.name === "mobile-390") {
-    const menu = page.locator(".marketing-mobile-menu summary");
+    const menu = page.getByRole("button", { name: "Open navigation" });
     await expect(menu).toBeVisible();
     await expect(page.getByRole("navigation", { name: "Main navigation" })).toBeHidden();
+
+    const headerGeometry = await page.locator(".marketing-header").evaluate((element) => {
+      const brand = element.querySelector<HTMLElement>(".marketing-brand");
+      const bounds = element.getBoundingClientRect();
+      return { brandWidth: brand?.getBoundingClientRect().width ?? 0, height: bounds.height };
+    });
+    expect(headerGeometry.height).toBeLessThanOrEqual(60);
+    expect(headerGeometry.brandWidth).toBeLessThanOrEqual(100);
+
     await menu.click();
     await expect(page.getByRole("navigation", { name: "Mobile navigation" })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Sign in to Acru" })).toBeVisible();
+    await expect(page.getByRole("button", { name: "Close navigation" })).toBeFocused();
+
+    const menuGeometry = await page.locator(".marketing-mobile-menu-dialog").evaluate((element) => {
+      const bounds = element.getBoundingClientRect();
+      return {
+        left: bounds.left,
+        right: bounds.right,
+        viewportWidth: document.documentElement.clientWidth,
+        width: bounds.width
+      };
+    });
+    expect(menuGeometry.left).toBeGreaterThanOrEqual(11);
+    expect(menuGeometry.right).toBeLessThanOrEqual(menuGeometry.viewportWidth - 11);
+    expect(menuGeometry.width).toBeGreaterThanOrEqual(360);
+
+    await page.keyboard.press("Escape");
+    await expect(page.getByRole("navigation", { name: "Mobile navigation" })).toBeHidden();
   }
 });
 
