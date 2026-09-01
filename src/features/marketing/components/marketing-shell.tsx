@@ -36,16 +36,11 @@ export function MarketingFooter() {
   return (
     <footer className="marketing-footer">
       <div className="marketing-footer-main">
-        <section className="marketing-footer-brand" aria-labelledby="footer-brand-heading">
+        <div className="marketing-footer-brand">
           <Link aria-label="Acru home" href="/">
             <Image alt="" height={323} src="/marketing/acru-wordmark.png" width={660} />
           </Link>
-          <h2 id="footer-brand-heading">Infrastructure for the businesses shaping what comes next.</h2>
-          <p>Accept payments, manage revenue, and move money from one operating platform.</p>
-          <a className="marketing-footer-sales" href="mailto:sales@acru.com?subject=Acru%20platform%20demo">
-            Talk to sales <span aria-hidden="true">→</span>
-          </a>
-        </section>
+        </div>
 
         <nav aria-label="Footer navigation" className="marketing-footer-columns">
           {footerColumns.map((column) => (

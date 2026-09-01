@@ -124,10 +124,10 @@
   height: 40px;
   padding: 0;
   place-items: center;
-  border: 0;
+  border: 1px solid #d9e5ea;
   border-radius: 13px;
-  color: #fff;
-  background: #263f4e;
+  color: #294555;
+  background: #eef6fa;
   cursor: pointer;
 }
 
@@ -147,37 +147,32 @@
 }
 
 .marketing-mobile-menu-dialog::backdrop {
-  background: rgb(25 42 51 / 38%);
-  backdrop-filter: blur(5px);
+  background: rgb(35 55 66 / 16%);
+  backdrop-filter: blur(2px);
 }
 
 .marketing-mobile-menu-panel {
-  padding: 18px;
-  border: 1px solid #dce4e8;
-  border-radius: 24px;
+  padding: 18px 20px 22px;
+  border: 0;
+  border-top: 1px solid #e1e8eb;
+  border-radius: 0 0 20px 20px;
   background: #fff;
 }
 
 .marketing-mobile-menu-heading {
   display: flex;
-  align-items: flex-start;
+  min-height: 48px;
+  align-items: center;
   justify-content: space-between;
   gap: 20px;
-  padding: 4px 4px 18px;
+  padding: 0 0 12px;
 }
 
 .marketing-mobile-menu-heading span {
   color: #294555;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.04em;
-}
-
-.marketing-mobile-menu-heading p {
-  margin: 4px 0 0;
-  color: #71838d;
-  font-size: 11px;
-  line-height: 1.45;
 }
 
 .marketing-mobile-menu-heading button {
@@ -187,10 +182,10 @@
   flex: 0 0 auto;
   padding: 0;
   place-items: center;
-  border: 0;
-  border-radius: 12px;
-  color: #fff;
-  background: #263f4e;
+  border: 1px solid #dce6ea;
+  border-radius: 50%;
+  color: #294555;
+  background: #f1f6f8;
   cursor: pointer;
 }
 
@@ -201,25 +196,25 @@
 
 .marketing-mobile-menu nav {
   display: grid;
-  gap: 6px;
+  border-top: 1px solid #e5ebee;
 }
 
 .marketing-mobile-menu nav a {
   display: flex;
-  min-height: 54px;
+  min-height: 52px;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 0 17px;
-  border-radius: 17px;
+  padding: 0 2px;
+  border-bottom: 1px solid #e5ebee;
+  border-radius: 0;
   color: #2f4b5b;
-  background: #f3f6f7;
+  background: transparent;
   font-size: 15px;
   font-weight: 560;
   letter-spacing: -0.02em;
 }
 
-.marketing-mobile-menu nav a svg,
 .marketing-mobile-menu-sign-in svg {
   width: 18px;
   height: 18px;
@@ -228,17 +223,24 @@
 
 .marketing-mobile-menu-sign-in {
   display: grid;
-  min-height: 56px;
+  min-height: 52px;
   align-items: center;
   gap: 11px;
-  margin-top: 10px;
-  padding: 0 17px;
-  border-radius: 17px;
-  color: #fff !important;
-  background: #479fd1;
+  margin-top: 12px;
+  padding: 0 14px;
+  border: 1px solid #dce6ea;
+  border-radius: 14px;
+  color: #294555 !important;
+  background: #f1f6f8;
   font-size: 14px;
   font-weight: 600;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr;
+}
+
+.marketing-mobile-menu button:focus-visible,
+.marketing-mobile-menu a:focus-visible {
+  outline: 2px solid #9ecde2;
+  outline-offset: 2px;
 }
 
 .marketing-hero {
@@ -273,7 +275,7 @@
 .marketing-hero h1 span {
   display: block;
   color: transparent;
-  background: linear-gradient(90deg, #4b9ed1 0%, #a5d9f5 82%);
+  background: linear-gradient(90deg, #4498ce 0%, #c2e9fb 50%, #4498ce 100%);
   background-clip: text;
   -webkit-background-clip: text;
 }
@@ -337,7 +339,7 @@
   aspect-ratio: 1 / 1;
   overflow: hidden;
   border-radius: 26px;
-  background-image: linear-gradient(0deg, rgb(68 152 206) 0%, rgb(194 233 251) 100%);
+  background-image: linear-gradient(90deg, #4498ce 0%, #c2e9fb 50%, #4498ce 100%);
   box-shadow: 0 30px 70px rgb(46 120 163 / 20%);
 }
 
@@ -369,15 +371,18 @@
 
 .marketing-intro p {
   margin: 0;
-  color: #9b9b9b;
   font-size: clamp(24px, 2.5vw, 34px);
   letter-spacing: -0.045em;
   line-height: 1.25;
 }
 
-.marketing-intro strong {
+.marketing-scroll-reveal-word {
+  --word-progress: 0;
+
   color: #171717;
   font-weight: 500;
+  opacity: calc(0.34 + (var(--word-progress) * 0.66));
+  transition: opacity 80ms linear;
 }
 
 .marketing-platform-section {
@@ -408,9 +413,8 @@
   line-height: 1.08;
 }
 
-.marketing-developer-section > div:first-child > p:nth-of-type(2),
-.marketing-trust-copy > p:last-child,
-.marketing-final-cta > p:nth-of-type(2) {
+.marketing-developer-section > div:first-child > p,
+.marketing-trust-copy > p {
   max-width: 680px;
   margin: 22px 0 0;
   color: var(--marketing-muted);
@@ -457,6 +461,7 @@
 .marketing-carousel-controls svg {
   width: 24px;
   height: 24px;
+  fill: currentColor;
 }
 
 .marketing-capability-track {
@@ -740,21 +745,17 @@
   scroll-margin-top: 90px;
 }
 
-.marketing-developer-section .marketing-eyebrow {
-  color: #75c4ee;
-}
-
 .marketing-developer-section h2,
 .marketing-trust-copy h2,
 .marketing-final-cta h2 {
-  margin-top: 13px;
+  margin-top: 0;
 }
 
 .marketing-developer-section h2 {
   color: #fff;
 }
 
-.marketing-developer-section > div:first-child > p:nth-of-type(2) {
+.marketing-developer-section > div:first-child > p {
   color: #b9c6cd;
 }
 
@@ -841,24 +842,35 @@
 }
 
 .marketing-trust-section dl div {
-  display: flex;
-  min-height: 78px;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  display: grid;
+  min-height: 108px;
+  align-items: start;
+  gap: 28px;
+  padding: 24px 0;
   border-bottom: 1px solid #d9e2e6;
+  grid-template-columns: minmax(170px, 0.8fr) minmax(0, 1.2fr);
 }
 
 .marketing-trust-section dt {
-  color: #7c8b94;
-  font-size: 14px;
+  display: grid;
+  color: #2d4757;
+  font-size: 16px;
+  font-weight: 600;
+  gap: 8px;
+}
+
+.marketing-trust-section dt span {
+  color: #67add3;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.12em;
 }
 
 .marketing-trust-section dd {
   margin: 0;
-  color: #2d4757;
-  font-size: 17px;
-  font-weight: 600;
+  color: #697d88;
+  font-size: 13px;
+  line-height: 1.65;
 }
 
 .marketing-final-cta {
@@ -875,32 +887,6 @@
   max-width: 760px;
 }
 
-.marketing-final-cta > p:nth-of-type(2) {
-  color: #5e7583;
-}
-
-.marketing-final-cta > div {
-  display: flex;
-  gap: 12px;
-  margin-top: 34px;
-}
-
-.marketing-final-cta > div a {
-  display: inline-flex;
-  min-height: 50px;
-  align-items: center;
-  justify-content: center;
-  padding: 0 26px;
-  border: 1px solid #315264;
-  border-radius: 9px;
-  font-weight: 600;
-}
-
-.marketing-final-cta > div a:first-child {
-  color: #fff;
-  background: #315264;
-}
-
 .marketing-footer {
   color: #d9e4e9;
   background: #142733;
@@ -915,9 +901,9 @@
 
 .marketing-footer-main {
   display: grid;
-  gap: clamp(60px, 9vw, 130px);
+  gap: clamp(48px, 7vw, 96px);
   padding: 86px 0 70px;
-  grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.5fr);
+  grid-template-columns: minmax(150px, 0.35fr) minmax(0, 1.65fr);
 }
 
 .marketing-footer-brand > a:first-child {
@@ -933,34 +919,6 @@
   height: auto;
   filter: brightness(0) invert(1);
   opacity: 0.94;
-}
-
-.marketing-footer-brand h2 {
-  max-width: 420px;
-  margin: 25px 0 0;
-  color: #fff;
-  font-size: 27px;
-  font-weight: 500;
-  letter-spacing: -0.045em;
-  line-height: 1.25;
-}
-
-.marketing-footer-brand p {
-  max-width: 420px;
-  margin: 17px 0 0;
-  color: #91a5b0;
-  font-size: 14px;
-  line-height: 1.65;
-}
-
-.marketing-footer-sales {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 26px;
-  color: #8ed3f4 !important;
-  font-size: 14px;
-  font-weight: 600;
 }
 
 .marketing-footer-columns {
@@ -1072,11 +1030,9 @@
   grid-template-columns: minmax(0, 1fr) 300px;
 }
 
-.legal-eyebrow,
 .legal-center-hero > p,
 .legal-center-section-heading > p,
-.legal-center-contact > div:first-child > p,
-.legal-related > div > p {
+.legal-center-contact > div:first-child > p {
   margin: 0;
   color: #3d96c7;
   font-size: 11px;
@@ -1087,12 +1043,19 @@
 
 .legal-hero h1,
 .legal-center-hero h1 {
-  margin: 14px 0 0;
   color: #253f4f;
   font-size: clamp(48px, 6vw, 76px);
   font-weight: 500;
   letter-spacing: -0.06em;
   line-height: 1.03;
+}
+
+.legal-hero h1 {
+  margin: 0;
+}
+
+.legal-center-hero h1 {
+  margin: 14px 0 0;
 }
 
 .legal-description,
@@ -1199,6 +1162,8 @@
   padding-right: 16px;
   scrollbar-color: #c4d0d6 transparent;
   scrollbar-width: thin;
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
 }
 
 .legal-toc nav a {
@@ -1216,6 +1181,11 @@
 .legal-toc nav a[aria-current="location"] {
   border-left-color: #409dcf;
   color: #315568;
+}
+
+.legal-toc nav a:focus-visible {
+  outline: 0;
+  background: #f1f7f9;
 }
 
 .legal-toc nav a[aria-current="location"] {
@@ -1398,7 +1368,7 @@
 }
 
 .legal-related h2 {
-  margin: 10px 0 0;
+  margin: 0;
   color: #294555;
   font-size: 25px;
   font-weight: 540;
@@ -1613,8 +1583,8 @@
   }
 
   .marketing-mobile-menu-dialog {
-    inset: 66px 12px auto;
-    width: calc(100% - 24px);
+    inset: 58px 0 auto;
+    width: 100%;
     margin: 0;
   }
 
@@ -1679,6 +1649,11 @@
   .marketing-trust-section {
     gap: 46px;
     padding-bottom: 90px;
+  }
+
+  .marketing-trust-section dl div {
+    gap: 10px;
+    grid-template-columns: 1fr;
   }
 
   .marketing-footer-main {

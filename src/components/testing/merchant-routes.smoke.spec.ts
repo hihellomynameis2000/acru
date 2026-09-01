@@ -11,6 +11,15 @@ test("public homepage is responsive, branded, and links to real policies", async
   ).toBeVisible();
   await expect(page.getByRole("heading", { name: "Payments fueling growth, built for scale." })).toBeVisible();
   await expect(page.getByRole("img", { name: "Payment methods connected to an approved Acru payment" })).toBeVisible();
+  await expect(page.locator(".marketing-trust-section dt", { hasText: "Every cent accounted for" })).toBeVisible();
+  await expect(page.locator(".marketing-trust-section dt", { hasText: "Access with clear boundaries" })).toBeVisible();
+  await expect(page.locator(".marketing-trust-section dt", { hasText: "Issues visible in real time" })).toBeVisible();
+  await expect(page.getByText("Ledger-first", { exact: true })).toHaveCount(0);
+  await expect(page.locator(".marketing-scroll-reveal-word")).toHaveCount(21);
+  await expect(page.getByText("Built for integration", { exact: true })).toHaveCount(0);
+  await expect(page.getByText("Designed for serious operations", { exact: true })).toHaveCount(0);
+  await expect(page.getByText("A platform that grows with you", { exact: true })).toHaveCount(0);
+  await expect(page.getByText(/Tell us what you are building/)).toHaveCount(0);
   await expect(page.locator(".app-shell")).toHaveCount(0);
 
   const stage = page.locator(".marketing-product-stage");
@@ -33,7 +42,18 @@ test("public homepage is responsive, branded, and links to real policies", async
   await page.getByRole("button", { name: "Next product" }).click();
   await expect(page.getByRole("button", { name: "Show Checkout" })).toHaveAttribute("aria-pressed", "true");
 
+  if (testInfo.project.name === "desktop-1440") {
+    const nextButton = page.getByRole("button", { name: "Next product" });
+    await nextButton.hover();
+    await expect
+      .poll(() => nextButton.locator("svg").evaluate((element) => getComputedStyle(element).fill))
+      .toBe("rgb(255, 255, 255)");
+  }
+
   const footer = page.getByRole("contentinfo");
+  await expect(footer.getByText(/Infrastructure for the businesses shaping what comes next/)).toHaveCount(0);
+  await expect(footer.getByText(/Accept payments, manage revenue/)).toHaveCount(0);
+  await expect(footer.getByText("Talk to sales", { exact: true })).toHaveCount(0);
   await expect(footer.getByRole("link", { name: "Privacy policy" })).toHaveAttribute("href", "/legal/privacy");
   await expect(footer.getByRole("link", { name: "Terms of service" })).toHaveAttribute("href", "/legal/terms");
   await expect(footer.getByText(/Acru is not a bank/)).toBeVisible();
@@ -53,7 +73,11 @@ test("public homepage is responsive, branded, and links to real policies", async
 
     await menu.click();
     await expect(page.getByRole("navigation", { name: "Mobile navigation" })).toBeVisible();
-    await expect(page.getByRole("link", { name: "Sign in to Acru" })).toBeVisible();
+    const mobileSignIn = page.getByRole("link", { name: "Sign in" });
+    await expect(mobileSignIn).toBeVisible();
+    await expect
+      .poll(() => mobileSignIn.evaluate((element) => getComputedStyle(element).backgroundColor))
+      .toBe("rgb(241, 246, 248)");
     await expect(page.getByRole("button", { name: "Close navigation" })).toBeFocused();
 
     const menuGeometry = await page.locator(".marketing-mobile-menu-dialog").evaluate((element) => {
@@ -65,9 +89,9 @@ test("public homepage is responsive, branded, and links to real policies", async
         width: bounds.width
       };
     });
-    expect(menuGeometry.left).toBeGreaterThanOrEqual(11);
-    expect(menuGeometry.right).toBeLessThanOrEqual(menuGeometry.viewportWidth - 11);
-    expect(menuGeometry.width).toBeGreaterThanOrEqual(360);
+    expect(menuGeometry.left).toBe(0);
+    expect(menuGeometry.right).toBe(menuGeometry.viewportWidth);
+    expect(menuGeometry.width).toBe(menuGeometry.viewportWidth);
 
     await page.keyboard.press("Escape");
     await expect(page.getByRole("navigation", { name: "Mobile navigation" })).toBeHidden();
@@ -83,6 +107,8 @@ test("official legal center and policy pages are responsive and navigable", asyn
   await page.goto("/legal/privacy");
 
   await expect(page.getByRole("heading", { name: "Privacy Policy", level: 1 })).toBeVisible();
+  await expect(page.getByText("Official policy", { exact: true })).toHaveCount(0);
+  await expect(page.getByText("Related policy", { exact: true })).toHaveCount(0);
   await expect(page.getByRole("heading", { name: "3. Personal Information We Collect" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "17. California Privacy Notice" })).toBeVisible();
   const retentionTable = page.getByRole("table", { name: "12. Data Retention details" });
@@ -100,7 +126,18 @@ test("official legal center and policy pages are responsive and navigable", asyn
     await page.locator(".legal-mobile-toc summary").click();
     await expect(page.getByRole("navigation", { name: "On this page" })).toBeVisible();
   } else {
-    await expect(page.locator(".legal-toc")).toBeVisible();
+    const tableOfContents = page.locator(".legal-toc");
+    await expect(tableOfContents).toBeVisible();
+
+    await tableOfContents.getByRole("link", { name: "12. Data Retention" }).click();
+    await expect
+      .poll(() => tableOfContents.locator('[aria-current="location"]').getAttribute("href"))
+      .toBe("#12-data-retention");
+
+    await tableOfContents.getByRole("link", { name: "11. Marketing Communications" }).click();
+    await expect
+      .poll(() => tableOfContents.locator('[aria-current="location"]').getAttribute("href"))
+      .toBe("#11-marketing-communications");
   }
 
   await page.goto("/legal/terms");

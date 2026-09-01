@@ -23,7 +23,6 @@ export function LegalPage({ document }: { document: LegalDocument }) {
 
             <div className="legal-hero-grid">
               <div>
-                <p className="legal-eyebrow">Official policy</p>
                 <h1>{document.title}</h1>
                 <p className="legal-description">{document.description}</p>
               </div>
@@ -78,7 +77,6 @@ export function LegalPage({ document }: { document: LegalDocument }) {
           {relatedDocument ? (
             <aside className="legal-related" aria-labelledby="related-policy-heading">
               <div>
-                <p>Related policy</p>
                 <h2 id="related-policy-heading">{relatedDocument.title}</h2>
                 <span>{relatedDocument.description}</span>
               </div>

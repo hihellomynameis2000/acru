@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { MarketingFooter, MarketingHeader } from "@/features/marketing/components/marketing-shell";
 import { PlatformCarousel } from "@/features/marketing/components/platform-carousel";
+import { ScrollRevealCopy } from "@/features/marketing/components/scroll-reveal-copy";
 import { operatingPrinciples } from "@/features/marketing/data/marketing";
 
 export function MarketingHome() {
@@ -45,17 +46,16 @@ export function MarketingHome() {
         </section>
 
         <section className="marketing-intro" id="about">
-          <p>
-            <strong>Acru combines payment infrastructure into one unified operating system</strong> built for creators,
-            software companies, agencies, and growing businesses around the world.
-          </p>
+          <ScrollRevealCopy>
+            Acru combines payment infrastructure into one unified operating system built for creators, software
+            companies, agencies, and growing businesses around the world.
+          </ScrollRevealCopy>
         </section>
 
         <PlatformCarousel />
 
         <section className="marketing-developer-section" id="developers">
           <div>
-            <p className="marketing-eyebrow">Built for integration</p>
             <h2>Powerful enough for developers. Clear enough for everyone else.</h2>
             <p>
               One API and one operating console connect payments, customers, subscriptions, payouts, reporting, and
@@ -87,7 +87,6 @@ export function MarketingHome() {
 
         <section className="marketing-trust-section" id="solutions">
           <div className="marketing-trust-copy" id="security">
-            <p className="marketing-eyebrow">Designed for serious operations</p>
             <h2>Enterprise controls without enterprise complexity.</h2>
             <p>
               Keep sensitive work deliberate with granular access, configurable approvals, complete activity history,
@@ -95,23 +94,20 @@ export function MarketingHome() {
             </p>
           </div>
           <dl>
-            {operatingPrinciples.map((principle) => (
-              <div key={principle.label}>
-                <dt>{principle.label}</dt>
-                <dd>{principle.value}</dd>
+            {operatingPrinciples.map((principle, index) => (
+              <div key={principle.title}>
+                <dt>
+                  <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                  {principle.title}
+                </dt>
+                <dd>{principle.description}</dd>
               </div>
             ))}
           </dl>
         </section>
 
         <section className="marketing-final-cta" id="pricing">
-          <p className="marketing-eyebrow">A platform that grows with you</p>
           <h2>Make your financial infrastructure an advantage.</h2>
-          <p>Tell us what you are building. We’ll show you how Acru can support it.</p>
-          <div>
-            <Link href="/sign-up">Get started</Link>
-            <a href="mailto:sales@acru.com?subject=Acru%20enterprise%20pricing">Contact sales</a>
-          </div>
         </section>
       </main>
 

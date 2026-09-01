@@ -49,9 +49,18 @@ export const platformCapabilities = [
 ] as const;
 
 export const operatingPrinciples = [
-  { label: "Financial precision", value: "Ledger-first" },
-  { label: "Access controls", value: "Role-based" },
-  { label: "Operational visibility", value: "Real-time" }
+  {
+    description: "A ledger-backed record connects payments, refunds, disputes, fees, and payouts.",
+    title: "Every cent accounted for"
+  },
+  {
+    description: "Give each teammate only the pages and actions they need, with approvals for sensitive work.",
+    title: "Access with clear boundaries"
+  },
+  {
+    description: "Follow payments, reserves, disputes, and payouts while there is still time to act.",
+    title: "Issues visible in real time"
+  }
 ];
 
 export const footerColumns: MarketingFooterColumn[] = [

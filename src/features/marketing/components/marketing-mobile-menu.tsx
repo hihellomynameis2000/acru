@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRightIcon, MenuIcon, ProfileIcon, XIcon } from "@shopify/polaris-icons";
+import { MenuIcon, ProfileIcon, XIcon } from "@shopify/polaris-icons";
 import Link from "next/link";
 import { useRef } from "react";
 
@@ -33,10 +33,7 @@ export function MarketingMobileMenu() {
       >
         <div className="marketing-mobile-menu-panel">
           <div className="marketing-mobile-menu-heading">
-            <div>
-              <span>Explore Acru</span>
-              <p>Payment infrastructure for modern businesses.</p>
-            </div>
+            <span>Menu</span>
             <button aria-label="Close navigation" onClick={closeMenu} type="button">
               <XIcon aria-hidden="true" />
             </button>
@@ -46,15 +43,13 @@ export function MarketingMobileMenu() {
             {marketingNavigation.map((item) => (
               <Link href={item.href} key={item.label} onClick={closeMenu}>
                 <span>{item.label}</span>
-                <ArrowRightIcon aria-hidden="true" />
               </Link>
             ))}
           </nav>
 
           <Link className="marketing-mobile-menu-sign-in" href="/sign-in" onClick={closeMenu}>
             <ProfileIcon aria-hidden="true" />
-            <span>Sign in to Acru</span>
-            <ArrowRightIcon aria-hidden="true" />
+            <span>Sign in</span>
           </Link>
         </div>
       </dialog>
