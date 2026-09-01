@@ -223,7 +223,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
   const authRoute = ["/login", "/sign-in", "/sign-up", "/forgot-password", "/confirm-email"].includes(pathname);
-  const publicRoute = pathname === "/" || pathname.startsWith("/legal/");
+  const publicRoute = pathname === "/" || pathname === "/legal" || pathname.startsWith("/legal/");
   const onboardingRoute = pathname === "/onboarding";
   const standalonePortalRoute = pathname === "/sandbox" || pathname === "/partners" || pathname === "/admin";
   const searchRef = useRef<HTMLDivElement>(null);
