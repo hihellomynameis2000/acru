@@ -1034,6 +1034,11 @@
   background: #fbfcfc;
 }
 
+.legal-page .marketing-header {
+  position: relative;
+  top: auto;
+}
+
 .legal-document,
 .legal-center {
   width: min(1170px, calc(100% - 48px));

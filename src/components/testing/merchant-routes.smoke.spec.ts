@@ -151,6 +151,9 @@ test("official legal center and policy pages are responsive and navigable", asyn
   await page.goto("/legal/privacy");
 
   await expect(page.getByRole("heading", { name: "Privacy Policy", level: 1 })).toBeVisible();
+  await expect
+    .poll(() => page.locator(".marketing-header").evaluate((element) => getComputedStyle(element).position))
+    .toBe("relative");
   await expect(page.getByText("Official policy", { exact: true })).toHaveCount(0);
   await expect(page.getByText("Related policy", { exact: true })).toHaveCount(0);
   await expect(page.getByRole("heading", { name: "3. Personal Information We Collect" })).toBeVisible();
@@ -172,6 +175,7 @@ test("official legal center and policy pages are responsive and navigable", asyn
   } else {
     const tableOfContents = page.locator(".legal-toc");
     await expect(tableOfContents).toBeVisible();
+    await expect.poll(() => tableOfContents.evaluate((element) => getComputedStyle(element).position)).toBe("sticky");
 
     await tableOfContents.getByRole("link", { name: "12. Data Retention" }).click();
     await expect
