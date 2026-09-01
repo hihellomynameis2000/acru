@@ -921,6 +921,40 @@
   opacity: 0.94;
 }
 
+.marketing-footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 24px;
+}
+
+.marketing-footer-socials a {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid rgb(217 228 233 / 18%);
+  border-radius: 50%;
+  color: #b8c7ce;
+  background: rgb(255 255 255 / 3%);
+  transition:
+    border-color 160ms ease,
+    color 160ms ease,
+    background 160ms ease;
+}
+
+.marketing-footer-socials a:hover {
+  border-color: rgb(217 228 233 / 42%);
+  color: #fff;
+  background: rgb(255 255 255 / 8%);
+}
+
+.marketing-footer-socials svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
 .marketing-footer-columns {
   display: grid;
   gap: 34px;

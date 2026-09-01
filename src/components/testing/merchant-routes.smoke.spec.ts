@@ -56,6 +56,10 @@ test("public homepage is responsive, branded, and links to real policies", async
   await expect(footer.getByText("Talk to sales", { exact: true })).toHaveCount(0);
   await expect(footer.getByRole("link", { name: "Privacy policy" })).toHaveAttribute("href", "/legal/privacy");
   await expect(footer.getByRole("link", { name: "Terms of service" })).toHaveAttribute("href", "/legal/terms");
+  await expect(footer.getByRole("link", { name: "Acru on X" })).toHaveAttribute("href", "https://x.com/acruhq");
+  await expect(footer.getByRole("link", { name: "Acru on Facebook" })).toBeVisible();
+  await expect(footer.getByRole("link", { name: "Acru on YouTube" })).toBeVisible();
+  await expect(footer.getByRole("link", { name: "Acru on LinkedIn" })).toBeVisible();
   await expect(footer.getByText(/Acru is not a bank/)).toBeVisible();
 
   if (testInfo.project.name === "mobile-390") {
