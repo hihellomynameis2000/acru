@@ -1315,10 +1315,21 @@
   line-height: 1.65;
 }
 
+.legal-table-block {
+  margin-top: 26px;
+}
+
+.legal-table-title {
+  margin: 0 0 10px;
+  color: #3a5665;
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
 .legal-table-scroll {
   max-width: 100%;
   overflow-x: auto;
-  margin-top: 24px;
   border: 1px solid #d8e1e5;
   border-radius: 12px;
   background: #fff;

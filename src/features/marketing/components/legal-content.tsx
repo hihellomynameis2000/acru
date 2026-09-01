@@ -34,28 +34,30 @@ export function LegalContent({ blocks, tableLabel }: { blocks: LegalBlock[]; tab
     }
 
     return (
-      <div className="legal-table-scroll" key={`table-${blockIndex}`}>
-        <table>
-          <caption className="sr-only">{tableLabel}</caption>
-          <thead>
-            <tr>
-              {block.headers.map((header, headerIndex) => (
-                <th key={`${headerIndex}-${header}`} scope="col">
-                  {header}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {block.rows.map((row, rowIndex) => (
-              <tr key={`${rowIndex}-${row.join("-")}`}>
-                {row.map((cell, cellIndex) => (
-                  <td key={`${cellIndex}-${cell}`}>{cell}</td>
+      <div className="legal-table-block" key={`table-${blockIndex}`}>
+        <p className="legal-table-title">{tableLabel}</p>
+        <div className="legal-table-scroll">
+          <table aria-label={tableLabel}>
+            <thead>
+              <tr>
+                {block.headers.map((header, headerIndex) => (
+                  <th key={`${headerIndex}-${header}`} scope="col">
+                    {header}
+                  </th>
                 ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {block.rows.map((row, rowIndex) => (
+                <tr key={`${rowIndex}-${row.join("-")}`}>
+                  {row.map((cell, cellIndex) => (
+                    <td key={`${cellIndex}-${cell}`}>{cell}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   });

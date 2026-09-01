@@ -85,7 +85,10 @@ test("official legal center and policy pages are responsive and navigable", asyn
   await expect(page.getByRole("heading", { name: "Privacy Policy", level: 1 })).toBeVisible();
   await expect(page.getByRole("heading", { name: "3. Personal Information We Collect" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "17. California Privacy Notice" })).toBeVisible();
-  await expect(page.getByRole("table", { name: "12. Data Retention details" })).toBeVisible();
+  const retentionTable = page.getByRole("table", { name: "12. Data Retention details" });
+  await expect(page.locator(".legal-table-title", { hasText: "12. Data Retention details" })).toBeVisible();
+  await expect(retentionTable).toBeVisible();
+  await expect(retentionTable.locator("caption")).toHaveCount(0);
   await expect(page.locator(".app-shell")).toHaveCount(0);
   await expect
     .poll(() => page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1))
