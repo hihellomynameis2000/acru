@@ -81,6 +81,7 @@ test("public homepage is responsive, branded, and links to real policies", async
     await expect
       .poll(() => productsNavigation.evaluate((element) => getComputedStyle(element).backgroundColor))
       .toBe("rgb(241, 242, 242)");
+    await expect.poll(() => productsNavigation.evaluate((element) => element.getBoundingClientRect().height)).toBe(32);
 
     const nextButton = page.getByRole("button", { name: "Next product" });
     await nextButton.hover();

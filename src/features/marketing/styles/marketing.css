@@ -76,7 +76,10 @@
 }
 
 .marketing-navigation a {
-  padding: 8px 14px;
+  display: inline-flex;
+  height: 32px;
+  align-items: center;
+  padding: 0 12px;
   border-radius: 8px;
   transition: background 140ms ease;
 }
@@ -92,7 +95,8 @@
   align-items: center;
   justify-self: end;
   gap: 9px;
-  padding: 8px 12px;
+  height: 32px;
+  padding: 0 12px;
   border-radius: 8px;
   transition: background 140ms ease;
 }
