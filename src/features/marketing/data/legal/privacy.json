@@ -1,0 +1,1652 @@
+{
+  "slug": "privacy",
+  "title": "Privacy Policy",
+  "description": "How Acru collects, uses, discloses, retains, and protects personal information across our services.",
+  "company": "Acru, Inc.",
+  "website": "acru.com",
+  "effectiveDate": "August 26, 2026",
+  "updated": "August 26, 2026",
+  "introduction": [
+    {
+      "type": "paragraph",
+      "text": "Acru, Inc. (“Acru,” “we,” “us,” or “our”) respects your privacy and is committed to protecting Personal Information entrusted to us."
+    },
+    {
+      "type": "paragraph",
+      "text": "This Privacy Policy explains how Acru collects, uses, discloses, retains, and protects Personal Information when you interact with our website, applications, payment technologies, dashboards, portals, APIs, merchant onboarding services, affiliate and referral programs, customer support channels, and other products and services that link to this Privacy Policy (collectively, the “Services”)."
+    },
+    {
+      "type": "paragraph",
+      "text": "This Privacy Policy applies to, among others:"
+    },
+    {
+      "type": "bullet_list",
+      "items": [
+        "Visitors to Acru websites;",
+        "Merchants and prospective merchants;",
+        "Business owners, officers, directors, employees, beneficial owners, and authorized representatives of merchants;",
+        "Affiliates, referral partners, agents, and other business partners;",
+        "Users of Acru dashboards, portals, APIs, or other technology;",
+        "Customers or end users who transact with merchants using payment functionality facilitated through Acru or our partners;",
+        "Individuals who communicate with Acru or request support; and",
+        "Other individuals whose Personal Information we process in connection with providing the Services."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "“Personal Information” or “Personal Data” means information that identifies, relates to, describes, is reasonably capable of being associated with, or could reasonably be linked to an individual or household. The definition does not include information excluded from applicable privacy laws, such as certain publicly available, aggregated, or deidentified information."
+    }
+  ],
+  "sections": [
+    {
+      "id": "1-acrus-role-in-the-payment-ecosystem",
+      "heading": "1. Acru’s Role in the Payment Ecosystem",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acru provides technology and services designed to help merchants access and manage payment-processing capabilities."
+        },
+        {
+          "type": "paragraph",
+          "text": "Depending on the product, jurisdiction, transaction, and commercial relationship involved, certain payment-processing, acquiring, banking, card-network, identity-verification, underwriting, compliance, settlement, fraud-prevention, chargeback, or other financial functions may be performed by third-party processors, acquiring banks, financial institutions, payment networks, technology providers, or other partners."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru may provide the merchant-facing interface through which information is submitted to these partners. For example, information submitted through an Acru merchant application may be transmitted to one or more payment-processing or financial partners for:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Know Your Business (“KYB”) verification;",
+            "Know Your Customer (“KYC”) or identity verification;",
+            "Beneficial ownership verification;",
+            "Merchant underwriting;",
+            "Fraud and risk analysis;",
+            "Anti-money laundering or sanctions screening where applicable;",
+            "Payment processing;",
+            "Card tokenization;",
+            "Settlement;",
+            "Payouts;",
+            "Chargeback and dispute management;",
+            "Transaction monitoring; and",
+            "Compliance with applicable laws, payment-network rules, or financial-institution requirements."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Those organizations may process Personal Information under their own privacy policies and legal obligations. Acru does not control the independent privacy practices of banks, card networks, payment processors, or other financial institutions when they process information independently from Acru."
+        }
+      ]
+    },
+    {
+      "id": "2-when-acru-acts-for-a-merchant",
+      "heading": "2. When Acru Acts for a Merchant",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In certain circumstances, Acru may process Personal Information on behalf of a merchant or other business customer. For example, a merchant may transmit information about its customers to Acru through an integration, API, dashboard, payment flow, or other Service."
+        },
+        {
+          "type": "paragraph",
+          "text": "When Acru processes Personal Information solely on behalf of a merchant, the merchant may be the “controller” or “business,” and Acru may be a “processor” or “service provider,” as those terms are defined by applicable privacy laws."
+        },
+        {
+          "type": "paragraph",
+          "text": "If you are a customer of an Acru merchant and have questions about how that merchant uses your Personal Information, you should review the merchant’s privacy policy and contact the merchant directly."
+        },
+        {
+          "type": "paragraph",
+          "text": "Where required or appropriate, Acru will assist merchants in responding to privacy requests concerning Personal Information that Acru processes on their behalf."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru may separately act as a controller or business with respect to information that Acru uses for its own legitimate purposes, including fraud prevention, security, legal compliance, platform administration, billing, merchant risk management, and protection of Acru and its partners."
+        }
+      ]
+    },
+    {
+      "id": "3-personal-information-we-collect",
+      "heading": "3. Personal Information We Collect",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The information Acru collects depends on how you interact with the Services."
+        },
+        {
+          "type": "subheading",
+          "text": "A. Identification and Contact Information"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "First and last name;",
+            "Business name;",
+            "Business address;",
+            "Residential address where required;",
+            "Mailing address;",
+            "Email address;",
+            "Telephone number;",
+            "Date of birth;",
+            "Username or account identifier;",
+            "Job title;",
+            "Employer;",
+            "Professional role;",
+            "Signature; and",
+            "Other contact or identification information you provide."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "B. Merchant and Business Information"
+        },
+        {
+          "type": "paragraph",
+          "text": "For merchants and prospective merchants, we may collect:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Legal business name;",
+            "DBA or trade name;",
+            "Entity type;",
+            "Formation jurisdiction;",
+            "Business address;",
+            "Business website;",
+            "Business telephone number;",
+            "Business email;",
+            "Industry;",
+            "Products or services offered;",
+            "Merchant category;",
+            "Processing history;",
+            "Estimated and actual payment volume;",
+            "Average and maximum transaction amounts;",
+            "Customer geography;",
+            "Business model;",
+            "Fulfillment information;",
+            "Refund policies;",
+            "Chargeback history;",
+            "Financial statements;",
+            "Bank statements;",
+            "Processing statements;",
+            "Corporate formation documents;",
+            "Licenses;",
+            "Articles of incorporation or organization;",
+            "Ownership information;",
+            "Beneficial ownership percentages;",
+            "Officer and director information;",
+            "Tax information;",
+            "Employer identification numbers;",
+            "Merchant identification numbers;",
+            "Existing processor information;",
+            "Settlement preferences;",
+            "Merchant risk information; and",
+            "Other information required to evaluate or support a merchant relationship."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "C. Identity Verification and Compliance Information"
+        },
+        {
+          "type": "paragraph",
+          "text": "Depending on the Services and requirements imposed by Acru or our financial partners, we may collect or facilitate the collection of:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Date of birth;",
+            "Social Security number or portions thereof;",
+            "Tax identification number;",
+            "Passport information;",
+            "Driver’s license information;",
+            "State or national identification information;",
+            "Copies or images of identification documents;",
+            "Proof of address;",
+            "Beneficial ownership information;",
+            "Corporate ownership records;",
+            "Identity-verification results;",
+            "Sanctions-screening results;",
+            "Watchlist-screening results;",
+            "Fraud-risk indicators;",
+            "Verification status;",
+            "Compliance records; and",
+            "Other information required for KYC, KYB, underwriting, fraud prevention, or legal compliance."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Certain information in this category may constitute Sensitive Personal Information under applicable privacy laws. Identity verification may be conducted directly by a third-party verification, financial, or compliance provider rather than Acru."
+        },
+        {
+          "type": "subheading",
+          "text": "D. Financial and Banking Information"
+        },
+        {
+          "type": "paragraph",
+          "text": "We may collect or facilitate the collection of:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Bank account and routing information;",
+            "Settlement account information;",
+            "Account ownership information;",
+            "Payout information;",
+            "Transaction records;",
+            "Settlement records;",
+            "Refund information;",
+            "Chargeback information;",
+            "Reserve information;",
+            "Account balances;",
+            "Payment history;",
+            "Revenue information;",
+            "Fees;",
+            "Commissions;",
+            "Affiliate earnings;",
+            "Payout history;",
+            "Billing information; and",
+            "Related financial records."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "E. Payment and Transaction Information"
+        },
+        {
+          "type": "paragraph",
+          "text": "When a transaction is processed through payment functionality associated with Acru, we or our payment partners may collect:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Transaction amount;",
+            "Currency;",
+            "Date and time;",
+            "Merchant;",
+            "Transaction identifier;",
+            "Authorization status;",
+            "Payment method;",
+            "Card brand;",
+            "Expiration information;",
+            "Last four digits or other masked payment-account information;",
+            "Payment token;",
+            "Billing information;",
+            "Shipping information where applicable;",
+            "Refund information;",
+            "Dispute information;",
+            "Chargeback information;",
+            "Settlement information;",
+            "Fraud indicators;",
+            "Device information; and",
+            "Other transaction metadata."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Full payment-card credentials may be submitted directly to payment processors, tokenization providers, acquiring partners, or other PCI-compliant payment infrastructure. Depending on the integration, Acru may receive a token or limited payment information rather than the complete payment-card number."
+        },
+        {
+          "type": "subheading",
+          "text": "F. Fraud, Security, and Risk Information"
+        },
+        {
+          "type": "paragraph",
+          "text": "We and our partners may collect information used to identify fraud, abuse, account takeover, suspicious transactions, or other security risks, including:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "IP address;",
+            "Device identifiers;",
+            "Browser characteristics;",
+            "Operating system;",
+            "Device type;",
+            "Approximate location derived from IP address;",
+            "Transaction velocity;",
+            "Login activity;",
+            "Session information;",
+            "Behavioral signals;",
+            "Payment attempts;",
+            "Failed transactions;",
+            "Fraud scores;",
+            "Risk scores;",
+            "Chargeback history;",
+            "Dispute patterns;",
+            "Account relationships;",
+            "Merchant behavior;",
+            "Customer behavior associated with transactions;",
+            "Authentication results; and",
+            "Information received from fraud-prevention, identity-verification, payment-network, and financial partners."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "G. Account and Portal Information"
+        },
+        {
+          "type": "paragraph",
+          "text": "If you use an Acru account, merchant portal, affiliate portal, administrative portal, or dashboard, we may collect:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Account credentials;",
+            "User permissions;",
+            "Login history;",
+            "Security settings;",
+            "Authentication information;",
+            "Merchant assignments;",
+            "Referral relationships;",
+            "Commission information;",
+            "Reports;",
+            "Dashboard activity;",
+            "Configuration settings;",
+            "Support requests;",
+            "Notifications;",
+            "Account preferences; and",
+            "Actions taken within the Services."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Passwords are intended to be maintained in protected form rather than readable plaintext."
+        },
+        {
+          "type": "subheading",
+          "text": "H. Affiliate and Referral Information"
+        },
+        {
+          "type": "paragraph",
+          "text": "For affiliates, referral partners, agents, or similar users, we may collect:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Contact information;",
+            "Business information;",
+            "Referral links or codes;",
+            "Referred merchant information;",
+            "Referral activity;",
+            "Attribution data;",
+            "Commission information;",
+            "Earnings;",
+            "Payment and payout information;",
+            "Tax documentation;",
+            "Affiliate account information; and",
+            "Communications with Acru."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "I. Communications and Support Information"
+        },
+        {
+          "type": "paragraph",
+          "text": "If you communicate with Acru, we may collect:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Emails;",
+            "Chat messages;",
+            "Support tickets;",
+            "Telephone communications;",
+            "Feedback;",
+            "Survey responses;",
+            "Documents provided to support personnel; and",
+            "Other communications."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Calls or support interactions may be recorded or monitored where permitted by law and where appropriate notice has been provided."
+        },
+        {
+          "type": "subheading",
+          "text": "J. Website and Device Information"
+        },
+        {
+          "type": "paragraph",
+          "text": "When you use the Services, we may automatically collect:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "IP address;",
+            "Browser type;",
+            "Browser language;",
+            "Operating system;",
+            "Device type;",
+            "Device identifier;",
+            "Referring URL;",
+            "Pages viewed;",
+            "Features used;",
+            "Links clicked;",
+            "Date and time of access;",
+            "Session duration;",
+            "Approximate geographic location;",
+            "Cookie identifiers;",
+            "Advertising identifiers;",
+            "Analytics information; and",
+            "Other technical information concerning your interaction with the Services."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "K. Information from Third Parties"
+        },
+        {
+          "type": "paragraph",
+          "text": "We may receive Personal Information from:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Merchants;",
+            "Customers;",
+            "Affiliates and referral partners;",
+            "Payment processors;",
+            "Acquiring banks;",
+            "Financial institutions;",
+            "Card networks;",
+            "Fraud-prevention providers;",
+            "Identity-verification providers;",
+            "KYB/KYC providers;",
+            "Compliance vendors;",
+            "Credit or risk-information providers where legally permitted;",
+            "Business-information providers;",
+            "Public records;",
+            "Government databases;",
+            "Sanctions and watchlist databases;",
+            "Service providers;",
+            "Marketing partners;",
+            "Professional advisers; and",
+            "Other parties with whom you authorize us to interact."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4-how-we-use-personal-information",
+      "heading": "4. How We Use Personal Information",
+      "blocks": [
+        {
+          "type": "subheading",
+          "text": "Provide the Services"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Create and maintain accounts;",
+            "Provide merchant dashboards and portals;",
+            "Support APIs and integrations;",
+            "Facilitate merchant onboarding;",
+            "Process merchant applications;",
+            "Facilitate payments;",
+            "Facilitate settlements and payouts;",
+            "Process refunds;",
+            "Manage disputes and chargebacks;",
+            "Calculate fees and commissions;",
+            "Provide reporting and analytics; and",
+            "Provide customer and merchant support."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Underwrite and Manage Merchant Relationships"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Evaluate merchant applications;",
+            "Verify business information;",
+            "Evaluate merchant risk;",
+            "Monitor transaction activity;",
+            "Monitor chargeback ratios;",
+            "Monitor processing volume;",
+            "Monitor merchant compliance;",
+            "Establish or adjust merchant settings, limits, reserves, pricing, or other risk controls where permitted;",
+            "Communicate application decisions; and",
+            "Maintain relationships with payment and financial partners."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Verify Identity and Comply with Legal Requirements"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Perform or facilitate KYC and KYB;",
+            "Verify beneficial ownership;",
+            "Conduct sanctions screening;",
+            "Conduct fraud screening;",
+            "Comply with payment-network requirements;",
+            "Comply with financial-institution requirements;",
+            "Respond to subpoenas, court orders, regulatory requests, or other lawful requests; and",
+            "Maintain records required by law."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Prevent Fraud and Protect the Services"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Authenticate users;",
+            "Prevent account takeover;",
+            "Detect fraudulent transactions;",
+            "Detect suspicious activity;",
+            "Prevent unauthorized access;",
+            "Investigate security incidents;",
+            "Enforce transaction limits;",
+            "Protect merchants and customers;",
+            "Protect Acru and our partners; and",
+            "Maintain the integrity of the payment ecosystem."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Operate and Improve Acru"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Monitor performance;",
+            "Troubleshoot errors;",
+            "Improve user interfaces;",
+            "Improve onboarding;",
+            "Develop new products;",
+            "Perform analytics;",
+            "Conduct research;",
+            "Measure feature usage;",
+            "Maintain infrastructure; and",
+            "Train personnel."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Where permitted by law, we may use aggregated or deidentified data for analytics, research, product development, risk modeling, and other legitimate business purposes."
+        },
+        {
+          "type": "subheading",
+          "text": "Communicate With You"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Provide account notifications;",
+            "Provide transaction notifications;",
+            "Respond to questions;",
+            "Provide support;",
+            "Send security alerts;",
+            "Communicate application or account status;",
+            "Provide legal or policy notices;",
+            "Announce changes to the Services; and",
+            "Send marketing communications where permitted by law."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Protect Legal Rights"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Enforce agreements;",
+            "Collect amounts owed;",
+            "Investigate disputes;",
+            "Establish, exercise, or defend legal claims;",
+            "Prevent misuse of the Services;",
+            "Investigate violations of our policies; and",
+            "Protect Acru, our users, merchants, partners, and the public."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5-automated-risk-analysis-and-decision-making",
+      "heading": "5. Automated Risk Analysis and Decision-Making",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acru and our partners may use automated systems, algorithms, rules, risk models, or other technologies to help:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Detect fraud;",
+            "Authenticate users;",
+            "Identify suspicious transactions;",
+            "Evaluate merchant risk;",
+            "Monitor transaction patterns;",
+            "Determine whether transactions should be subject to additional review;",
+            "Identify potential violations of payment-network rules;",
+            "Detect account takeover;",
+            "Prioritize manual review; and",
+            "Support underwriting, compliance, or security decisions."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Automated systems may consider information such as transaction history, merchant activity, device information, fraud signals, account information, chargeback patterns, processing behavior, identity-verification results, and information supplied by financial or fraud-prevention partners."
+        },
+        {
+          "type": "paragraph",
+          "text": "In some cases, a bank, processor, card network, or other independent partner may make its own decision concerning merchant approval, transaction authorization, account restrictions, settlement, or other financial matters."
+        },
+        {
+          "type": "paragraph",
+          "text": "Where applicable law grants rights concerning qualifying automated decision-making or profiling, you may exercise those rights as described in the Your Privacy Rights section below."
+        }
+      ]
+    },
+    {
+      "id": "6-how-we-disclose-personal-information",
+      "heading": "6. How We Disclose Personal Information",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "We may disclose Personal Information to the following categories of recipients."
+        },
+        {
+          "type": "subheading",
+          "text": "Payment Processors and Payment Infrastructure Providers"
+        },
+        {
+          "type": "paragraph",
+          "text": "We may disclose information to payment processors, gateways, tokenization providers, settlement providers, payout providers, and other companies involved in providing payment services."
+        },
+        {
+          "type": "subheading",
+          "text": "Acquiring Banks and Financial Institutions"
+        },
+        {
+          "type": "paragraph",
+          "text": "Information may be disclosed to acquiring banks, sponsor banks, banking partners, and other financial institutions in connection with underwriting, processing, settlement, compliance, and risk management."
+        },
+        {
+          "type": "subheading",
+          "text": "Card Networks and Payment Networks"
+        },
+        {
+          "type": "paragraph",
+          "text": "We may disclose transaction and related information to payment networks such as Visa, Mastercard, American Express, Discover, or other applicable networks when necessary to process payments or comply with network rules."
+        },
+        {
+          "type": "subheading",
+          "text": "Identity, KYB, KYC, Fraud, and Compliance Providers"
+        },
+        {
+          "type": "paragraph",
+          "text": "Information may be disclosed to vendors that provide:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Identity verification;",
+            "Document verification;",
+            "Business verification;",
+            "Beneficial ownership verification;",
+            "Fraud prevention;",
+            "Device intelligence;",
+            "Risk scoring;",
+            "Sanctions screening;",
+            "Watchlist screening;",
+            "Transaction monitoring; and",
+            "Similar compliance or security services."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Merchants"
+        },
+        {
+          "type": "paragraph",
+          "text": "When you transact with a merchant, we may disclose information relating to your transaction to that merchant as necessary to complete the transaction, provide support, process refunds, manage disputes, or prevent fraud."
+        },
+        {
+          "type": "subheading",
+          "text": "Service Providers"
+        },
+        {
+          "type": "paragraph",
+          "text": "We may use service providers for functions such as:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Cloud hosting;",
+            "Data storage;",
+            "Cybersecurity;",
+            "Customer support;",
+            "Email;",
+            "Communications;",
+            "Analytics;",
+            "Accounting;",
+            "Billing;",
+            "Business intelligence;",
+            "CRM systems;",
+            "Software development;",
+            "Infrastructure monitoring; and",
+            "Other business operations."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "These providers may process Personal Information on our behalf subject to contractual restrictions where required."
+        },
+        {
+          "type": "subheading",
+          "text": "Affiliates and Corporate Entities"
+        },
+        {
+          "type": "paragraph",
+          "text": "We may disclose information among Acru affiliates, subsidiaries, parent entities, or entities under common ownership or control where permitted by law."
+        },
+        {
+          "type": "subheading",
+          "text": "Referral and Business Partners"
+        },
+        {
+          "type": "paragraph",
+          "text": "Where appropriate, we may disclose information with referral partners, agents, or other business partners in connection with a merchant relationship."
+        },
+        {
+          "type": "paragraph",
+          "text": "We do not disclose sensitive merchant underwriting, identification, or payment information to referral partners merely because they referred the merchant unless the disclosure is authorized, necessary, or otherwise permitted by law."
+        },
+        {
+          "type": "subheading",
+          "text": "Professional Advisers"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Attorneys;",
+            "Accountants;",
+            "Auditors;",
+            "Consultants;",
+            "Insurers;",
+            "Banks;",
+            "Investors; and",
+            "Other professional advisers."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Government and Legal Authorities"
+        },
+        {
+          "type": "paragraph",
+          "text": "We may disclose Personal Information when we reasonably believe disclosure is necessary to:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Comply with applicable law;",
+            "Respond to a valid subpoena, court order, warrant, or government request;",
+            "Cooperate with regulators;",
+            "Investigate fraud;",
+            "Protect against illegal activity;",
+            "Protect the safety of any person;",
+            "Protect Acru’s rights; or",
+            "Establish, exercise, or defend legal claims."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Corporate Transactions"
+        },
+        {
+          "type": "paragraph",
+          "text": "If Acru is involved in a merger, acquisition, financing, reorganization, bankruptcy, sale of assets, investment, due diligence process, or similar corporate transaction, Personal Information may be disclosed or transferred as part of that transaction subject to applicable law."
+        },
+        {
+          "type": "subheading",
+          "text": "With Your Direction or Consent"
+        },
+        {
+          "type": "paragraph",
+          "text": "We may disclose information when you direct us to do so or otherwise provide consent."
+        }
+      ]
+    },
+    {
+      "id": "7-sale-sharing-and-targeted-advertising",
+      "heading": "7. Sale, Sharing, and Targeted Advertising",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acru does not sell Personal Information for monetary consideration as a core part of our business model."
+        },
+        {
+          "type": "paragraph",
+          "text": "We do not sell merchant KYC/KYB information, government identification information, payment credentials, or financial-account information to data brokers."
+        },
+        {
+          "type": "paragraph",
+          "text": "However, certain analytics, advertising, cookie, or online-marketing technologies may involve disclosures of identifiers, cookie information, device information, or internet activity that some U.S. privacy laws define as a “sale,” “sharing,” or processing for “targeted advertising,” even where no money is exchanged."
+        },
+        {
+          "type": "paragraph",
+          "text": "Where Acru engages in activities legally defined as sale, sharing, or targeted advertising, eligible individuals may opt out as described in this Privacy Policy and through any Your Privacy Choices mechanism provided on the applicable Acru website."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru will also honor qualifying browser-based opt-out preference signals, such as Global Privacy Control, where required by applicable law."
+        }
+      ]
+    },
+    {
+      "id": "8-sensitive-personal-information",
+      "heading": "8. Sensitive Personal Information",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acru may process Sensitive Personal Information when reasonably necessary to provide payment services, perform identity verification, prevent fraud, comply with legal obligations, or protect the Services."
+        },
+        {
+          "type": "paragraph",
+          "text": "Sensitive Personal Information may include:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Social Security numbers;",
+            "Government identification numbers;",
+            "Passport information;",
+            "Driver’s license information;",
+            "Financial-account information;",
+            "Login credentials;",
+            "Payment information;",
+            "Precise geolocation if ever collected;",
+            "Biometric information if collected by an identity-verification provider; and",
+            "Other information considered sensitive under applicable law."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru does not use Sensitive Personal Information to infer characteristics about individuals for advertising purposes."
+        },
+        {
+          "type": "paragraph",
+          "text": "Where applicable law provides a right to limit certain uses or disclosures of Sensitive Personal Information, Acru will honor that right when the relevant processing falls within the scope of that right."
+        },
+        {
+          "type": "paragraph",
+          "text": "Certain Sensitive Personal Information may need to be retained or processed notwithstanding a privacy request when necessary to comply with fraud-prevention, security, financial, regulatory, or legal obligations."
+        }
+      ]
+    },
+    {
+      "id": "9-cookies-and-similar-technologies",
+      "heading": "9. Cookies and Similar Technologies",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acru and our service providers may use cookies, software development kits, pixels, local storage, and similar technologies."
+        },
+        {
+          "type": "subheading",
+          "text": "Strictly Necessary Functions"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Authentication;",
+            "Account security;",
+            "Fraud prevention;",
+            "Session management;",
+            "Load balancing;",
+            "Security; and",
+            "Core site functionality."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Preferences and Functionality"
+        },
+        {
+          "type": "bullet_list",
+          "items": ["Language preferences;", "Account settings;", "Dashboard settings; and", "Other user preferences."]
+        },
+        {
+          "type": "subheading",
+          "text": "Analytics"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "How users reach the Services;",
+            "Which pages are viewed;",
+            "Which features are used;",
+            "How users navigate the Services;",
+            "Performance issues; and",
+            "How we can improve our products."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Advertising and Marketing"
+        },
+        {
+          "type": "paragraph",
+          "text": "Where used, advertising technologies may help Acru:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Measure advertising campaigns;",
+            "Attribute traffic;",
+            "Understand marketing effectiveness; and",
+            "Deliver or measure relevant advertising."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Where required by law, non-essential cookies will not be activated until appropriate consent has been obtained. You may be able to control cookies through our cookie-management tools and your browser settings. Blocking certain cookies may affect functionality."
+        }
+      ]
+    },
+    {
+      "id": "10-global-privacy-control-and-do-not-track",
+      "heading": "10. Global Privacy Control and Do Not Track",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some browsers allow users to transmit privacy preference signals."
+        },
+        {
+          "type": "paragraph",
+          "text": "Where required by applicable law, Acru recognizes qualifying opt-out preference signals, including Global Privacy Control (“GPC”), as requests to opt out of certain sale, sharing, or targeted-advertising activities."
+        },
+        {
+          "type": "paragraph",
+          "text": "Because there is not currently a universally accepted legal or technical standard for all “Do Not Track” signals, Acru may not respond to traditional Do Not Track settings unless required by applicable law."
+        }
+      ]
+    },
+    {
+      "id": "11-marketing-communications",
+      "heading": "11. Marketing Communications",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acru may send marketing communications to merchants, prospective merchants, affiliates, or other business contacts where permitted by law."
+        },
+        {
+          "type": "paragraph",
+          "text": "You may unsubscribe from promotional email communications by using the unsubscribe mechanism included in those messages."
+        },
+        {
+          "type": "paragraph",
+          "text": "Even after opting out of marketing, Acru may continue sending non-promotional communications concerning:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Your account;",
+            "Security;",
+            "Transactions;",
+            "Merchant applications;",
+            "Payments;",
+            "Service changes;",
+            "Legal notices;",
+            "Compliance matters; and",
+            "Other administrative issues."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "12-data-retention",
+      "heading": "12. Data Retention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acru retains Personal Information for no longer than reasonably necessary for the purposes described in this Privacy Policy, unless a longer retention period is required or permitted by law."
+        },
+        {
+          "type": "paragraph",
+          "text": "Retention periods depend on factors such as:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "The nature of the information;",
+            "The sensitivity of the information;",
+            "The nature of the relationship;",
+            "The purposes for which the information was collected;",
+            "Fraud and security requirements;",
+            "Contractual requirements;",
+            "Payment-network requirements;",
+            "Financial-institution requirements;",
+            "Applicable statutes of limitation;",
+            "Regulatory requirements; and",
+            "Legal obligations."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Generally:"
+        },
+        {
+          "type": "table",
+          "headers": ["Information", "General Retention Criteria"],
+          "rows": [
+            [
+              "Merchant account information",
+              "Duration of merchant relationship plus a reasonable period for legal, compliance, audit, fraud, and dispute purposes"
+            ],
+            [
+              "KYB/KYC and compliance records",
+              "As required by applicable law, financial partners, compliance obligations, or legitimate fraud-prevention needs"
+            ],
+            [
+              "Transaction and settlement records",
+              "Generally maintained for the period required for financial, tax, accounting, dispute, chargeback, legal, or regulatory purposes"
+            ],
+            [
+              "Financial and payment records",
+              "Commonly retained for several years where required for accounting, tax, banking, dispute, or regulatory purposes"
+            ],
+            [
+              "Chargeback and fraud records",
+              "As reasonably necessary to manage fraud, disputes, risk, legal claims, and payment-network requirements"
+            ],
+            ["Account security logs", "As reasonably necessary for cybersecurity, fraud prevention, and investigation"],
+            ["Support communications", "As reasonably necessary to resolve issues and maintain business records"],
+            [
+              "Marketing information",
+              "Until you opt out or the information is no longer reasonably necessary, subject to maintaining suppression records"
+            ],
+            ["Website analytics", "According to applicable analytics configuration and legal requirements"],
+            ["Cookie data", "Based on the purpose and lifespan of the relevant cookie or technology"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Where practical, Acru may delete, anonymize, aggregate, or deidentify Personal Information when it is no longer required."
+        },
+        {
+          "type": "paragraph",
+          "text": "Information stored in backups may remain for a limited period until the backup is overwritten or securely deleted according to our backup practices."
+        }
+      ]
+    },
+    {
+      "id": "13-security",
+      "heading": "13. Security",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acru uses administrative, organizational, technical, and physical safeguards designed to protect Personal Information against:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Unauthorized access;",
+            "Unauthorized disclosure;",
+            "Loss;",
+            "Misuse;",
+            "Alteration;",
+            "Destruction; and",
+            "Other unauthorized processing."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Security measures may include, as appropriate:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Encryption;",
+            "Access controls;",
+            "Authentication controls;",
+            "Network security;",
+            "Logging and monitoring;",
+            "Vendor risk management;",
+            "Secure software-development practices;",
+            "Employee access restrictions;",
+            "Security testing; and",
+            "Incident-response procedures."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Payment-card information may be handled through payment-processing infrastructure designed to comply with applicable payment-card security requirements."
+        },
+        {
+          "type": "paragraph",
+          "text": "No system can guarantee absolute security. Users should protect their account credentials and promptly notify Acru if they believe an account or credential has been compromised."
+        }
+      ]
+    },
+    {
+      "id": "14-international-data-transfers",
+      "heading": "14. International Data Transfers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acru, its service providers, payment processors, financial partners, and other recipients may process Personal Information in countries different from the country in which the information was originally collected. Those countries may have privacy laws different from those in your jurisdiction."
+        },
+        {
+          "type": "paragraph",
+          "text": "Where applicable law requires safeguards for international transfers, Acru will use an appropriate legal mechanism, which may include contractual protections, adequacy decisions, standard contractual clauses, or another legally recognized transfer mechanism."
+        }
+      ]
+    },
+    {
+      "id": "15-your-privacy-rights",
+      "heading": "15. Your Privacy Rights",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Depending on where you reside and subject to applicable exceptions, you may have the right to:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Access Personal Information we maintain about you;",
+            "Know the categories and specific pieces of Personal Information collected about you;",
+            "Delete certain Personal Information;",
+            "Correct inaccurate Personal Information;",
+            "Obtain a portable copy of certain Personal Information;",
+            "Opt out of sale of Personal Information;",
+            "Opt out of sharing for cross-context behavioral advertising;",
+            "Opt out of targeted advertising;",
+            "Opt out of qualifying profiling or automated decision-making;",
+            "Limit certain uses of Sensitive Personal Information;",
+            "Withdraw consent where processing is based on consent; and",
+            "Appeal certain decisions concerning your privacy request."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "You also have the right not to receive unlawful discriminatory treatment for exercising applicable privacy rights."
+        },
+        {
+          "type": "paragraph",
+          "text": "Rights vary by jurisdiction, and certain information may be exempt. For example, Acru may be unable to delete information that must be retained to:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Complete a transaction;",
+            "Maintain payment records;",
+            "Prevent fraud;",
+            "Protect account security;",
+            "Resolve disputes;",
+            "Defend legal claims;",
+            "Comply with tax obligations;",
+            "Comply with financial regulations;",
+            "Comply with payment-network requirements;",
+            "Satisfy recordkeeping obligations; or",
+            "Fulfill another legally permitted purpose."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "16-how-to-exercise-your-privacy-rights",
+      "heading": "16. How to Exercise Your Privacy Rights",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "To submit a privacy request, contact Acru at legal@acru.com. Please state the type of request you wish to make and provide sufficient information for us to identify the relevant records."
+        },
+        {
+          "type": "paragraph",
+          "text": "We may need to verify your identity before completing certain requests. Verification may require us to confirm information reasonably associated with your account or relationship with Acru. We will not request additional information beyond what is reasonably necessary to authenticate the request."
+        },
+        {
+          "type": "paragraph",
+          "text": "Where permitted by law, you may use an authorized agent to submit a request. We may require evidence that the agent is authorized to act on your behalf and may separately verify your identity."
+        },
+        {
+          "type": "paragraph",
+          "text": "If Acru denies a privacy request and applicable law provides an appeal right, instructions for appealing the decision will be included in our response."
+        }
+      ]
+    },
+    {
+      "id": "17-california-privacy-notice",
+      "heading": "17. California Privacy Notice",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section supplements the remainder of this Privacy Policy for California residents. For purposes of the California Consumer Privacy Act, as amended (“CCPA”), Personal Information and Sensitive Personal Information have the meanings provided under California law."
+        },
+        {
+          "type": "paragraph",
+          "text": "Depending on your relationship with Acru, the categories of Personal Information Acru may collect, and may have collected during the preceding twelve months where applicable, include:"
+        },
+        {
+          "type": "table",
+          "headers": ["CCPA Category", "Examples"],
+          "rows": [
+            ["Identifiers", "Name, email, phone number, address, IP address, account ID, government identification"],
+            ["Customer Records", "Contact information, financial information, business records"],
+            ["Protected Characteristics", "Information required by law or voluntarily supplied where applicable"],
+            [
+              "Commercial Information",
+              "Transactions, merchant activity, processing activity, services purchased or used"
+            ],
+            [
+              "Internet or Electronic Network Activity",
+              "Browser activity, login activity, device data, interactions with the Services"
+            ],
+            [
+              "Geolocation Data",
+              "Approximate location derived from IP address and, if required for a specific service, more precise location"
+            ],
+            ["Professional or Employment Information", "Employer, title, business role, company"],
+            ["Inferences", "Fraud, security, underwriting, or merchant-risk indicators"],
+            [
+              "Sensitive Personal Information",
+              "Government ID information, financial credentials, account-access information and other information defined as sensitive under applicable law"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Sources of California Personal Information"
+        },
+        {
+          "type": "paragraph",
+          "text": "We obtain this information from the sources described in Section 3, including:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Directly from you;",
+            "Merchants;",
+            "Businesses with which you are associated;",
+            "Affiliates and referral partners;",
+            "Payment processors;",
+            "Financial institutions;",
+            "Fraud and identity providers;",
+            "Service providers;",
+            "Public sources; and",
+            "Your device or browser."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Purposes"
+        },
+        {
+          "type": "paragraph",
+          "text": "We collect and use these categories for the purposes described in Section 4, including providing Services, merchant onboarding, payment processing, underwriting, identity and business verification, fraud prevention, security, compliance, support, analytics, communications, and legal purposes."
+        },
+        {
+          "type": "subheading",
+          "text": "Disclosure for Business Purposes"
+        },
+        {
+          "type": "paragraph",
+          "text": "We may disclose the categories above to the recipients described in Section 6, including payment processors, banks and financial institutions, card networks, identity and fraud providers, technology service providers, merchants, professional advisers, affiliates, and government authorities."
+        },
+        {
+          "type": "subheading",
+          "text": "Sale and Sharing"
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru does not sell Personal Information for monetary consideration as a core part of its business. Depending on the online marketing or analytics technologies deployed on the Services, certain disclosures of identifiers, device information, or internet activity could constitute “sharing” or “sale” under California law."
+        },
+        {
+          "type": "paragraph",
+          "text": "Where applicable, California residents may opt out through any Your Privacy Choices mechanism made available on the Services or by enabling a qualifying opt-out preference signal such as Global Privacy Control."
+        },
+        {
+          "type": "subheading",
+          "text": "Sensitive Personal Information"
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru uses Sensitive Personal Information primarily for purposes such as providing requested Services, merchant onboarding, identity verification, financial-account administration, fraud prevention, account security, compliance, and other purposes permitted under applicable law. Acru does not use Sensitive Personal Information to infer characteristics about individuals for advertising purposes."
+        },
+        {
+          "type": "subheading",
+          "text": "California Rights"
+        },
+        {
+          "type": "paragraph",
+          "text": "Subject to applicable requirements and exceptions, California residents may have the right to know, access, delete, correct, opt out of sale or sharing, limit certain uses of Sensitive Personal Information, exercise applicable rights regarding qualifying automated decision-making, and receive equal service and pricing after exercising privacy rights. You may exercise these rights as described in Section 16."
+        },
+        {
+          "type": "subheading",
+          "text": "Financial Incentives"
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru does not currently offer consumer financial incentives or price or service differences in exchange for Personal Information that require a notice of financial incentive under the CCPA."
+        }
+      ]
+    },
+    {
+      "id": "18-other-u-s-state-privacy-rights",
+      "heading": "18. Other U.S. State Privacy Rights",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Residents of states with comprehensive consumer privacy laws may have additional rights under applicable state law."
+        },
+        {
+          "type": "paragraph",
+          "text": "Depending on your state and the nature of Acru’s processing, these may include rights to:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Confirm whether Personal Information is processed;",
+            "Access Personal Information;",
+            "Correct Personal Information;",
+            "Delete Personal Information;",
+            "Obtain portable data;",
+            "Opt out of targeted advertising;",
+            "Opt out of the sale of Personal Information;",
+            "Opt out of certain profiling;",
+            "Revoke consent for certain sensitive-data processing; and",
+            "Appeal a denied privacy request."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru will process valid privacy requests in accordance with the law applicable to the individual submitting the request."
+        }
+      ]
+    },
+    {
+      "id": "19-european-economic-area-united-kingdom-and-similar-jurisdictions",
+      "heading": "19. European Economic Area, United Kingdom, and Similar Jurisdictions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Where the European Union General Data Protection Regulation, United Kingdom GDPR, or similar law applies, Acru processes Personal Data under one or more lawful bases."
+        },
+        {
+          "type": "subheading",
+          "text": "Performance of a Contract"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Provide the Services;",
+            "Maintain accounts;",
+            "Process transactions;",
+            "Support merchants;",
+            "Process applications; or",
+            "Fulfill contractual obligations."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Legitimate Interests"
+        },
+        {
+          "type": "paragraph",
+          "text": "We may process Personal Data when necessary for legitimate interests such as fraud prevention, security, product improvement, merchant-risk management, business administration, analytics, customer support, network protection, and establishment or defense of legal claims. We consider the impact on individual privacy rights when relying on legitimate interests."
+        },
+        {
+          "type": "subheading",
+          "text": "Legal Obligation"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Applicable laws;",
+            "Court orders;",
+            "Regulatory obligations;",
+            "Tax obligations;",
+            "Payment-network rules;",
+            "Fraud-prevention requirements;",
+            "Financial-industry obligations; and",
+            "Other legal requirements."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Consent"
+        },
+        {
+          "type": "paragraph",
+          "text": "Where required, Acru may process Personal Data based on your consent. Where processing is based on consent, you may withdraw consent at any time. Withdrawal does not affect processing lawfully conducted before withdrawal."
+        },
+        {
+          "type": "subheading",
+          "text": "EEA/UK Rights"
+        },
+        {
+          "type": "paragraph",
+          "text": "Subject to applicable law, you may have rights to:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Access Personal Data;",
+            "Correct Personal Data;",
+            "Delete Personal Data;",
+            "Restrict processing;",
+            "Object to processing;",
+            "Receive portable Personal Data;",
+            "Withdraw consent; and",
+            "Exercise rights concerning certain automated decisions."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "You may also have the right to lodge a complaint with the data-protection authority in the jurisdiction where you reside, work, or believe an infringement occurred."
+        }
+      ]
+    },
+    {
+      "id": "20-information-concerning-merchant-customers",
+      "heading": "20. Information Concerning Merchant Customers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "If you are an individual who paid a merchant using payment functionality made available through an Acru-related integration, your Personal Information may be processed by several parties, including:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "The merchant;",
+            "Acru;",
+            "A payment processor;",
+            "An acquiring bank;",
+            "A card network;",
+            "A fraud-prevention provider; and",
+            "Other payment infrastructure providers."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Each organization may have different legal responsibilities and independent purposes for processing information."
+        },
+        {
+          "type": "paragraph",
+          "text": "For questions about a purchase, refund, subscription, product, service, or merchant’s use of your information, contact the merchant directly. For questions specifically concerning Acru’s processing of your Personal Information, contact us using the information below."
+        }
+      ]
+    },
+    {
+      "id": "21-children",
+      "heading": "21. Children",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The Services are intended for businesses and individuals legally capable of entering into the applicable commercial relationship and are not directed to children."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru does not knowingly solicit or collect Personal Information directly from children under 13 in violation of applicable law."
+        },
+        {
+          "type": "paragraph",
+          "text": "If you believe a child has provided Personal Information to Acru inappropriately, please contact us. We will investigate and, where required, delete the information."
+        },
+        {
+          "type": "paragraph",
+          "text": "Certain payment transactions initiated through third-party merchants may involve information about individuals whose age Acru does not independently know. Merchants are responsible for complying with age restrictions and children’s privacy laws applicable to their own products and services."
+        }
+      ]
+    },
+    {
+      "id": "22-third-party-websites-and-services",
+      "heading": "22. Third-Party Websites and Services",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The Services may link to or integrate with third-party websites, applications, processors, banks, identity providers, or other external services."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru is not responsible for the privacy practices of third parties acting independently. We encourage you to review the privacy notices of third-party services before providing Personal Information to them."
+        }
+      ]
+    },
+    {
+      "id": "23-business-to-business-information",
+      "heading": "23. Business-to-Business Information",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acru primarily operates in a business and payments environment."
+        },
+        {
+          "type": "paragraph",
+          "text": "We may process information concerning employees, representatives, beneficial owners, directors, officers, agents, and other individuals associated with businesses with which Acru interacts."
+        },
+        {
+          "type": "paragraph",
+          "text": "We may use this information to:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Manage commercial relationships;",
+            "Conduct merchant onboarding;",
+            "Verify authority;",
+            "Perform due diligence;",
+            "Provide support;",
+            "Communicate regarding products and services;",
+            "Maintain records; and",
+            "Meet compliance obligations."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Individuals whose information is processed in a business context may have privacy rights depending on applicable law."
+        }
+      ]
+    },
+    {
+      "id": "24-deidentified-and-aggregated-information",
+      "heading": "24. Deidentified and Aggregated Information",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acru may create aggregated or deidentified information that cannot reasonably be used to identify an individual."
+        },
+        {
+          "type": "paragraph",
+          "text": "We may use such information for:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Analytics;",
+            "Benchmarking;",
+            "Product development;",
+            "Fraud research;",
+            "Risk analysis;",
+            "Business intelligence;",
+            "Statistical analysis; and",
+            "Other lawful purposes."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Where required by applicable law, Acru will maintain deidentified information in deidentified form and will not attempt to reidentify it except as permitted by law."
+        }
+      ]
+    },
+    {
+      "id": "25-changes-to-this-privacy-policy",
+      "heading": "25. Changes to This Privacy Policy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acru may update this Privacy Policy periodically to reflect changes to the Services, our information practices, our partners, applicable laws, regulatory requirements, or other operational changes."
+        },
+        {
+          "type": "paragraph",
+          "text": "When we make changes, we will update the Last Updated date at the top of this Privacy Policy."
+        },
+        {
+          "type": "paragraph",
+          "text": "If changes materially affect the way we use Personal Information, we will provide additional notice where required by law."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your continued use of the Services after an updated Privacy Policy becomes effective does not constitute consent where applicable law requires separate consent."
+        }
+      ]
+    },
+    {
+      "id": "26-contact-acru",
+      "heading": "26. Contact Acru",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Questions about this Privacy Policy, Acru’s privacy practices, or requests to exercise applicable privacy rights may be directed to:"
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru, Inc."
+        },
+        {
+          "type": "paragraph",
+          "text": "Privacy / Legal Team"
+        },
+        {
+          "type": "paragraph",
+          "text": "Email: legal@acru.com"
+        },
+        {
+          "type": "paragraph",
+          "text": "Website: acru.com"
+        },
+        {
+          "type": "paragraph",
+          "text": "Mailing Address:"
+        },
+        {
+          "type": "paragraph",
+          "text": "8 The Greene STE A"
+        },
+        {
+          "type": "paragraph",
+          "text": "Dover, Delaware 19901"
+        },
+        {
+          "type": "paragraph",
+          "text": "United States"
+        },
+        {
+          "type": "paragraph",
+          "text": "For privacy requests, please include sufficient information for Acru to identify your relationship with us and the nature of your request."
+        },
+        {
+          "type": "paragraph",
+          "text": "Please do not send full payment-card numbers, passwords, Social Security numbers, or copies of identification documents to legal@acru.com unless Acru specifically instructs you to use a secure method for submitting that information."
+        }
+      ]
+    }
+  ]
+}

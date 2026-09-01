@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { LegalPage } from "@/features/marketing/components/legal-page";
-import { legalDocuments } from "@/features/marketing/data/legal";
+import { getLegalDocument, legalDocumentList } from "@/features/marketing/data/legal";
 
 type LegalDocumentPageProps = {
   params: Promise<{ document: string }>;
@@ -10,7 +10,7 @@ type LegalDocumentPageProps = {
 
 export async function generateMetadata({ params }: LegalDocumentPageProps): Promise<Metadata> {
   const { document: documentSlug } = await params;
-  const document = legalDocuments[documentSlug];
+  const document = getLegalDocument(documentSlug);
   if (!document) return {};
 
   return {
@@ -22,8 +22,12 @@ export async function generateMetadata({ params }: LegalDocumentPageProps): Prom
 
 export default async function LegalDocumentPage({ params }: LegalDocumentPageProps) {
   const { document: documentSlug } = await params;
-  const document = legalDocuments[documentSlug];
+  const document = getLegalDocument(documentSlug);
   if (!document) notFound();
 
   return <LegalPage document={document} />;
+}
+
+export function generateStaticParams() {
+  return legalDocumentList.map((document) => ({ document: document.slug }));
 }

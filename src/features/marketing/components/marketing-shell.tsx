@@ -85,9 +85,9 @@ export function MarketingFooter() {
       <div className="marketing-footer-bottom">
         <p>© {new Date().getFullYear()} Acru, Inc. All rights reserved.</p>
         <div>
+          <Link href="/legal">Legal center</Link>
           <Link href="/legal/privacy">Privacy</Link>
           <Link href="/legal/terms">Terms</Link>
-          <Link href="/legal/cookies">Cookies</Link>
           <a href="mailto:security@acru.com">Report a security issue</a>
         </div>
       </div>

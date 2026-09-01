@@ -47,13 +47,39 @@ test("public homepage is responsive, branded, and links to real policies", async
   }
 });
 
-test("public policy pages render outside the authenticated console", async ({ page }, testInfo) => {
-  test.skip(testInfo.project.name !== "desktop-1440");
+test("official legal center and policy pages are responsive and navigable", async ({ page }, testInfo) => {
+  await page.goto("/legal");
+  await expect(page.getByRole("heading", { name: "Legal center", level: 1 })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Read terms of service" })).toHaveAttribute("href", "/legal/terms");
+  await expect(page.getByRole("link", { name: "Read privacy policy" })).toHaveAttribute("href", "/legal/privacy");
+
   await page.goto("/legal/privacy");
 
-  await expect(page.getByRole("heading", { name: "Privacy policy", level: 1 })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Information we collect" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Privacy Policy", level: 1 })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "3. Personal Information We Collect" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "17. California Privacy Notice" })).toBeVisible();
+  await expect(page.getByRole("table", { name: "12. Data Retention details" })).toBeVisible();
   await expect(page.locator(".app-shell")).toHaveCount(0);
+  await expect
+    .poll(() => page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1))
+    .toBe(true);
+
+  if (testInfo.project.name === "mobile-390") {
+    await expect(page.locator(".legal-mobile-toc summary")).toBeVisible();
+    await expect(page.locator(".legal-toc")).toBeHidden();
+    await page.locator(".legal-mobile-toc summary").click();
+    await expect(page.getByRole("navigation", { name: "On this page" })).toBeVisible();
+  } else {
+    await expect(page.locator(".legal-toc")).toBeVisible();
+  }
+
+  await page.goto("/legal/terms");
+  await expect(page.getByRole("heading", { name: "Terms of Service", level: 1 })).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "39. Dispute Resolution; Binding Arbitration; Class Action Waiver" })
+  ).toBeVisible();
+  await expect(page.getByText(/Section 39 contains a binding arbitration agreement/)).toBeVisible();
+  await expect(page.getByRole("heading", { name: "47. Contact Information" })).toBeVisible();
   await expect
     .poll(() => page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1))
     .toBe(true);

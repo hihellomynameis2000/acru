@@ -85,11 +85,10 @@ export const footerColumns: MarketingFooterColumn[] = [
   {
     heading: "Legal",
     links: [
-      { href: "/legal/privacy", label: "Privacy policy" },
+      { href: "/legal", label: "Legal center" },
       { href: "/legal/terms", label: "Terms of service" },
-      { href: "/legal/acceptable-use", label: "Acceptable use" },
-      { href: "/legal/cookies", label: "Cookie policy" },
-      { href: "/legal/accessibility", label: "Accessibility" }
+      { href: "/legal/privacy", label: "Privacy policy" },
+      { href: "mailto:legal@acru.com?subject=Privacy%20request", label: "Privacy requests" }
     ]
   }
 ];

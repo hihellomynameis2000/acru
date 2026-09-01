@@ -1,0 +1,1078 @@
+{
+  "slug": "terms",
+  "title": "Terms of Service",
+  "description": "The agreement governing access to Acru’s websites, payment technology, merchant services, dashboards, APIs, and related services.",
+  "company": "Acru, Inc.",
+  "website": "acru.com",
+  "effectiveDate": "August 26, 2026",
+  "updated": "August 26, 2026",
+  "introduction": [
+    {
+      "type": "paragraph",
+      "text": "These Terms of Service (“Terms”) constitute a legally binding agreement between you and Acru, Inc., a Delaware corporation (“Acru,” “we,” “us,” or “our”), governing your access to and use of Acru’s websites, applications, dashboards, portals, APIs, payment technologies, merchant services, affiliate and referral services, and other products or services that reference or incorporate these Terms (collectively, the “Services”)."
+    },
+    {
+      "type": "paragraph",
+      "text": "These Terms apply to website visitors, merchants and prospective merchants, business owners and authorized representatives, affiliates and referral partners, developers, users of Acru portals or APIs, customers and end users interacting with payment functionality made available through Acru, and any other person or entity accessing or using the Services."
+    },
+    {
+      "type": "paragraph",
+      "text": "By accessing or using the Services, creating an account, submitting an application, clicking to accept these Terms, executing an agreement that references these Terms, or otherwise using Acru, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree, do not access or use the Services."
+    },
+    {
+      "type": "callout",
+      "text": "IMPORTANT NOTICE REGARDING ARBITRATION AND CLASS ACTION WAIVER\nSection 39 contains a binding arbitration agreement and class action waiver. Except for certain disputes described in Section 39 or where prohibited by law, you and Acru agree to resolve disputes through individual binding arbitration rather than in court. You are also waiving the right to participate in a class action, class arbitration, collective action, or representative action to the fullest extent permitted by law."
+    }
+  ],
+  "sections": [
+    {
+      "id": "1-eligibility-and-authority",
+      "heading": "1. Eligibility and Authority",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "You must be at least 18 years old and legally capable of entering into a binding agreement to access or use the Services. If you use the Services on behalf of a corporation, limited liability company, partnership, merchant, organization, or other legal entity, you represent and warrant that you have full authority to bind that entity to these Terms and to any other agreement you accept on its behalf."
+        },
+        {
+          "type": "paragraph",
+          "text": "References to “you” and “your” include both the individual accessing the Services and any entity on whose behalf that individual acts. Acru may request documents or other evidence of authority at any time, and may suspend access until Acru is reasonably satisfied that the person acting for an entity is authorized to do so."
+        },
+        {
+          "type": "paragraph",
+          "text": "You may not access or use the Services if you are prohibited from doing so under applicable law, are located in a jurisdiction that Acru does not support, are subject to sanctions that prohibit the relationship, or have previously been suspended or terminated by Acru and have not received written authorization to reapply or return."
+        }
+      ]
+    },
+    {
+      "id": "2-acru-services-and-role",
+      "heading": "2. Acru Services and Role",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acru provides merchant-facing payment technology, payment facilitation and account-management services, software, dashboards, APIs, integrations, reporting, risk-management functionality, merchant support, and access to payment processing and related financial services."
+        },
+        {
+          "type": "paragraph",
+          "text": "For merchants that enter into a Merchant Agreement with Acru, Acru is the merchant’s direct commercial counterparty for access to the Acru platform and applicable merchant services. Subject to the Merchant Agreement, applicable law, network requirements, and the requirements of the financial ecosystem supporting the Services, Acru may establish, administer, modify, or enforce merchant pricing, account settings, transaction limits, reserves, payout schedules, risk controls, service access, and account status."
+        },
+        {
+          "type": "paragraph",
+          "text": "Certain regulated, banking, acquiring, settlement, card-network, identity-verification, fraud-prevention, or other specialized functions may be performed by third-party financial institutions, payment providers, technology providers, or service providers. Acru’s use of third-party infrastructure does not mean that Acru is merely a referral directory or passive routing service. Acru operates and controls its platform and merchant relationships as described in these Terms and the applicable Merchant Agreement."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru is not a bank, card network, governmental agency, law firm, accounting firm, or investment adviser. Nothing in the Services constitutes legal, tax, accounting, investment, or regulatory advice."
+        }
+      ]
+    },
+    {
+      "id": "3-merchant-agreements-and-supplemental-terms",
+      "heading": "3. Merchant Agreements and Supplemental Terms",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Merchants approved to use payment-processing Services must enter into a separate written agreement with Acru (a “Merchant Agreement”). The Merchant Agreement governs the specific commercial and risk relationship between Acru and the merchant and may contain additional or different provisions concerning pricing, reserves, settlement, payout timing, chargebacks, refunds, negative balances, risk controls, underwriting, fraud, compliance, account holds, assessments, losses, termination, and post-termination obligations."
+        },
+        {
+          "type": "paragraph",
+          "text": "If these Terms conflict with a Merchant Agreement with respect to merchant payment-processing Services, the Merchant Agreement controls to the extent of that conflict. If an order form, pricing schedule, product-specific addendum, affiliate agreement, referral agreement, API agreement, data-processing addendum, or other written agreement expressly states that it modifies these Terms, that written agreement will control with respect to the subject matter it governs."
+        },
+        {
+          "type": "paragraph",
+          "text": "The existence of supplemental terms does not limit provisions of these Terms that are capable of operating together with those supplemental terms. Obligations concerning confidentiality, security, intellectual property, indemnification, dispute resolution, limitations of liability, and accrued payment obligations survive to the extent provided in the applicable agreement."
+        }
+      ]
+    },
+    {
+      "id": "4-merchant-applications-underwriting-and-ongoing-review",
+      "heading": "4. Merchant Applications, Underwriting, and Ongoing Review",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Access to payment-processing Services is subject to approval and ongoing review. Acru may request information about a merchant and its business, owners, officers, directors, beneficial owners, personnel, websites, products, services, customers, fulfillment model, finances, prior processing history, transaction activity, licenses, regulatory status, and anticipated use of the Services."
+        },
+        {
+          "type": "paragraph",
+          "text": "You authorize Acru to verify information supplied in connection with an application or account using lawful sources, which may include public databases, government records, business-information providers, identity-verification providers, fraud-prevention providers, financial institutions, payment networks, processing records, bank records, risk-information providers, and other available sources."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru may require updated or additional information at any time, including after an account has been approved. Approval does not create a right to continued service, a guaranteed processing volume, a guaranteed approval rate, or an obligation for Acru to maintain any specific feature, payment method, jurisdiction, limit, or commercial term."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru may approve, conditionally approve, decline, restrict, suspend, or terminate an application or account based on business, operational, financial, legal, compliance, security, network, or risk considerations, subject to applicable law and the applicable Merchant Agreement."
+        }
+      ]
+    },
+    {
+      "id": "5-accuracy-disclosure-and-continuing-duty-to-update",
+      "heading": "5. Accuracy, Disclosure, and Continuing Duty to Update",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "You must provide information that is complete, accurate, current, and not misleading. You must promptly update Acru if information relevant to your account changes, including ownership, beneficial owners, management, business model, websites, products, services, customer geography, transaction volume, average transaction size, fulfillment practices, licensing, banking information, or processing history."
+        },
+        {
+          "type": "paragraph",
+          "text": "You may not conceal or misstate material information, submit documents you know are false or altered, obscure beneficial ownership, misrepresent the source or nature of transactions, process for an undisclosed third party, or use a merchant account for a materially different business than the business approved by Acru."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru may rely on information you provide. Material inaccuracies, omissions, or misrepresentations may result in additional review, pricing changes, reserves, payout delays, transaction limits, suspension, termination, reporting to appropriate parties where legally required, or other measures permitted under the applicable agreement."
+        }
+      ]
+    },
+    {
+      "id": "6-accounts-credentials-and-security",
+      "heading": "6. Accounts, Credentials, and Security",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Certain Services require an Acru account. You are responsible for maintaining the confidentiality and security of usernames, passwords, authentication factors, API keys, secret keys, tokens, devices, and other credentials associated with your account."
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Use strong and unique passwords and authentication methods;",
+            "Restrict access to personnel with a legitimate business need;",
+            "Maintain accurate permissions and promptly revoke access for personnel who leave or change roles;",
+            "Protect API keys and other credentials from disclosure, source-code repositories, public logs, and unauthorized systems;",
+            "Maintain reasonable endpoint, network, and application security; and",
+            "Promptly notify Acru of suspected compromise, credential theft, unauthorized account access, or unauthorized transactions."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "You are responsible for activity performed through your account using valid credentials to the extent permitted by law. Acru may rely on instructions submitted through authenticated accounts and may require credential resets, multifactor authentication, security reviews, or additional verification before permitting access or acting on instructions."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru may suspend an account or API access where Acru reasonably believes credentials have been compromised or continued access may expose Acru, merchants, customers, or other parties to fraud, data loss, unauthorized access, or other security risk."
+        }
+      ]
+    },
+    {
+      "id": "7-payment-processing-and-transaction-submission",
+      "heading": "7. Payment Processing and Transaction Submission",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Eligible merchants may submit supported transactions through the Services. Each transaction is subject to these Terms, the Merchant Agreement, applicable law, payment-network rules, fraud controls, technical availability, authorization requirements, supported payment methods, geographic restrictions, and other applicable requirements."
+        },
+        {
+          "type": "paragraph",
+          "text": "A submitted transaction is not guaranteed to be authorized, captured, settled, paid out, or immune from later reversal. Transactions may be approved, declined, reversed, refunded, disputed, charged back, held, delayed, reviewed, blocked, or otherwise restricted."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru does not guarantee any particular authorization rate, conversion rate, processing volume, settlement speed, uptime percentage, revenue result, or payment outcome. Card issuers, payment networks, financial institutions, customers, fraud systems, technical failures, and other factors outside Acru’s exclusive control may affect transaction outcomes."
+        },
+        {
+          "type": "paragraph",
+          "text": "Merchants must submit only bona fide transactions arising from legitimate sales of approved goods or services and may not submit transactions merely to obtain cash, test payment credentials, create artificial volume, conceal the true merchant, avoid restrictions, or otherwise misuse the payment system."
+        }
+      ]
+    },
+    {
+      "id": "8-pricing-fees-and-commercial-changes",
+      "heading": "8. Pricing, Fees, and Commercial Changes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Merchants must pay all fees, charges, assessments, and other amounts established in the applicable Merchant Agreement, pricing schedule, order form, dashboard, written notice, or other governing commercial terms. Fees may include transaction fees, processing fees, platform fees, monthly fees, chargeback fees, refund fees, retrieval fees, network costs, cross-border fees, currency-conversion fees, risk fees, compliance fees, administrative fees, payout fees, and other charges."
+        },
+        {
+          "type": "callout",
+          "text": "ACRU RESERVES THE RIGHT, SUBJECT TO THE MERCHANT AGREEMENT AND APPLICABLE LAW, TO CHANGE MERCHANT RATES, FEES, PRICING STRUCTURES, RESERVE REQUIREMENTS, PAYOUT TERMS, LIMITS, AND OTHER COMMERCIAL TERMS."
+        },
+        {
+          "type": "paragraph",
+          "text": "Changes may reflect processing volume, chargeback activity, fraud, business category, transaction size, customer geography, payment method, merchant risk, financial exposure, cost increases, network changes, regulatory requirements, financial-institution requirements, changes in third-party costs, or changes to the Services."
+        },
+        {
+          "type": "paragraph",
+          "text": "Where notice is required, Acru may provide notice electronically through email, the merchant dashboard, in-product notice, or another reasonable method. Changes required for security, fraud prevention, compliance, network rules, legal obligations, or urgent risk mitigation may take effect immediately where permitted by law and contract."
+        },
+        {
+          "type": "paragraph",
+          "text": "Unless prohibited by law or the Merchant Agreement, continued use of affected Services following the effective date of a pricing or commercial change constitutes acceptance of the revised commercial terms."
+        }
+      ]
+    },
+    {
+      "id": "9-reserves-holds-setoff-delays-and-other-risk-controls",
+      "heading": "9. Reserves, Holds, Setoff, Delays, and Other Risk Controls",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Subject to the applicable Merchant Agreement, Acru may establish, increase, decrease, modify, maintain, or release reserves and other financial-risk controls. Such controls may include rolling reserves, fixed reserves, settlement delays, payout delays, transaction limits, volume limits, velocity controls, account holds, funding holds, transaction reviews, fraud controls, refund requirements, enhanced monitoring, or other safeguards."
+        },
+        {
+          "type": "paragraph",
+          "text": "Risk controls may be implemented where Acru determines that actual or potential exposure has increased, including because of chargebacks, fraud, customer complaints, unusual transaction activity, volume spikes, material changes in average ticket size, fulfillment risk, financial deterioration, regulatory concerns, network requirements, changes in business model, account compromise, suspected illegal conduct, business closure, insolvency, inaccurate information, or other circumstances that may create financial, legal, compliance, or reputational risk."
+        },
+        {
+          "type": "paragraph",
+          "text": "Where provided in a Merchant Agreement, Acru may apply merchant funds, reserves, payouts, credits, or other amounts otherwise payable to the merchant against amounts the merchant owes to Acru. Nothing in these Terms requires Acru to extend credit or assume financial exposure that Acru determines is unacceptable."
+        },
+        {
+          "type": "paragraph",
+          "text": "Risk controls are preventative measures and do not limit the merchant’s independent obligation to reimburse Acru for chargebacks, refunds, reversals, fines, assessments, fraud losses, negative balances, or other amounts the merchant is responsible for under the Merchant Agreement."
+        }
+      ]
+    },
+    {
+      "id": "10-settlement-payouts-and-merchant-funds",
+      "heading": "10. Settlement, Payouts, and Merchant Funds",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Payout timing, settlement mechanics, supported currencies, minimum balances, payout methods, and related terms are governed by the applicable Merchant Agreement and the capabilities of the Services. Estimated payout timing is not a guarantee that funds will be available on a specific date."
+        },
+        {
+          "type": "paragraph",
+          "text": "Payouts may be delayed or adjusted because of bank holidays, weekends, transaction reviews, disputes, chargebacks, refunds, reserves, compliance reviews, risk events, banking disruptions, technical issues, incorrect banking information, or other circumstances."
+        },
+        {
+          "type": "paragraph",
+          "text": "Merchants are responsible for maintaining accurate payout information. Acru is not responsible for losses caused by inaccurate banking information submitted by a merchant or by a merchant’s failure to protect account credentials, except to the extent liability cannot be excluded under applicable law."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru may require verification before changing payout instructions. Acru may reject or delay payout-instruction changes where the request appears suspicious, inconsistent with account history, or otherwise presents a risk of account takeover or diversion of funds."
+        }
+      ]
+    },
+    {
+      "id": "11-chargebacks-refunds-reversals-and-disputes",
+      "heading": "11. Chargebacks, Refunds, Reversals, and Disputes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Merchants are responsible for transactions submitted through their accounts and for chargebacks, refunds, reversals, customer disputes, and other amounts allocated to the merchant under the Merchant Agreement. A transaction may be charged back or reversed even after it has been authorized, captured, settled, or paid out."
+        },
+        {
+          "type": "paragraph",
+          "text": "Authorization does not constitute a guarantee of final payment. Merchants must maintain commercially reasonable refund, cancellation, fulfillment, delivery, customer-support, and recordkeeping practices appropriate for their businesses and compliant with applicable law and payment-network rules."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru may debit, withhold, net, reserve, or otherwise recover amounts associated with chargebacks, refunds, reversals, assessments, or other merchant obligations as authorized by the Merchant Agreement. Merchants must timely provide documentation reasonably requested to investigate or respond to disputes."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru does not guarantee that a merchant will prevail in any dispute or representment process. Decisions by issuers, networks, financial institutions, or other participants may be final or subject to rules and processes outside Acru’s exclusive control."
+        }
+      ]
+    },
+    {
+      "id": "12-negative-balances-and-amounts-owed",
+      "heading": "12. Negative Balances and Amounts Owed",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "If a merchant account becomes negative or the merchant otherwise owes Acru money, the merchant remains responsible for the full amount owed, including amounts arising after suspension or termination. The merchant must promptly pay amounts due in accordance with the Merchant Agreement."
+        },
+        {
+          "type": "paragraph",
+          "text": "Subject to the Merchant Agreement and applicable law, Acru may recover amounts owed from reserves, future payouts, credits, amounts otherwise payable to the merchant, or other authorized payment methods. Acru may suspend Services while amounts remain unpaid."
+        },
+        {
+          "type": "paragraph",
+          "text": "The termination, expiration, or closure of an account does not release a merchant from liability for chargebacks, refunds, reversals, fines, assessments, negative balances, fees, indemnification obligations, or other liabilities relating to activity occurring before or after termination where such liabilities arise from transactions or conduct connected to the merchant relationship."
+        }
+      ]
+    },
+    {
+      "id": "13-suspension-restrictions-and-termination",
+      "heading": "13. Suspension, Restrictions, and Termination",
+      "blocks": [
+        {
+          "type": "callout",
+          "text": "ACRU MAY SUSPEND, RESTRICT, LIMIT, CONDITION, OR TERMINATE ACCESS TO THE SERVICES OR A MERCHANT ACCOUNT AS PERMITTED BY APPLICABLE LAW AND THE APPLICABLE AGREEMENT."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru may take immediate action where Acru reasonably determines that action is necessary or appropriate because of fraud, suspected fraud, excessive chargebacks, excessive refunds, suspicious activity, money-laundering concerns, sanctions concerns, regulatory concerns, payment-network requirements, financial risk, reputational risk, security threats, account compromise, material misrepresentation, breach of contract, failure to provide requested information, insolvency, customer complaints, prohibited activity, unusual transaction patterns, material changes in a merchant’s business, or other conditions creating unacceptable risk."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru is not required to continue providing Services merely because a merchant or user was previously approved. Where legally and contractually permitted, Acru may discontinue a product, payment method, feature, jurisdiction, or merchant relationship without cause upon notice."
+        },
+        {
+          "type": "paragraph",
+          "text": "Termination or suspension does not affect accrued rights or obligations. Acru may continue to retain records, maintain reserves, manage pending transactions, process refunds or disputes, recover amounts owed, investigate activity, or take other post-termination actions authorized by law or agreement."
+        }
+      ]
+    },
+    {
+      "id": "14-prohibited-and-restricted-activities",
+      "heading": "14. Prohibited and Restricted Activities",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "You may not use the Services for illegal, fraudulent, deceptive, abusive, unauthorized, or prohibited purposes. You may not use the Services to facilitate conduct that Acru reasonably determines exposes Acru or the payment ecosystem to unacceptable legal, compliance, security, financial, or reputational risk."
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Violating applicable law or regulation;",
+            "Fraud, attempted fraud, identity theft, account takeover, or payment-card testing;",
+            "Money laundering, terrorist financing, or sanctions evasion;",
+            "Processing transactions for undisclosed third parties or concealing the true merchant;",
+            "Misrepresenting the nature, origin, purpose, or beneficiary of a transaction;",
+            "Illegal gambling or gaming activity;",
+            "Illegal controlled substances or other unlawful regulated goods;",
+            "Illegal weapons or unlawful weapons commerce;",
+            "Counterfeit or stolen goods;",
+            "Human trafficking, child exploitation, or other exploitative activity;",
+            "Deceptive marketing, materially misleading claims, or fraudulent fulfillment practices;",
+            "Unauthorized recurring transactions or negative-option billing;",
+            "Circumvention of transaction monitoring, reserves, limits, restrictions, or account controls;",
+            "Malware, credential theft, unauthorized security testing, or attacks on Acru systems;",
+            "Infringement of intellectual-property, privacy, publicity, or other third-party rights; or",
+            "Any business or activity identified by Acru as prohibited or restricted under its risk policies."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru may maintain internal prohibited-business and restricted-business policies that are more detailed than the examples in these Terms. The absence of an activity from this list does not require Acru to support it. Acru may require additional due diligence, enhanced monitoring, contractual terms, reserves, or restrictions for businesses Acru considers higher risk."
+        }
+      ]
+    },
+    {
+      "id": "15-sanctions-export-controls-and-anti-corruption",
+      "heading": "15. Sanctions, Export Controls, and Anti-Corruption",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "You may not use the Services in violation of economic sanctions, export-control laws, anti-boycott laws, anti-bribery laws, or anti-corruption laws applicable to you, Acru, or the relevant transaction."
+        },
+        {
+          "type": "paragraph",
+          "text": "You represent that neither you nor, to your knowledge, any entity you control is subject to sanctions that prohibit the contemplated relationship. You may not use the Services to knowingly transact with a person, entity, territory, or activity where the transaction is prohibited by applicable sanctions or other law."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru may block, reject, hold, suspend, investigate, or report activity where reasonably necessary to comply with sanctions, export controls, law-enforcement requests, financial-institution requirements, or other legal or compliance obligations."
+        }
+      ]
+    },
+    {
+      "id": "16-compliance-with-law-and-regulatory-cooperation",
+      "heading": "16. Compliance With Law and Regulatory Cooperation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "You are responsible for complying with laws applicable to your business, products, services, marketing, customer relationships, licensing, registrations, disclosures, taxes, privacy practices, and use of the Services. Acru’s approval of an account does not constitute a legal opinion that your business is lawful in every jurisdiction."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru may request evidence of licenses, registrations, legal opinions, regulatory approvals, customer terms, privacy notices, refund policies, fulfillment records, marketing materials, policies, procedures, transaction records, or other information reasonably related to compliance or risk."
+        },
+        {
+          "type": "paragraph",
+          "text": "You agree to reasonably cooperate with lawful compliance reviews, audits, investigations, information requests, and remediation requirements associated with the Services. Failure to provide requested information within a reasonable period may result in restrictions, reserves, payout delays, suspension, or termination."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru may disclose information to regulators, law enforcement, financial institutions, payment networks, or other authorized parties when required or permitted by law, contract, network rules, or a valid legal process."
+        }
+      ]
+    },
+    {
+      "id": "17-merchant-responsibility-for-products-services-and-customers",
+      "heading": "17. Merchant Responsibility for Products, Services, and Customers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Each merchant is solely responsible for the goods and services it offers and for its relationship with customers. Unless Acru expressly agrees otherwise in writing, Acru is not the seller, manufacturer, service provider, shipping provider, fulfillment provider, warrantor, or customer-support provider for a merchant’s underlying goods or services."
+        },
+        {
+          "type": "paragraph",
+          "text": "Merchants are responsible for product quality, legality, descriptions, advertising, pricing, taxes, fulfillment, shipping, delivery, returns, cancellations, warranties, subscriptions, customer service, and consumer disclosures."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru may nevertheless investigate transactions, require refunds, restrict processing, facilitate disputes, or take other risk-management measures where permitted by the Merchant Agreement. Such measures do not make Acru the seller of the merchant’s goods or services."
+        }
+      ]
+    },
+    {
+      "id": "18-terms-applicable-to-end-users-and-customers",
+      "heading": "18. Terms Applicable to End Users and Customers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "If you are an individual making a payment to an Acru merchant, you authorize the submission and processing of the transaction using the payment method and information you provide. You represent that you are authorized to use the selected payment method, that the information you provide is accurate, and that the transaction is not fraudulent or unlawful."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your purchase of a merchant’s goods or services is generally governed by your agreement with that merchant. Questions about the merchant’s product, service, fulfillment, refund policy, subscription, warranty, or customer service should ordinarily be directed to the merchant."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru may block, decline, delay, review, or otherwise restrict transactions for fraud, security, legal, compliance, operational, network, or risk reasons. Acru’s ability to display a payment method does not guarantee that a transaction will be approved by all parties involved in the payment ecosystem."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru’s collection and use of Personal Information relating to end users is addressed in the Acru Privacy Policy."
+        }
+      ]
+    },
+    {
+      "id": "19-affiliates-referral-partners-and-agents",
+      "heading": "19. Affiliates, Referral Partners, and Agents",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acru may permit approved affiliates, referral partners, agents, or other commercial partners to refer prospective merchants or otherwise participate in Acru programs. Participation may require a separate written agreement."
+        },
+        {
+          "type": "paragraph",
+          "text": "Unless Acru expressly agrees otherwise in writing, referral and affiliate partners are independent contractors, are not employees of Acru, and have no authority to bind Acru, guarantee merchant approval, approve pricing, waive Acru requirements, make unauthorized representations, or enter into contracts on Acru’s behalf."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru may approve or reject any referred merchant in its discretion, subject to applicable law. Commission eligibility, calculation, payment, clawbacks, attribution, termination, confidentiality, non-solicitation, and related matters are governed by the applicable referral or affiliate agreement."
+        },
+        {
+          "type": "paragraph",
+          "text": "Referral partners must market Acru truthfully and may not use deceptive, misleading, unlawful, or unauthorized marketing materials or statements. Acru may require correction or removal of marketing content that refers to Acru or the Services."
+        }
+      ]
+    },
+    {
+      "id": "20-apis-integrations-and-developer-access",
+      "heading": "20. APIs, Integrations, and Developer Access",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acru may make APIs, SDKs, technical documentation, credentials, webhooks, test environments, or other developer tools available to approved users. Developer access is limited, revocable, non-exclusive, and subject to these Terms and any technical documentation or additional terms supplied by Acru."
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Use developer tools only for authorized purposes and approved accounts;",
+            "Comply with rate limits, authentication requirements, and security controls;",
+            "Protect secret keys, tokens, and credentials;",
+            "Do not use APIs to access information without authorization;",
+            "Do not intentionally overload, disrupt, probe, or interfere with the Services;",
+            "Do not reverse engineer non-public technology except where a prohibition is unenforceable under applicable law;",
+            "Do not use Acru APIs to build or facilitate an unlawful or prohibited product; and",
+            "Promptly implement critical security or integration changes reasonably required by Acru."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru may modify, version, limit, deprecate, or discontinue APIs or integration methods. Acru does not guarantee permanent backward compatibility unless expressly agreed in writing. Users are responsible for monitoring applicable technical notices and maintaining integrations."
+        }
+      ]
+    },
+    {
+      "id": "21-merchant-systems-pci-and-data-security-obligations",
+      "heading": "21. Merchant Systems, PCI, and Data Security Obligations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Merchants and developers are responsible for maintaining reasonable administrative, technical, and physical safeguards for systems under their control. Where applicable to a merchant’s payment environment, the merchant is responsible for complying with applicable payment-card security requirements and for using approved integrations and handling methods."
+        },
+        {
+          "type": "paragraph",
+          "text": "You may not store, transmit, log, expose, or otherwise handle sensitive payment credentials in a manner prohibited by applicable security standards or Acru documentation. You must promptly remediate material vulnerabilities, exposed credentials, malware, insecure integrations, or other security issues that may affect the Services."
+        },
+        {
+          "type": "paragraph",
+          "text": "If Acru reasonably believes your systems or integration present a material security risk, Acru may require remediation, credential rotation, penetration-test results, security attestations, additional controls, or temporary suspension of the affected integration."
+        },
+        {
+          "type": "paragraph",
+          "text": "You must promptly notify Acru of any actual or suspected security incident that may materially affect Acru, the Services, payment information, or information processed through your Acru integration and cooperate with reasonable investigation and remediation efforts."
+        }
+      ]
+    },
+    {
+      "id": "22-records-audit-trail-and-electronic-evidence",
+      "heading": "22. Records, Audit Trail, and Electronic Evidence",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acru may create and maintain records relating to account activity, user actions, transaction submissions, merchant settings, notices, communications, approvals, authentication events, API activity, risk actions, and other interactions with the Services."
+        },
+        {
+          "type": "paragraph",
+          "text": "To the extent permitted by law, Acru’s electronic records, system logs, transaction records, communications, and authenticated account records may be used as evidence of activity conducted through the Services. You are responsible for maintaining copies of records you are legally required to retain for your business."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru is not required to retain records indefinitely. Retention practices are governed by applicable law, contractual obligations, legitimate business needs, and the Acru Privacy Policy."
+        }
+      ]
+    },
+    {
+      "id": "23-intellectual-property-and-license-to-use-the-services",
+      "heading": "23. Intellectual Property and License to Use the Services",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The Services and all related software, source and object code, APIs, documentation, interfaces, designs, graphics, logos, trademarks, trade names, text, databases, workflows, reports, risk tools, business methods, and other proprietary materials are owned by or licensed to Acru and are protected by intellectual-property and other laws."
+        },
+        {
+          "type": "paragraph",
+          "text": "Subject to these Terms and any applicable agreement, Acru grants you a limited, revocable, non-exclusive, non-transferable, non-sublicensable license to access and use the Services solely for their intended purpose during the period in which you are authorized to use them."
+        },
+        {
+          "type": "paragraph",
+          "text": "No ownership rights are transferred. You may not copy, reproduce, distribute, sell, sublicense, modify, create derivative works from, reverse engineer, exploit, scrape, or use Acru intellectual property except as expressly authorized by Acru or as a restriction is prohibited by applicable law."
+        },
+        {
+          "type": "paragraph",
+          "text": "“Acru,” Acru logos, product names, and related branding may not be used in a manner implying sponsorship, endorsement, partnership, or authority beyond the scope Acru has approved in writing."
+        }
+      ]
+    },
+    {
+      "id": "24-feedback-and-product-suggestions",
+      "heading": "24. Feedback and Product Suggestions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "If you voluntarily provide ideas, suggestions, enhancement requests, recommendations, concepts, or other feedback concerning Acru or the Services (“Feedback”), you grant Acru a perpetual, irrevocable, worldwide, transferable, sublicensable, royalty-free right to use, reproduce, modify, adapt, commercialize, disclose, and otherwise exploit the Feedback for any lawful purpose without obligation or compensation to you."
+        },
+        {
+          "type": "paragraph",
+          "text": "You represent that you have the right to provide the Feedback and that Acru’s use of it as permitted by this Section will not violate obligations you owe to another party."
+        }
+      ]
+    },
+    {
+      "id": "25-confidential-information",
+      "heading": "25. Confidential Information",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In connection with the Services, you may receive non-public information relating to Acru or its business, including pricing, commercial terms, product plans, technical documentation, credentials, APIs, risk processes, underwriting practices, fraud controls, merchant information, system architecture, business processes, and other information that reasonably should be understood as confidential (“Confidential Information”)."
+        },
+        {
+          "type": "paragraph",
+          "text": "You may use Acru Confidential Information only as necessary to use the Services or perform an applicable agreement. You may disclose it only to personnel and professional advisers who have a legitimate need to know and are subject to confidentiality obligations at least as protective as those applicable to you."
+        },
+        {
+          "type": "paragraph",
+          "text": "Confidential Information does not include information that you can demonstrate was lawfully known without restriction, became public through no breach by you, was independently developed without use of Acru Confidential Information, or was lawfully received from a third party without a duty of confidentiality."
+        },
+        {
+          "type": "paragraph",
+          "text": "If disclosure is legally required, you must provide Acru with prompt advance notice where legally permitted and reasonably cooperate, at Acru’s expense where appropriate, with efforts to seek confidential treatment or limit disclosure."
+        }
+      ]
+    },
+    {
+      "id": "26-privacy-and-data-protection",
+      "heading": "26. Privacy and Data Protection",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acru’s collection, use, disclosure, retention, and protection of Personal Information is described in the Acru Privacy Policy, which is incorporated into these Terms by reference."
+        },
+        {
+          "type": "paragraph",
+          "text": "Merchants, developers, affiliates, and other business users are independently responsible for complying with privacy and data-protection laws applicable to their own activities. You must provide legally required privacy notices, obtain legally required permissions or consents, respond to applicable privacy rights, and process Personal Information lawfully."
+        },
+        {
+          "type": "paragraph",
+          "text": "You may provide Personal Information to Acru only where you have a lawful basis and authority to do so. Where Acru processes Personal Information on behalf of a merchant or other business user, additional data-processing terms may apply."
+        },
+        {
+          "type": "paragraph",
+          "text": "You may not use the Services to unlawfully collect, infer, sell, disclose, monitor, or otherwise process Personal Information."
+        }
+      ]
+    },
+    {
+      "id": "27-electronic-communications-signatures-and-notices",
+      "heading": "27. Electronic Communications, Signatures, and Notices",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "You consent to receive agreements, disclosures, notices, account updates, compliance requests, pricing notices, transaction information, security alerts, legal notices, and other communications electronically to the extent permitted by law."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru may communicate through email, the Acru dashboard, in-product notices, electronic documents, SMS where permitted, or other reasonable electronic means. You are responsible for maintaining current contact information and monitoring communications sent to your account."
+        },
+        {
+          "type": "paragraph",
+          "text": "Electronic acceptance, click-to-accept actions, digital signatures, typed names, authenticated account actions, and similar methods may constitute binding signatures and writings to the extent permitted by applicable law."
+        },
+        {
+          "type": "paragraph",
+          "text": "Unless a specific agreement requires another method, notices to Acru concerning legal disputes should be sent to legal@acru.com and, where appropriate, by mail to the address in Section 47."
+        }
+      ]
+    },
+    {
+      "id": "28-third-party-services-and-infrastructure",
+      "heading": "28. Third-Party Services and Infrastructure",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The Services may depend on or interact with third-party technology, telecommunications networks, financial institutions, payment networks, banking systems, software, identity providers, fraud providers, hosting providers, or other services that Acru does not exclusively control."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru may select, change, replace, add, or discontinue third-party service providers or infrastructure arrangements without notice unless notice is required by applicable law or contract."
+        },
+        {
+          "type": "paragraph",
+          "text": "To the maximum extent permitted by law, Acru is not responsible for failures caused solely by third-party systems outside Acru’s reasonable control, including issuer decisions, network outages, banking interruptions, telecommunications failures, internet disruptions, cloud-provider outages, or third-party security incidents."
+        },
+        {
+          "type": "paragraph",
+          "text": "Nothing in this Section reduces Acru’s obligations that cannot lawfully be disclaimed or any express obligation Acru undertakes in a Merchant Agreement."
+        }
+      ]
+    },
+    {
+      "id": "29-service-availability-maintenance-and-changes",
+      "heading": "29. Service Availability, Maintenance, and Changes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acru may perform scheduled or emergency maintenance, deploy updates, change functionality, modify interfaces, alter workflows, add or remove features, change supported payment methods, modify supported jurisdictions, or otherwise change the Services."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru may temporarily limit access where reasonably necessary for maintenance, security, fraud prevention, legal compliance, incident response, capacity management, infrastructure changes, or other operational reasons."
+        },
+        {
+          "type": "paragraph",
+          "text": "Unless expressly stated in a separate written service-level agreement, Acru does not guarantee uninterrupted availability, a specific uptime percentage, uninterrupted access to any third-party system, or permanent availability of any feature or payment method."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru is not obligated to preserve legacy functionality or maintain a feature indefinitely. Where commercially reasonable, Acru may provide advance notice of material developer-facing changes, but urgent security or compliance changes may be implemented without advance notice."
+        }
+      ]
+    },
+    {
+      "id": "30-beta-preview-and-experimental-features",
+      "heading": "30. Beta, Preview, and Experimental Features",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acru may offer beta, preview, pilot, early-access, test, or experimental features. Such features may be incomplete, subject to additional limitations, changed without notice, or discontinued at any time."
+        },
+        {
+          "type": "paragraph",
+          "text": "Unless Acru expressly agrees otherwise, beta or experimental features are provided for evaluation and may not be appropriate for production use. Acru may impose additional terms, usage limits, confidentiality obligations, or eligibility requirements for such features."
+        }
+      ]
+    },
+    {
+      "id": "31-disclaimers",
+      "heading": "31. DISCLAIMERS",
+      "blocks": [
+        {
+          "type": "callout",
+          "text": "TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE SERVICES ARE PROVIDED “AS IS” AND “AS AVAILABLE.” ACRU DISCLAIMS ALL WARRANTIES, EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT, QUIET ENJOYMENT, AND WARRANTIES ARISING FROM COURSE OF DEALING OR USAGE OF TRADE."
+        },
+        {
+          "type": "paragraph",
+          "text": "Without limiting the foregoing, Acru does not warrant that the Services will always be available, uninterrupted, secure, error-free, free from harmful components, compatible with every system, or suitable for every business. Acru does not warrant that every transaction will be approved, that any particular approval or conversion rate will be achieved, that payouts will occur within a particular period, that a merchant will remain approved, or that any payment method or jurisdiction will remain available."
+        },
+        {
+          "type": "paragraph",
+          "text": "Fraud-prevention and security tools reduce risk but cannot eliminate all fraud, chargebacks, account takeover, cybersecurity incidents, or unauthorized activity. You remain responsible for appropriate controls within your own systems and business."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru does not provide legal, tax, accounting, investment, insurance, or regulatory advice. Any information made available through the Services is general information and should not be treated as a substitute for professional advice tailored to your circumstances."
+        }
+      ]
+    },
+    {
+      "id": "32-limitation-of-liability",
+      "heading": "32. LIMITATION OF LIABILITY",
+      "blocks": [
+        {
+          "type": "callout",
+          "text": "TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, ACRU AND ITS AFFILIATES, DIRECTORS, OFFICERS, EMPLOYEES, AGENTS, REPRESENTATIVES, LICENSORS, SERVICE PROVIDERS, AND BUSINESS PARTNERS (“PROTECTED PARTIES”) WILL NOT BE LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, PUNITIVE, OR CONSEQUENTIAL DAMAGES, OR FOR LOST PROFITS, LOST REVENUE, LOST BUSINESS, LOST OPPORTUNITIES, LOSS OF GOODWILL, LOSS OF DATA, BUSINESS INTERRUPTION, OR COST OF SUBSTITUTE SERVICES, REGARDLESS OF THE THEORY OF LIABILITY AND EVEN IF ADVISED THAT SUCH DAMAGES WERE POSSIBLE."
+        },
+        {
+          "type": "paragraph",
+          "text": "To the maximum extent permitted by applicable law, the aggregate liability of Acru and the Protected Parties arising out of or relating to the Services or these Terms will not exceed the greater of: (A) one hundred U.S. dollars ($100); or (B) the net fees actually retained by Acru from you for the specific Services giving rise to the claim during the three (3) months immediately preceding the event giving rise to liability."
+        },
+        {
+          "type": "paragraph",
+          "text": "Pass-through amounts, interchange, network fees, assessments, third-party costs, reserves, merchant funds, taxes, amounts collected for others, and amounts not retained by Acru are excluded from calculating the liability cap."
+        },
+        {
+          "type": "paragraph",
+          "text": "The limitations apply to claims under contract, tort, negligence, strict liability, statute, misrepresentation, restitution, or any other theory. They apply even if a remedy fails of its essential purpose, to the extent permitted by law."
+        },
+        {
+          "type": "paragraph",
+          "text": "For merchants, a Merchant Agreement may establish additional or different limitations. Nothing in these Terms excludes or limits liability that cannot lawfully be excluded or limited."
+        }
+      ]
+    },
+    {
+      "id": "33-business-user-indemnification",
+      "heading": "33. Business User Indemnification",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "If you access or use Acru on behalf of a business, merchant, affiliate, referral partner, organization, or commercial enterprise, you agree to defend, indemnify, and hold harmless Acru and the Protected Parties from and against claims, demands, actions, investigations, proceedings, damages, losses, liabilities, judgments, settlements, penalties, fines, costs, and reasonable attorneys’ fees arising out of or relating to:"
+        },
+        {
+          "type": "bullet_list",
+          "items": [
+            "Your business, products, services, marketing, or customers;",
+            "Transactions submitted through your account;",
+            "Chargebacks, refunds, reversals, or customer disputes allocated to you;",
+            "Fraud or misuse associated with your operations or systems;",
+            "Your breach of these Terms or another agreement with Acru;",
+            "Your violation of applicable law, payment-network rules, or third-party rights;",
+            "Your employees, contractors, affiliates, representatives, or agents;",
+            "Your tax obligations;",
+            "Your privacy, cybersecurity, or data-protection practices;",
+            "Intellectual-property infringement relating to materials you provide or use;",
+            "Misleading, deceptive, or unauthorized marketing or sales practices; or",
+            "Goods or services you provide to customers."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru may assume control of the defense of a matter subject to indemnification, in which case you agree to reasonably cooperate. You may not settle a claim in a manner that imposes liability, admission, obligation, payment, or restriction on Acru without Acru’s prior written consent."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your indemnification obligations are independent of, and not limited by, reserves, insurance, limitation-of-liability provisions, or termination of your account."
+        }
+      ]
+    },
+    {
+      "id": "34-taxes",
+      "heading": "34. Taxes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Merchants and other business users are responsible for determining, collecting, reporting, withholding, and paying taxes applicable to their businesses, transactions, employees, contractors, products, services, and use of the Services."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru may collect, withhold, report, or remit taxes where legally required and may request tax forms, taxpayer-identification information, or other documentation necessary for reporting or compliance. Acru does not provide tax advice."
+        }
+      ]
+    },
+    {
+      "id": "35-insurance-and-business-continuity",
+      "heading": "35. Insurance and Business Continuity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acru may require certain merchants or business users to maintain commercially reasonable insurance coverage appropriate to their activities and risk profile, where permitted by the applicable agreement. The existence of insurance does not limit a merchant’s contractual liability to Acru."
+        },
+        {
+          "type": "paragraph",
+          "text": "Business users are responsible for maintaining reasonable business-continuity and backup procedures appropriate to their operations, including procedures for service interruptions, payment-method outages, cybersecurity incidents, and access to critical business records."
+        }
+      ]
+    },
+    {
+      "id": "36-no-fiduciary-partnership-or-agency-relationship",
+      "heading": "36. No Fiduciary, Partnership, or Agency Relationship",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Except where expressly required by law or specifically agreed in writing, your use of the Services does not create a fiduciary relationship, partnership, joint venture, franchise, employment relationship, or agency relationship between you and Acru."
+        },
+        {
+          "type": "paragraph",
+          "text": "Affiliates, referral partners, merchants, users, and developers have no authority to bind Acru or make commitments on Acru’s behalf unless Acru has expressly granted that authority in writing."
+        }
+      ]
+    },
+    {
+      "id": "37-force-majeure",
+      "heading": "37. Force Majeure",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acru will not be liable for delays, interruptions, or failures caused by circumstances beyond its reasonable control, including natural disasters, severe weather, fire, flood, war, terrorism, civil unrest, governmental action, labor disputes, utility failures, internet or telecommunications failures, cyberattacks, banking interruptions, payment-network outages, processor outages, cloud-service failures, epidemics, pandemics, supply disruptions, or similar events."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru may take reasonable steps during a force-majeure event to protect the security and integrity of the Services, including temporarily restricting features, transactions, payouts, or account access."
+        }
+      ]
+    },
+    {
+      "id": "38-claims-limitation-period",
+      "heading": "38. Claims Limitation Period",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "To the maximum extent permitted by law, any claim by a business user arising out of or relating to these Terms or the Services must be commenced within one (1) year after the claim accrued, or the shortest period permitted by applicable law if a one-year limitation is not enforceable."
+        },
+        {
+          "type": "paragraph",
+          "text": "This contractual limitation does not apply to claims for which applicable law prohibits shortening the statutory limitations period. Separate limitation periods may apply under a Merchant Agreement or other written agreement."
+        }
+      ]
+    },
+    {
+      "id": "39-dispute-resolution-binding-arbitration-class-action-waiver",
+      "heading": "39. Dispute Resolution; Binding Arbitration; Class Action Waiver",
+      "blocks": [
+        {
+          "type": "callout",
+          "text": "PLEASE READ THIS SECTION CAREFULLY. IT REQUIRES MOST DISPUTES TO BE RESOLVED THROUGH INDIVIDUAL BINDING ARBITRATION AND LIMITS THE MANNER IN WHICH YOU MAY SEEK RELIEF."
+        },
+        {
+          "type": "subheading",
+          "text": "39.1 Agreement to Arbitrate"
+        },
+        {
+          "type": "paragraph",
+          "text": "Except as specifically provided below or prohibited by applicable law, you and Acru agree that any dispute, claim, or controversy arising out of or relating to these Terms, the Services, your relationship with Acru, a merchant account, transactions processed through the Services, communications with Acru, or termination of a relationship with Acru will be resolved through final and binding individual arbitration."
+        },
+        {
+          "type": "paragraph",
+          "text": "This agreement to arbitrate is intended to be interpreted broadly and includes claims arising under contract, tort, statute, regulation, fraud, misrepresentation, consumer-protection law, common law, equity, or any other legal theory. The arbitration agreement is governed by the Federal Arbitration Act, 9 U.S.C. § 1 et seq., and survives termination of these Terms."
+        },
+        {
+          "type": "subheading",
+          "text": "39.2 Informal Dispute Resolution"
+        },
+        {
+          "type": "paragraph",
+          "text": "Before initiating arbitration, the party seeking relief must provide the other party with a written notice describing the dispute in reasonable detail, including the claimant’s name and contact information, applicable account or business information, relevant facts, the relief requested, and a good-faith calculation of any monetary demand. Notices to Acru must be sent to legal@acru.com and to the mailing address in Section 47."
+        },
+        {
+          "type": "paragraph",
+          "text": "The parties will attempt in good faith to resolve the dispute for at least thirty (30) days after receipt of the notice before arbitration is commenced. Any limitations period will be tolled during that informal-resolution period to the extent required by law."
+        },
+        {
+          "type": "subheading",
+          "text": "39.3 Arbitration Administrator and Rules"
+        },
+        {
+          "type": "paragraph",
+          "text": "Arbitration will be administered by the American Arbitration Association (“AAA”). For disputes involving an individual acting primarily for personal, family, or household purposes, the AAA Consumer Arbitration Rules will apply. For merchant, affiliate, referral, developer, business-to-business, and other commercial disputes, the AAA Commercial Arbitration Rules will apply unless another Acru agreement provides otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "If the applicable AAA rules conflict with this Section, this Section controls to the extent permitted by law. If AAA is unavailable or unwilling to administer a dispute, the parties will confer in good faith regarding a substitute administrator, and if they cannot agree, a court of competent jurisdiction may appoint an administrator consistent with the Federal Arbitration Act."
+        },
+        {
+          "type": "subheading",
+          "text": "39.4 Individual Proceedings Only"
+        },
+        {
+          "type": "callout",
+          "text": "YOU AND ACRU AGREE THAT CLAIMS MAY BE BROUGHT ONLY IN AN INDIVIDUAL CAPACITY. TO THE MAXIMUM EXTENT PERMITTED BY LAW, NEITHER PARTY MAY BRING OR PARTICIPATE IN A CLASS ACTION, CLASS ARBITRATION, COLLECTIVE ACTION, CONSOLIDATED ACTION, REPRESENTATIVE ACTION, OR PRIVATE ATTORNEY GENERAL ACTION ON BEHALF OF OTHERS."
+        },
+        {
+          "type": "paragraph",
+          "text": "The arbitrator may award relief only to the individual party seeking relief and only to the extent necessary to resolve that individual claim, except to the extent applicable law requires otherwise."
+        },
+        {
+          "type": "subheading",
+          "text": "39.5 Jury Trial Waiver"
+        },
+        {
+          "type": "callout",
+          "text": "TO THE MAXIMUM EXTENT PERMITTED BY LAW, YOU AND ACRU EACH KNOWINGLY AND VOLUNTARILY WAIVE THE RIGHT TO A TRIAL BY JURY FOR ANY DISPUTE THAT IS NOT SUBJECT TO ARBITRATION."
+        },
+        {
+          "type": "subheading",
+          "text": "39.6 Procedure and Location"
+        },
+        {
+          "type": "paragraph",
+          "text": "Unless the parties agree otherwise, arbitration will be conducted before one neutral arbitrator. The arbitrator will apply applicable substantive law, may award individual remedies available under applicable law, and will issue a written decision sufficient to explain the material findings and conclusions. Judgment on an award may be entered in any court having jurisdiction."
+        },
+        {
+          "type": "paragraph",
+          "text": "For commercial disputes, arbitration will take place in New Castle County, Delaware, unless Acru agrees otherwise. Consumer disputes will be conducted in a location and manner consistent with applicable consumer arbitration rules and law. Hearings may occur by videoconference, telephone, documents-only procedure, or in person as permitted by the applicable rules."
+        },
+        {
+          "type": "subheading",
+          "text": "39.7 Fees"
+        },
+        {
+          "type": "paragraph",
+          "text": "Arbitration fees will be allocated under the applicable AAA rules and law. Nothing in these Terms requires a consumer to bear fees that would make arbitration legally inaccessible. Acru may seek attorneys’ fees or costs where authorized by law, contract, or the applicable arbitration rules, including for claims brought in bad faith or where fee shifting is otherwise permitted."
+        },
+        {
+          "type": "subheading",
+          "text": "39.8 Exceptions"
+        },
+        {
+          "type": "paragraph",
+          "text": "Either party may bring an eligible individual claim in small claims court. Either party may also seek temporary or preliminary injunctive relief from a court where necessary to prevent imminent misuse of intellectual property, unauthorized system access, data misuse, fraud, or material security threats, or may pursue another remedy that applicable law expressly permits outside arbitration."
+        },
+        {
+          "type": "subheading",
+          "text": "39.9 Coordinated or Mass Filings"
+        },
+        {
+          "type": "paragraph",
+          "text": "If substantially similar arbitration demands are filed or coordinated against Acru by the same or coordinated counsel, the AAA’s applicable mass-arbitration procedures may apply where their requirements are satisfied. Nothing in this provision authorizes class arbitration; each claimant’s dispute remains an individual dispute except where applicable law requires otherwise."
+        },
+        {
+          "type": "subheading",
+          "text": "39.10 Arbitration Opt-Out"
+        },
+        {
+          "type": "paragraph",
+          "text": "You may opt out of this arbitration agreement by sending written notice to legal@acru.com within thirty (30) days after the date you first accept these Terms. The notice must include your full legal name, email address associated with your Acru account, mailing address, applicable business name if any, and a clear statement that you are opting out of the arbitration agreement in Acru’s Terms of Service."
+        },
+        {
+          "type": "paragraph",
+          "text": "Opting out of arbitration does not affect any other provision of these Terms. If you do not timely opt out, you agree to binding arbitration to the extent permitted by law."
+        },
+        {
+          "type": "subheading",
+          "text": "39.11 Severability of Arbitration Provisions"
+        },
+        {
+          "type": "paragraph",
+          "text": "If a portion of this arbitration agreement is found unenforceable, that portion will be severed or limited to the minimum extent necessary while the remainder remains effective, except where applicable law requires a different result. If the class or representative-action waiver is found unenforceable as to a particular claim or remedy, that claim or remedy will proceed in court only to the extent required by law, and arbitrable claims will be arbitrated first unless applicable law requires otherwise."
+        }
+      ]
+    },
+    {
+      "id": "40-governing-law-and-court-venue",
+      "heading": "40. Governing Law and Court Venue",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Except to the extent governed by the Federal Arbitration Act or another mandatory law, these Terms and disputes arising from them are governed by the laws of the State of Delaware, without regard to conflict-of-law principles."
+        },
+        {
+          "type": "paragraph",
+          "text": "If a dispute is permitted to proceed in court rather than arbitration, business users consent to exclusive jurisdiction and venue in the state and federal courts located in Delaware. Consumers retain any mandatory venue or consumer-protection rights that cannot lawfully be waived."
+        }
+      ]
+    },
+    {
+      "id": "41-assignment-and-corporate-transactions",
+      "heading": "41. Assignment and Corporate Transactions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "You may not assign, delegate, or transfer your rights or obligations under these Terms without Acru’s prior written consent. Any prohibited assignment is void."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru may assign or transfer these Terms, in whole or in part, to an affiliate, successor, acquirer, purchaser of assets, financing party where appropriate, or another entity in connection with a merger, reorganization, financing, sale, corporate restructuring, or similar transaction to the extent permitted by law."
+        }
+      ]
+    },
+    {
+      "id": "42-changes-to-these-terms",
+      "heading": "42. Changes to These Terms",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acru may modify these Terms periodically. Updated Terms will identify an updated effective or “Last Updated” date. Where required or commercially appropriate, Acru may provide notice through email, the Acru dashboard, an in-product notice, or another reasonable method."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your continued use of the Services after revised Terms become effective constitutes acceptance to the extent permitted by law. If you do not agree to revised Terms, you must stop using the affected Services and, where applicable, terminate your account in accordance with your agreement."
+        },
+        {
+          "type": "paragraph",
+          "text": "Changes to merchant-specific pricing or commercial terms may be governed separately by the Merchant Agreement. A material amendment to the arbitration agreement will not retroactively change treatment of a dispute for which written notice had already been received before the amendment became effective, unless the parties agree otherwise."
+        }
+      ]
+    },
+    {
+      "id": "43-severability-waiver-and-interpretation",
+      "heading": "43. Severability, Waiver, and Interpretation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "If any provision of these Terms is held unlawful, invalid, or unenforceable, the provision will be enforced to the maximum extent permitted and, where appropriate, modified or severed so that the remaining provisions remain in effect."
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru’s failure or delay in exercising a right does not waive that right. A waiver is effective only if in writing and signed or otherwise expressly approved by an authorized Acru representative."
+        },
+        {
+          "type": "paragraph",
+          "text": "Headings are for convenience only and do not limit the interpretation of these Terms. Words such as “including” and “includes” mean “including without limitation” unless context clearly requires otherwise. The singular includes the plural and vice versa where appropriate."
+        }
+      ]
+    },
+    {
+      "id": "44-no-third-party-beneficiaries",
+      "heading": "44. No Third-Party Beneficiaries",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Except for Protected Parties expressly granted rights under these Terms and other persons expressly identified as beneficiaries in a separate written agreement, these Terms do not create rights for any third-party beneficiary."
+        }
+      ]
+    },
+    {
+      "id": "45-entire-agreement-and-order-of-precedence",
+      "heading": "45. Entire Agreement and Order of Precedence",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "These Terms, together with any applicable Merchant Agreement, affiliate or referral agreement, product-specific terms, order form, pricing schedule, data-processing terms, Privacy Policy, and other agreement expressly incorporated by reference, constitute the agreement between you and Acru concerning the applicable Services."
+        },
+        {
+          "type": "paragraph",
+          "text": "For merchant payment-processing Services, the following order generally applies in the event of a conflict unless an executed amendment expressly states otherwise:"
+        },
+        {
+          "type": "numbered_list",
+          "items": [
+            "The applicable Merchant Agreement;",
+            "Any merchant-specific executed amendment, order form, or pricing schedule;",
+            "Product-specific or service-specific terms; and",
+            "These Terms."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The Privacy Policy governs Acru’s privacy practices but does not alter the allocation of commercial risk or payment obligations established in the Merchant Agreement."
+        }
+      ]
+    },
+    {
+      "id": "46-survival",
+      "heading": "46. Survival",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Provisions that by their nature should survive expiration, suspension, or termination will survive, including provisions concerning payment obligations, reserves, chargebacks, refunds, reversals, negative balances, confidentiality, intellectual property, privacy obligations, disclaimers, limitations of liability, indemnification, dispute resolution, governing law, accrued obligations, audit cooperation, and enforcement rights."
+        }
+      ]
+    },
+    {
+      "id": "47-contact-information",
+      "heading": "47. Contact Information",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Questions concerning these Terms may be directed to:"
+        },
+        {
+          "type": "paragraph",
+          "text": "Acru, Inc.\nLegal Department\n8 The Greene STE A\nDover, Delaware 19901"
+        },
+        {
+          "type": "paragraph",
+          "text": "Email: legal@acru.com\nWebsite: acru.com"
+        }
+      ]
+    }
+  ]
+}
