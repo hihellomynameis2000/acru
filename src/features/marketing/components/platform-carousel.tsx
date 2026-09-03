@@ -1,174 +1,176 @@
 "use client";
 
-import { ArrowLeftIcon, ArrowRightIcon } from "@shopify/polaris-icons";
 import Image from "next/image";
-import { useCallback, useRef, useState } from "react";
+import { useId, useRef, useState } from "react";
 
 import { platformCapabilities } from "@/features/marketing/data/marketing";
 
-function CapabilityVisual({ visual }: { visual: (typeof platformCapabilities)[number]["visual"] }) {
-  if (visual === "payments") {
+type Capability = (typeof platformCapabilities)[number];
+
+function CapabilityVisual({ visual }: { visual: Capability["visual"] }) {
+  if (visual === "accept") {
     return (
       <Image
-        alt="Payment methods connected to an approved Acru payment"
-        className="marketing-capability-image"
+        alt="Cards, bank payments, and USDC connected through Acru"
+        className="marketing-showcase-payment-image"
         height={1048}
-        sizes="(max-width: 600px) 84vw, 470px"
+        sizes="(max-width: 760px) 90vw, 52vw"
         src="/marketing/payments.png"
         width={1837}
       />
     );
   }
 
-  if (visual === "checkout") {
+  if (visual === "protect") {
     return (
-      <div className="marketing-checkout-visual" aria-hidden="true">
-        <div>
-          <span>Order total</span>
-          <strong>$149.00</strong>
-          <i />
-          <i />
-          <span className="marketing-checkout-action">Pay securely</span>
-        </div>
-        <div>
-          <span>Payment complete</span>
+      <div className="marketing-risk-console" aria-label="Acru payment risk decision">
+        <div className="marketing-risk-score">
+          <span>Decision</span>
           <strong>Approved</strong>
-          <small>Receipt sent instantly</small>
+          <small>Low risk · 42 ms</small>
+        </div>
+        <div className="marketing-risk-signals">
+          <p>
+            <span>Identity match</span>
+            <strong>Verified</strong>
+          </p>
+          <p>
+            <span>Authentication</span>
+            <strong>3DS complete</strong>
+          </p>
+          <p>
+            <span>Velocity</span>
+            <strong>Normal</strong>
+          </p>
+        </div>
+        <div className="marketing-risk-meter" aria-hidden="true">
+          <i />
+          <span>More protection only when the payment needs it</span>
         </div>
       </div>
     );
   }
 
-  if (visual === "risk") {
+  if (visual === "settle") {
     return (
-      <div className="marketing-risk-visual" aria-hidden="true">
-        <div className="marketing-risk-rings">
-          <i />
-          <i />
-          <i />
-        </div>
-        <div>
-          <span>Approval rate</span>
-          <strong>98.7%</strong>
-        </div>
-        <div>
-          <span>Fraud blocked</span>
-          <strong>Real time</strong>
-        </div>
-      </div>
-    );
-  }
-
-  if (visual === "payouts") {
-    return (
-      <div className="marketing-payout-visual" aria-hidden="true">
-        <p>
-          <span>Available balance</span>
+      <div className="marketing-settlement-map" aria-label="Acru settlement routes">
+        <div className="marketing-settlement-source">
+          <span>Available to settle</span>
           <strong>$284,913.20</strong>
-        </p>
-        <div>
+          <small>USD balance</small>
+        </div>
+        <div className="marketing-settlement-path" aria-hidden="true">
           <i />
-          <i />
-          <i />
-          <i />
+          <b>A</b>
           <i />
         </div>
-        <small>Next automatic payout · Tomorrow</small>
+        <div className="marketing-settlement-destinations">
+          <p>
+            <span>Bank account</span>
+            <strong>Tomorrow · 5:00 PM ET</strong>
+          </p>
+          <p>
+            <span>USDC wallet</span>
+            <strong>Available 24/7</strong>
+          </p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="marketing-reporting-visual" aria-hidden="true">
-      <p>
-        <span>Net revenue</span>
-        <strong>$6.21M</strong>
-        <small>+15.3%</small>
-      </p>
+    <div className="marketing-operations-preview">
+      <Image
+        alt="Acru operations console showing balances and reporting"
+        height={982}
+        sizes="(max-width: 760px) 90vw, 52vw"
+        src="/marketing/merchant-dashboard.png"
+        width={1124}
+      />
       <div>
-        {[38, 55, 47, 72, 61, 84, 76, 96].map((height) => (
-          <i key={height} style={{ height: `${height}%` }} />
-        ))}
+        <span>Reconciled</span>
+        <strong>12,481 transactions</strong>
+        <small>Payments, fees, refunds, and payouts matched</small>
       </div>
     </div>
   );
 }
 
 export function PlatformCarousel() {
-  const trackRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const tabsRef = useRef<Array<HTMLButtonElement | null>>([]);
+  const id = useId();
+  const activeCapability = platformCapabilities[activeIndex];
 
-  const goTo = useCallback((index: number) => {
-    const track = trackRef.current;
-    if (!track) return;
-    const normalizedIndex = Math.max(0, Math.min(platformCapabilities.length - 1, index));
-    const card = track.children.item(normalizedIndex) as HTMLElement | null;
-    card?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
-    setActiveIndex(normalizedIndex);
-  }, []);
-
-  const updateActiveCard = useCallback(() => {
-    const track = trackRef.current;
-    if (!track) return;
-    const cards = Array.from(track.children) as HTMLElement[];
-    const closestIndex = cards.reduce((closest, card, index) => {
-      const currentDistance = Math.abs(card.offsetLeft - track.offsetLeft - track.scrollLeft);
-      const closestDistance = Math.abs(cards[closest].offsetLeft - track.offsetLeft - track.scrollLeft);
-      return currentDistance < closestDistance ? index : closest;
-    }, 0);
-    setActiveIndex(closestIndex);
-  }, []);
+  function selectRelativeCapability(direction: -1 | 1) {
+    const nextIndex = (activeIndex + direction + platformCapabilities.length) % platformCapabilities.length;
+    setActiveIndex(nextIndex);
+    tabsRef.current[nextIndex]?.focus();
+  }
 
   return (
-    <section className="marketing-platform-section" id="products" aria-labelledby="platform-heading">
-      <div className="marketing-platform-heading">
-        <h2 id="platform-heading">
-          Payments fueling growth,
-          <br />
-          built for scale.
-        </h2>
-        <div className="marketing-carousel-controls" aria-label="Product carousel controls">
-          <button
-            aria-label="Previous product"
-            disabled={activeIndex === 0}
-            onClick={() => goTo(activeIndex - 1)}
-            type="button"
-          >
-            <ArrowLeftIcon aria-hidden="true" />
-          </button>
-          <button
-            aria-label="Next product"
-            disabled={activeIndex === platformCapabilities.length - 1}
-            onClick={() => goTo(activeIndex + 1)}
-            type="button"
-          >
-            <ArrowRightIcon aria-hidden="true" />
-          </button>
+    <section className="marketing-platform-section" id="platform" aria-labelledby="platform-heading">
+      <div className="marketing-section-heading marketing-platform-heading">
+        <p>One connected platform</p>
+        <h2 id="platform-heading">Payments work better when the whole lifecycle works together.</h2>
+      </div>
+
+      <div className="marketing-showcase">
+        <div
+          aria-label="Acru platform capabilities"
+          className="marketing-showcase-tabs"
+          onKeyDown={(event) => {
+            if (event.key === "ArrowLeft") {
+              event.preventDefault();
+              selectRelativeCapability(-1);
+            }
+            if (event.key === "ArrowRight") {
+              event.preventDefault();
+              selectRelativeCapability(1);
+            }
+          }}
+          role="tablist"
+        >
+          {platformCapabilities.map((capability, index) => (
+            <button
+              aria-controls={`${id}-panel`}
+              aria-selected={activeIndex === index}
+              id={`${id}-tab-${index}`}
+              key={capability.eyebrow}
+              onClick={() => setActiveIndex(index)}
+              ref={(element) => {
+                tabsRef.current[index] = element;
+              }}
+              role="tab"
+              tabIndex={activeIndex === index ? 0 : -1}
+              type="button"
+            >
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              {capability.eyebrow}
+            </button>
+          ))}
         </div>
-      </div>
 
-      <div className="marketing-capability-track" onScroll={updateActiveCard} ref={trackRef}>
-        {platformCapabilities.map((capability) => (
-          <article key={capability.title}>
-            <div className={`marketing-capability-visual marketing-capability-visual--${capability.visual}`}>
-              <CapabilityVisual visual={capability.visual} />
-            </div>
-            <h3>{capability.title}</h3>
-            <p>{capability.description}</p>
-          </article>
-        ))}
-      </div>
-
-      <div className="marketing-carousel-dots" aria-label="Choose product">
-        {platformCapabilities.map((capability, index) => (
-          <button
-            aria-label={`Show ${capability.title}`}
-            aria-pressed={activeIndex === index}
-            key={capability.title}
-            onClick={() => goTo(index)}
-            type="button"
-          />
-        ))}
+        <div
+          aria-labelledby={`${id}-tab-${activeIndex}`}
+          className="marketing-showcase-panel"
+          id={`${id}-panel`}
+          role="tabpanel"
+        >
+          <div className="marketing-showcase-copy">
+            <p>{activeCapability.eyebrow}</p>
+            <h3>{activeCapability.title}</h3>
+            <div>{activeCapability.description}</div>
+            <ul>
+              {activeCapability.bullets.map((bullet) => (
+                <li key={bullet}>{bullet}</li>
+              ))}
+            </ul>
+          </div>
+          <div className={`marketing-showcase-visual marketing-showcase-visual--${activeCapability.visual}`}>
+            <CapabilityVisual visual={activeCapability.visual} />
+          </div>
+        </div>
       </div>
     </section>
   );

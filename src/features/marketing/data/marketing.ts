@@ -9,68 +9,116 @@ export type MarketingFooterColumn = {
 };
 
 export const marketingNavigation: MarketingLink[] = [
-  { href: "/#products", label: "Products" },
-  { href: "/#solutions", label: "Solutions" },
+  { href: "/#platform", label: "Platform" },
+  { href: "/#money-movement", label: "Money movement" },
   { href: "/#developers", label: "Developers" },
-  { href: "/#pricing", label: "Pricing" }
+  { href: "/#security", label: "Security" }
 ];
 
 export const platformCapabilities = [
   {
+    bullets: ["Cards, ACH, Apple Pay, and digital dollars", "Hosted checkout or a fully custom payment flow"],
     description:
-      "Accept payments worldwide with intelligent routing, instant checkout, split payments, subscriptions, and fast settlements.",
-    title: "Payments",
-    visual: "payments"
+      "Give customers the way they want to pay while Acru keeps the payment intent, authentication, and settlement path connected.",
+    eyebrow: "Accept",
+    title: "Convert more demand into settled revenue.",
+    visual: "accept"
   },
   {
+    bullets: ["Adaptive authentication and 3DS controls", "Dispute evidence and refund operations in one place"],
     description:
-      "Every detail is optimized for speed and trust, helping businesses increase conversion while giving customers a smooth purchasing experience.",
-    title: "Checkout",
-    visual: "checkout"
+      "Use payment context to add protection where it matters without turning every legitimate purchase into a challenge.",
+    eyebrow: "Protect",
+    title: "Control risk without slowing good customers.",
+    visual: "protect"
   },
   {
+    bullets: ["Bank and USDC settlement destinations", "Programmable schedules, reserves, and payout rules"],
     description:
-      "Adaptive authentication and customer intelligence help stop fraud before money moves without adding unnecessary friction.",
-    title: "Risk",
-    visual: "risk"
+      "Route funds to the right destination on the right schedule, with every fee, reserve, and transfer visible before arrival.",
+    eyebrow: "Settle",
+    title: "Move funds across bank and stablecoin rails.",
+    visual: "settle"
   },
   {
+    bullets: [
+      "A ledger-backed record for every payment state",
+      "Live reporting, exports, and signed lifecycle webhooks"
+    ],
     description:
-      "Balances, reserves, and settlement controls keep every transfer visible from authorization through arrival.",
-    title: "Money movement",
-    visual: "payouts"
-  },
-  {
-    description:
-      "Live performance, reconciliation, and exports give finance and operations teams one dependable source of truth.",
-    title: "Reporting",
-    visual: "reporting"
+      "Give finance and operations one dependable record from authorization through payout, without stitching together separate tools.",
+    eyebrow: "Operate",
+    title: "Reconcile the entire payment lifecycle.",
+    visual: "operate"
   }
 ] as const;
 
-export const operatingPrinciples = [
+export const platformRails = [
   {
-    description: "A ledger-backed record connects payments, refunds, disputes, fees, and payouts.",
-    title: "Every cent accounted for"
+    alt: "Visa",
+    src: "/payment-rails/visa.svg"
   },
   {
-    description: "Give each teammate only the pages and actions they need, with approvals for sensitive work.",
-    title: "Access with clear boundaries"
+    alt: "Mastercard",
+    src: "/payment-rails/mastercard.svg"
   },
   {
-    description: "Follow payments, reserves, disputes, and payouts while there is still time to act.",
-    title: "Issues visible in real time"
+    alt: "Apple Pay",
+    src: "/payment-rails/apple-pay.svg"
+  },
+  {
+    alt: "ACH",
+    src: "/payment-rails/ach.svg"
+  },
+  {
+    alt: "USDC",
+    src: "/usdc.svg"
   }
-];
+] as const;
+
+export const paymentLifecycle = [
+  {
+    detail: "Create an intent once, then present the right payment methods for the customer and transaction.",
+    title: "Initiate"
+  },
+  { detail: "Apply authentication, fraud signals, and business rules before funds are captured.", title: "Authorize" },
+  {
+    detail: "Route proceeds to bank or digital-dollar destinations with reserve and schedule controls.",
+    title: "Settle"
+  },
+  {
+    detail: "Match payments, fees, refunds, disputes, and payouts against one ledger-backed record.",
+    title: "Reconcile"
+  }
+] as const;
+
+export const controlFeatures = [
+  {
+    description: "Assign view, create, approve, export, and administrative access by workspace area.",
+    title: "Granular permissions"
+  },
+  {
+    description: "Require a second reviewer before sensitive changes or high-value money movement.",
+    title: "Approval workflows"
+  },
+  {
+    description: "Protect every team account with mandatory multi-factor authentication and secure recovery.",
+    title: "Mandatory MFA"
+  },
+  {
+    description: "Keep an attributable history of configuration changes and financial actions.",
+    title: "Complete activity history"
+  }
+] as const;
 
 export const footerColumns: MarketingFooterColumn[] = [
   {
     heading: "Products",
     links: [
-      { href: "/#products", label: "Payments" },
-      { href: "/#products", label: "Billing" },
-      { href: "/#products", label: "Payouts" },
-      { href: "/#solutions", label: "Reporting" }
+      { href: "/#platform", label: "Payments" },
+      { href: "/#platform", label: "Checkout" },
+      { href: "/#money-movement", label: "Payouts" },
+      { href: "/#platform", label: "Risk and disputes" }
     ]
   },
   {
@@ -78,8 +126,8 @@ export const footerColumns: MarketingFooterColumn[] = [
     links: [
       { href: "/#developers", label: "Developers" },
       { href: "/#security", label: "Security" },
-      { href: "/#solutions", label: "Partners" },
-      { href: "/#pricing", label: "Pricing" }
+      { href: "/#money-movement", label: "Stablecoin rails" },
+      { href: "/#platform", label: "Merchant operations" }
     ]
   },
   {

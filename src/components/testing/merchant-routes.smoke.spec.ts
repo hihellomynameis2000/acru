@@ -5,23 +5,28 @@ import { merchantRoutes } from "@/components/shell/merchant-routes";
 test("public homepage is responsive, branded, and links to real policies", async ({ page }, testInfo) => {
   await page.goto("/");
 
-  await expect(page.getByRole("heading", { name: "Payments infrastructure, built for scale." })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "One system for every way money moves." })).toBeVisible();
   await expect(
-    page.getByRole("img", { name: "Acru merchant dashboard showing revenue, wallet balance, and business controls" })
+    page.getByRole("img", { name: "Acru merchant console showing payment performance and balances" })
   ).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Payments fueling growth, built for scale." })).toBeVisible();
-  await expect(page.getByRole("img", { name: "Payment methods connected to an approved Acru payment" })).toBeVisible();
-  await expect(page.locator(".marketing-trust-section dt", { hasText: "Every cent accounted for" })).toBeVisible();
-  await expect(page.locator(".marketing-trust-section dt", { hasText: "Access with clear boundaries" })).toBeVisible();
-  await expect(page.locator(".marketing-trust-section dt", { hasText: "Issues visible in real time" })).toBeVisible();
-  await expect(page.getByText("Ledger-first", { exact: true })).toHaveCount(0);
-  await expect(page.locator(".marketing-scroll-reveal-word")).toHaveCount(21);
-  await expect(page.getByText("Built for integration", { exact: true })).toHaveCount(0);
-  await expect(page.getByText("Designed for serious operations", { exact: true })).toHaveCount(0);
-  await expect(page.getByText("A platform that grows with you", { exact: true })).toHaveCount(0);
-  await expect(page.getByText(/Tell us what you are building/)).toHaveCount(0);
+  await expect(
+    page.getByRole("heading", { name: "Payments work better when the whole lifecycle works together." })
+  ).toBeVisible();
+  await expect(page.getByRole("img", { name: "Cards, bank payments, and USDC connected through Acru" })).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Global settlement without a patchwork of providers." })
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Give every action the right level of access and review." })
+  ).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Granular permissions" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Mandatory MFA" })).toBeVisible();
+  await expect(page.locator(".marketing-scroll-reveal-word")).toHaveCount(17);
   await expect(page.locator(".app-shell")).toHaveCount(0);
-  await expect(page.getByRole("link", { name: "Apply now" })).toHaveAttribute("href", "/sign-up");
+  await expect(page.locator(".marketing-hero").getByRole("link", { name: "Apply now" })).toHaveAttribute(
+    "href",
+    "/sign-up"
+  );
   await expect
     .poll(() => page.locator(".marketing-header").evaluate((element) => getComputedStyle(element).position))
     .toBe("sticky");
@@ -34,7 +39,7 @@ test("public homepage is responsive, branded, and links to real policies", async
         .last()
         .evaluate((element) => ({ color: getComputedStyle(element).color, opacity: getComputedStyle(element).opacity }))
     )
-    .toEqual({ color: "rgb(51, 76, 93)", opacity: "1" });
+    .toEqual({ color: "rgb(34, 59, 74)", opacity: "1" });
 
   const stage = page.locator(".marketing-product-stage");
   const stageGeometry = await stage.evaluate((element) => {
@@ -49,17 +54,17 @@ test("public homepage is responsive, branded, and links to real policies", async
   });
   expect(stageGeometry.documentWidth).toBeLessThanOrEqual(stageGeometry.viewportWidth + 1);
   expect(stageGeometry.right).toBeLessThanOrEqual(stageGeometry.viewportWidth + 1);
-  expect(Math.abs(stageGeometry.width - stageGeometry.height)).toBeLessThanOrEqual(1);
+  expect(stageGeometry.width).toBeGreaterThan(stageGeometry.height);
 
-  const productRail = page.locator(".marketing-capability-track");
-  await expect.poll(() => productRail.evaluate((element) => element.scrollWidth > element.clientWidth)).toBe(true);
-  await page.getByRole("button", { name: "Next product" }).click();
-  await expect(page.getByRole("button", { name: "Show Checkout" })).toHaveAttribute("aria-pressed", "true");
+  const platformTabs = page.getByRole("tablist", { name: "Acru platform capabilities" });
+  await platformTabs.getByRole("tab", { name: /Protect/ }).click();
+  await expect(platformTabs.getByRole("tab", { name: /Protect/ })).toHaveAttribute("aria-selected", "true");
+  await expect(page.getByLabel("Acru payment risk decision")).toBeVisible();
 
   if (testInfo.project.name === "desktop-1440") {
-    const primaryAction = page.getByRole("link", { name: "Learn more" });
-    const secondaryAction = page.getByRole("link", { name: "See a demo" });
-    const applyAction = page.getByRole("link", { name: "Apply now" });
+    const primaryAction = page.locator(".marketing-hero").getByRole("link", { name: "Apply now" });
+    const secondaryAction = page.locator(".marketing-hero").getByRole("link", { name: "Talk to sales" });
+    const applyAction = page.locator(".marketing-final-cta").getByRole("link", { name: "Apply now" });
     const actionSizes = await Promise.all(
       [primaryAction, secondaryAction, applyAction].map((action) =>
         action.evaluate((element) => {
@@ -75,7 +80,7 @@ test("public homepage is responsive, branded, and links to real policies", async
     ]);
 
     const productsNavigation = page.getByRole("navigation", { name: "Main navigation" }).getByRole("link", {
-      name: "Products"
+      name: "Platform"
     });
     await productsNavigation.hover();
     await expect
@@ -83,11 +88,9 @@ test("public homepage is responsive, branded, and links to real policies", async
       .toBe("rgb(241, 242, 242)");
     await expect.poll(() => productsNavigation.evaluate((element) => element.getBoundingClientRect().height)).toBe(32);
 
-    const nextButton = page.getByRole("button", { name: "Next product" });
-    await nextButton.hover();
-    await expect
-      .poll(() => nextButton.locator("svg").evaluate((element) => getComputedStyle(element).fill))
-      .toBe("rgb(255, 255, 255)");
+    await platformTabs.getByRole("tab", { name: /Settle/ }).click();
+    await page.keyboard.press("ArrowRight");
+    await expect(platformTabs.getByRole("tab", { name: /Operate/ })).toHaveAttribute("aria-selected", "true");
   }
 
   const footer = page.getByRole("contentinfo");
