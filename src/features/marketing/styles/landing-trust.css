@@ -1,0 +1,149 @@
+/* Client proof and footer compliance marks within the existing layout. */
+@font-face {
+  font-family: "PackDraw Wordmark";
+  src: url("/marketing/clients/v1/packdraw-urbanist-900.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+}
+.cinematic-page .landing-clients {
+  margin: 0 0 clamp(48px, 6vw, 88px);
+  color: var(--landing-client-ink, #fff);
+}
+.cinematic-page .landing-clients-heading {
+  margin-bottom: 24px;
+  text-align: center;
+}
+.cinematic-page .landing-clients-heading p {
+  margin: 0;
+  color: inherit;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.cinematic-page .landing-clients-band {
+  border: 0;
+}
+.cinematic-page .landing-clients-viewport {
+  overflow: hidden;
+  padding-block: 26px;
+  mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+}
+.cinematic-page .landing-clients-track {
+  display: flex;
+  width: max-content;
+  animation: acru-client-marquee 64s linear infinite;
+  animation-play-state: paused;
+}
+.cinematic-page .landing-clients[data-running="true"] .landing-clients-track {
+  animation-play-state: running;
+}
+.cinematic-page .landing-clients-group {
+  --client-logo-opacity: 0.52;
+  display: flex;
+  align-items: center;
+  flex: none;
+  gap: clamp(28px, 3vw, 48px);
+  margin: 0;
+  padding: 0 clamp(28px, 3vw, 48px) 0 0;
+  list-style: none;
+}
+.cinematic-page .landing-clients-group li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: clamp(140px, 14vw, 190px);
+  height: 48px;
+}
+.cinematic-page .landing-clients-group img {
+  width: 100%;
+  height: 100%;
+  max-height: 38px;
+  object-fit: contain;
+  filter: grayscale(1) brightness(0) invert(var(--landing-client-logo-invert, 1));
+  opacity: var(--client-logo-opacity);
+}
+.cinematic-page .landing-clients-group .landing-client-packdraw {
+  gap: 8px;
+  font-family: "PackDraw Wordmark", sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: normal;
+}
+.cinematic-page .landing-client-packdraw img {
+  width: 24px;
+  height: 24px;
+  flex: none;
+}
+.cinematic-page .landing-client-packdraw span {
+  opacity: var(--client-logo-opacity);
+}
+.cinematic-page .landing-clients-group .landing-client-badge {
+  gap: 12px;
+  font-size: 0.875rem;
+  line-height: 1.35;
+}
+.cinematic-page .landing-client-badge img {
+  width: 44px;
+  height: 44px;
+  max-height: none;
+  flex: none;
+  border-radius: 4px;
+  filter: grayscale(1);
+  opacity: var(--client-logo-opacity);
+}
+.cinematic-page .landing-client-badge span {
+  max-width: 90px;
+  opacity: var(--client-logo-opacity);
+}
+@keyframes acru-client-marquee {
+  to {
+    transform: translateX(calc(-1 * var(--client-loop-distance, 0px)));
+  }
+}
+@media (hover: hover) {
+  .cinematic-page .landing-clients-viewport:hover .landing-clients-track {
+    animation-play-state: paused;
+  }
+}
+
+.cinematic-page .landing-footer-compliance {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  list-style: none;
+  padding: 0 0 20px;
+  margin: 0;
+}
+.cinematic-page .landing-footer-compliance li {
+  flex: none;
+}
+.cinematic-page .landing-footer-compliance img {
+  width: auto;
+  height: 56px;
+  object-fit: contain;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cinematic-page .landing-clients-track {
+    width: 100%;
+    animation: none;
+  }
+  .cinematic-page .landing-clients-viewport {
+    mask-image: none;
+  }
+  .cinematic-page .landing-clients-group {
+    flex: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px 32px;
+    padding: 0;
+  }
+  .cinematic-page .landing-clients-group li {
+    max-width: 100%;
+  }
+  .cinematic-page .landing-clients-group[data-duplicate="true"] {
+    display: none;
+  }
+}

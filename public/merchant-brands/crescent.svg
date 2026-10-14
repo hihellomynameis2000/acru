@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Crescent Retail">
+  <defs>
+    <linearGradient id="c" x1="8" y1="6" x2="56" y2="59" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4559A7"/>
+      <stop offset="1" stop-color="#182144"/>
+    </linearGradient>
+    <mask id="m">
+      <rect width="64" height="64" fill="black"/>
+      <circle cx="29" cy="32" r="17" fill="white"/>
+      <circle cx="36" cy="27" r="16" fill="black"/>
+    </mask>
+  </defs>
+  <rect width="64" height="64" fill="url(#c)"/>
+  <circle cx="30" cy="32" r="20" fill="#7587D8" opacity=".15"/>
+  <rect width="64" height="64" fill="#F5F7FF" mask="url(#m)"/>
+  <path d="m43 40 2.2 4.6L50 47l-4.8 2.2L43 54l-2.2-4.8L36 47l4.8-2.4L43 40Z" fill="#AFC2FF"/>
+</svg>

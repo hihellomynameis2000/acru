@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 import { MarketingHome } from "@/features/marketing/components/marketing-home";
 
 export const metadata: Metadata = {
-  title: "Payments and money movement, unified",
+  title: "Payments infrastructure, built for scale",
   description:
-    "Accept payments, protect revenue, and settle across card, bank, and digital-dollar rails through one connected platform.",
+    "Accept cards, Apple Pay, Google Pay, PayPal, local payments, and buy now, pay later. Connect payment acceptance, risk, and settlement with Acru.",
   openGraph: {
-    title: "Acru — One system for every way money moves",
+    title: "Acru — Payments infrastructure, built for scale",
     description: "Payments, risk, settlement, and financial operations in one connected platform.",
     type: "website"
   },

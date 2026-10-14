@@ -1,4 +1,5 @@
 "use client";
+import { isPublicMarketingPath } from "@/features/marketing/data/public-paths";
 
 import {
   AlertTriangleIcon,
@@ -223,7 +224,15 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
   const authRoute = ["/login", "/sign-in", "/sign-up", "/forgot-password", "/confirm-email"].includes(pathname);
-  const publicRoute = pathname === "/" || pathname === "/legal" || pathname.startsWith("/legal/");
+  const publicRoute =
+    isPublicMarketingPath(pathname) ||
+    pathname === "/" ||
+    pathname === "/demo" ||
+    pathname === "/payments/overview" ||
+    pathname === "/legal" ||
+    pathname.startsWith("/legal/") ||
+    pathname === "/developers" ||
+    pathname === "/developers/documentation";
   const onboardingRoute = pathname === "/onboarding";
   const standalonePortalRoute = pathname === "/sandbox" || pathname === "/partners" || pathname === "/admin";
   const searchRef = useRef<HTMLDivElement>(null);

@@ -11,7 +11,7 @@ export type MarketingFooterColumn = {
 export const marketingNavigation: MarketingLink[] = [
   { href: "/#platform", label: "Platform" },
   { href: "/#money-movement", label: "Money movement" },
-  { href: "/#developers", label: "Developers" },
+  { href: "/developers/documentation", label: "Developers" },
   { href: "/#security", label: "Security" }
 ];
 
@@ -124,7 +124,7 @@ export const footerColumns: MarketingFooterColumn[] = [
   {
     heading: "Platform",
     links: [
-      { href: "/#developers", label: "Developers" },
+      { href: "/developers/documentation", label: "Developers" },
       { href: "/#security", label: "Security" },
       { href: "/#money-movement", label: "Stablecoin rails" },
       { href: "/#platform", label: "Merchant operations" }

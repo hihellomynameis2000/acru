@@ -3,14 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "workspaces": [
-    "apps/*"
-  ],
   "scripts": {
     "dev": "next dev",
-    "dev:api": "npm run dev --workspace @acru/api",
     "build": "next build",
-    "build:api": "npm run build --workspace @acru/api",
     "start": "next start",
     "start:standalone": "node .next/standalone/server.js",
     "lint": "eslint . --max-warnings=0",
@@ -20,8 +15,7 @@
     "test:smoke": "playwright test",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
-    "typecheck:api": "npm run typecheck --workspace @acru/api",
-    "validate": "npm run format:check && npm run lint && npm run typecheck && npm run typecheck:api && npm run test && npm run build && npm run build:api"
+    "validate": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build"
   },
   "dependencies": {
     "@shopify/polaris-icons": "^9.3.1",

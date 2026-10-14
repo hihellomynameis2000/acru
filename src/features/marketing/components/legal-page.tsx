@@ -2,7 +2,8 @@ import Link from "next/link";
 
 import { LegalContent } from "@/features/marketing/components/legal-content";
 import { LegalPrintButton, LegalTableOfContents } from "@/features/marketing/components/legal-navigation";
-import { MarketingFooter, MarketingHeader } from "@/features/marketing/components/marketing-shell";
+import { LegalHeader } from "@/features/marketing/components/legal-header";
+import { LandingFooter } from "@/features/marketing/components/landing-editorial";
 import { legalDocumentList, type LegalDocument } from "@/features/marketing/data/legal";
 
 export function LegalPage({ document }: { document: LegalDocument }) {
@@ -10,8 +11,8 @@ export function LegalPage({ document }: { document: LegalDocument }) {
   const relatedDocument = legalDocumentList.find((candidate) => candidate.slug !== document.slug);
 
   return (
-    <div className="marketing-page legal-page">
-      <MarketingHeader />
+    <div className="marketing-page cinematic-page legal-page">
+      <LegalHeader />
       <main>
         <article className="legal-document">
           <header className="legal-hero">
@@ -85,7 +86,7 @@ export function LegalPage({ document }: { document: LegalDocument }) {
           ) : null}
         </article>
       </main>
-      <MarketingFooter />
+      <LandingFooter onHomepage={false} />
     </div>
   );
 }

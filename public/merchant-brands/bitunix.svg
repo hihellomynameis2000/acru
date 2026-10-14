@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Bitunix">
+  <defs>
+    <linearGradient id="b" x1="9" y1="7" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#151915"/>
+      <stop offset="1" stop-color="#050705"/>
+    </linearGradient>
+    <linearGradient id="l" x1="17" y1="17" x2="48" y2="47" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D6FF46"/>
+      <stop offset="1" stop-color="#8AD814"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" fill="url(#b)"/>
+  <path d="M16 42.5c0-13 7.7-22 20.8-22H49v11.6c0 12.2-7.2 18.9-19.3 18.9H16v-8.5Z" fill="url(#l)"/>
+  <path d="M25 18h25v8H35c-6.2 0-10.4 2.5-13.7 6.2C22.6 25.2 24.3 21 25 18Z" fill="#EBFF8A" opacity=".72"/>
+</svg>

@@ -5,3 +5,12 @@ node_modules
 package-lock.json
 test-results
 playwright-report
+apps
+output
+outputs
+.buildrbrand
+.codex*
+docs/deployments
+docs/marketing-editorial-assets.md
+docs/marketing-navigation-assets.json
+public/media/acru-hero/v6-1440p/manifest.json

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Northwind Coffee Company">
+  <defs>
+    <linearGradient id="n" x1="6" y1="5" x2="58" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#503729"/>
+      <stop offset="1" stop-color="#211916"/>
+    </linearGradient>
+    <linearGradient id="g" x1="20" y1="18" x2="47" y2="50" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E8BF78"/>
+      <stop offset="1" stop-color="#A36B35"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" fill="url(#n)"/>
+  <path d="M22 19c-4.8 5.7-6.2 12.7-4.2 21 2.1 8.5 8.2 12 14.7 12 9.4 0 16.5-8 16.5-18.4 0-7.3-3.1-12.6-7.4-16.1-2.9 7.2-8.2 11.8-15.7 14.3 1.8-4.9.5-9.2-3.9-12.8Z" fill="url(#g)"/>
+  <path d="M32 18c1.8-3.3 1.6-6.2-.7-8.7M39.3 20c2-3.7 1.7-6.7-.8-9" fill="none" stroke="#F1D6A4" stroke-linecap="round" stroke-width="2" opacity=".75"/>
+  <path d="M25 39h15" stroke="#F5DDB0" stroke-linecap="round" stroke-width="2.5" opacity=".72"/>
+</svg>

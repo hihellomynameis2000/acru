@@ -1,0 +1,845 @@
+/* Supplied artwork stays proportional while fitting below the persistent nav. */
+.cinematic-page {
+  --cinematic-surface: #1d1c1c;
+  min-height: 100svh;
+  background: var(--cinematic-surface);
+  color: #fff;
+  font-family: var(--font-poppins), sans-serif;
+  isolation: isolate;
+}
+
+.cinematic-page *,
+.cinematic-page *::before,
+.cinematic-page *::after {
+  box-sizing: border-box;
+}
+
+.cinematic-page :is(h1, h2, h3, p) {
+  margin: 0;
+}
+.cinematic-page :is(a, button, summary):focus-visible {
+  outline: 2px solid #a6dfff;
+  outline-offset: 5px;
+}
+.cinematic-page button {
+  color: inherit;
+  border: 0;
+  box-shadow: none;
+}
+.cinematic-page a {
+  text-decoration: none;
+}
+.cinematic-page img {
+  display: block;
+}
+.cinematic-page svg {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  fill: currentColor;
+}
+.cinematic-page .cinematic-track {
+  position: relative;
+  overflow-anchor: none;
+}
+.cinematic-page .cinematic-stage {
+  position: relative;
+}
+.cinematic-page .cinematic-return-hero {
+  display: none;
+}
+.cinematic-page .cinematic-media {
+  position: relative;
+  width: 100%;
+  margin-inline: auto;
+}
+.cinematic-page .cinematic-visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--cinematic-surface);
+}
+.cinematic-page .cinematic-poster {
+  width: 100%;
+  height: 100%;
+}
+.cinematic-page .cinematic-scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.cinematic-page :is(.cinematic-canvas, .cinematic-endpoint, .cinematic-artwork-layer) {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+.cinematic-page .cinematic-artwork-layer {
+  background: var(--cinematic-surface);
+}
+.cinematic-page .cinematic-endpoint {
+  background: var(--cinematic-surface);
+}
+.cinematic-page .cinematic-artwork-layer img {
+  position: absolute;
+  top: 4.7421499%;
+  left: 14.1970921%;
+  width: 71.6058204%;
+  height: auto;
+  aspect-ratio: 3561 / 2532;
+}
+
+.cinematic-page .cinematic-header {
+  position: fixed;
+  z-index: 40;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: rgb(var(--cinematic-header-rgb, 29 28 28) / var(--cinematic-header-opacity, 0));
+  border-bottom: 1px solid rgb(128 128 128 / calc(0.18 * var(--cinematic-header-divider-opacity, 0)));
+  color: var(--cinematic-nav-color, #fff);
+}
+.cinematic-page .cinematic-header-inner {
+  width: min(83%, 147.555556svh);
+  height: 100%;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.cinematic-page .cinematic-brand {
+  position: relative;
+  display: block;
+  width: 104px;
+  height: 34px;
+  flex: 0 0 auto;
+  overflow: hidden;
+}
+.cinematic-page .cinematic-brand img {
+  position: absolute;
+  left: -9%;
+  top: 50%;
+  transform: translateY(calc(-40% - 3px));
+  width: 120%;
+  height: auto;
+  filter: brightness(var(--cinematic-brand-brightness, 0)) invert(var(--cinematic-brand-invert, 1));
+}
+.cinematic-page .cinematic-navigation {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1vw, 24px);
+}
+.cinematic-page .cinematic-navigation a {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.25;
+  transition: background-color 150ms;
+  white-space: nowrap;
+}
+.cinematic-page .cinematic-navigation a:hover {
+  background: rgb(var(--cinematic-nav-hover-rgb, 255 255 255) / 12%);
+}
+.cinematic-page .cinematic-sign-in {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.cinematic-page .cinematic-sign-in svg {
+  width: 20px;
+  height: 20px;
+}
+.cinematic-page .cinematic-menu-trigger {
+  display: none;
+}
+.cinematic-page .cinematic-menu-lines {
+  position: relative;
+  display: block;
+  width: 22px;
+  height: 18px;
+}
+.cinematic-page .cinematic-menu-lines > span {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transform-origin: center;
+  transition:
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 180ms ease;
+}
+.cinematic-page .cinematic-menu-lines > span:first-child {
+  transform: translateY(-6px) rotate(0deg);
+}
+.cinematic-page .cinematic-menu-lines > span:last-child {
+  transform: translateY(6px) rotate(0deg);
+}
+.cinematic-page [aria-expanded="true"] > .cinematic-menu-lines > span:first-child {
+  transform: translateY(0) rotate(45deg);
+}
+.cinematic-page [aria-expanded="true"] > .cinematic-menu-lines > span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0.35);
+}
+.cinematic-page [aria-expanded="true"] > .cinematic-menu-lines > span:last-child {
+  transform: translateY(0) rotate(-45deg);
+}
+.cinematic-page .cinematic-no-js-sign-in {
+  display: none;
+}
+@media (max-width: 820px) {
+  .cinematic-page .cinematic-no-js-sign-in {
+    display: inline;
+  }
+}
+.cinematic-page .cinematic-menu {
+  position: fixed;
+  inset: 0;
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100dvh;
+  margin: 0;
+  padding: 80px 24px 28px;
+  border: 0;
+  background: rgb(29 28 28 / 0%);
+  color: var(--cinematic-nav-color, #fff);
+  overscroll-behavior: contain;
+  transition: background-color 280ms ease;
+}
+.cinematic-page .cinematic-menu[data-expanded="true"] {
+  background: var(--cinematic-surface);
+}
+.cinematic-page .cinematic-menu::backdrop {
+  background: transparent;
+}
+.cinematic-page .cinematic-menu-toggle {
+  position: absolute;
+  top: 6px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border-radius: 5px;
+}
+.cinematic-page .cinematic-menu-toggle:hover {
+  background: rgb(var(--cinematic-nav-hover-rgb, 255 255 255) / 12%);
+}
+.cinematic-page .cinematic-menu nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 32px;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition:
+    opacity 220ms ease,
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cinematic-page .cinematic-menu[data-expanded="true"] nav {
+  opacity: 1;
+  transform: translateY(0);
+}
+.cinematic-page .cinematic-menu nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 0;
+  font-size: 24px;
+}
+.cinematic-page .cinematic-menu nav a:last-child {
+  margin-top: 24px;
+  font-size: 17px;
+}
+
+.cinematic-page .cinematic-hero-copy {
+  position: relative;
+  padding: 56px 24px 64px;
+  text-align: center;
+}
+.cinematic-page .cinematic-hero-copy h1 {
+  font-size: clamp(28px, 2.45vw, 47px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.045em;
+}
+.cinematic-page .cinematic-hero-copy p {
+  margin-top: 18px;
+  font-size: clamp(13px, 1.15vw, 18px);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+}
+.cinematic-page .cinematic-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: clamp(24px, 2vw, 36px);
+}
+.cinematic-page .cinematic-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 164px;
+  height: 40px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: none;
+  transition: background-color 150ms;
+}
+.cinematic-page .cinematic-primary {
+  background: #4498ce;
+  border: 1px solid #4498ce;
+}
+.cinematic-page .cinematic-primary:hover {
+  background: #398cc2;
+}
+.cinematic-page .cinematic-secondary {
+  background: rgb(255 255 255 / 12%);
+  border: 1px solid rgb(255 255 255 / 22%);
+}
+.cinematic-page .cinematic-secondary:hover {
+  background: rgb(255 255 255 / 20%);
+}
+.cinematic-page .cinematic-actions .cinematic-secondary svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+  stroke: none;
+}
+
+.cinematic-page .cinematic-flow {
+  scroll-margin-top: 100px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  gap: 8%;
+  padding: 80px 8.5%;
+  background: var(--cinematic-surface);
+  outline: none;
+}
+.cinematic-page .cinematic-flow-copy {
+  min-width: 0;
+}
+.cinematic-page .cinematic-flow h2 {
+  font-size: clamp(30px, 3.05vw, 54px);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.055em;
+}
+.cinematic-page .cinematic-flow-items {
+  margin-top: clamp(28px, 3.5vw, 64px);
+}
+.cinematic-page .cinematic-flow details {
+  border-top: 1px solid #666464;
+  transition: border-color 280ms ease;
+}
+.cinematic-page .cinematic-flow details[open] {
+  border-top-color: #dad9d9;
+}
+.cinematic-page .cinematic-flow details[data-enhanced][data-expanded="false"] {
+  border-top-color: #666464;
+}
+.cinematic-page .cinematic-flow summary {
+  padding: 15px 0;
+  list-style: none;
+  font-size: clamp(13px, 1.08vw, 18px);
+  font-weight: 400;
+  cursor: pointer;
+  color: #bdbbbb;
+  transition: color 240ms ease;
+}
+.cinematic-page .cinematic-flow summary::-webkit-details-marker {
+  display: none;
+}
+.cinematic-page .cinematic-flow summary:focus-visible {
+  outline: 1px solid #ffffff80;
+  outline-offset: -5px;
+  border-radius: 3px;
+}
+.cinematic-page .cinematic-flow details[open] summary {
+  color: #fff;
+}
+.cinematic-page .cinematic-flow details[data-enhanced][data-expanded="false"] summary {
+  color: #bdbbbb;
+}
+.cinematic-page .cinematic-flow details p {
+  padding-bottom: 22px;
+  font-size: clamp(12px, 1.04vw, 17px);
+  line-height: 1.5;
+  color: #cecccc;
+  letter-spacing: -0.02em;
+  opacity: 1;
+  transition: opacity 240ms ease;
+}
+.cinematic-page .cinematic-flow details[data-enhanced][data-expanded="false"] p {
+  opacity: 0;
+}
+.cinematic-page .cinematic-flow-link {
+  display: inline-block;
+  margin-top: 25px;
+  padding-block: 4px;
+  font-size: clamp(12px, 1vw, 16px);
+  border-bottom: 1px solid #c1bfbf;
+}
+.cinematic-page .cinematic-flow-still {
+  width: 100%;
+  height: auto;
+  align-self: start;
+}
+
+.cinematic-page .cinematic-feature-preview {
+  position: relative;
+  aspect-ratio: 3561 / 2532;
+  align-self: start;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 1.2%;
+}
+.cinematic-page .cinematic-feature-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 260ms ease;
+  pointer-events: none;
+}
+.cinematic-page .cinematic-feature-layer[data-shown="true"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+.cinematic-page .cinematic-feature-layer > :is(img, video) {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.cinematic-page .cinematic-feature-layer > video {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 260ms ease;
+}
+.cinematic-page .cinematic-feature-layer[data-ready="true"] > video {
+  opacity: 1;
+}
+.cinematic-page .cinematic-feature-sequence {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 260ms ease;
+}
+.cinematic-page .cinematic-feature-control {
+  position: absolute;
+  z-index: 1;
+  right: 12px;
+  bottom: 12px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: 50%;
+  background: rgb(70 74 78 / 50%);
+  color: #fff;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition:
+    opacity 180ms ease,
+    background-color 180ms ease;
+}
+@media (hover: hover) {
+  .cinematic-page .cinematic-feature-control {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .cinematic-page .cinematic-feature-preview:is(:hover, :focus-within) .cinematic-feature-control {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+.cinematic-page .cinematic-feature-control:hover {
+  background: rgb(100 104 108 / 60%);
+}
+.cinematic-page .cinematic-feature-control svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  stroke-width: 1.5;
+}
+
+.cinematic-page .cinematic-payment-story {
+  padding-block: clamp(40px, 4vw, 72px) clamp(80px, 12vw, 180px);
+}
+.cinematic-page .cinematic-payment-story-content,
+.cinematic-page .cinematic-payment-story .landing-clients-heading {
+  width: min(83%, 147.555556svh);
+  margin-inline: auto;
+}
+.cinematic-page .cinematic-payment-story .marketing-scroll-reveal {
+  width: 72%;
+  margin: 0 auto clamp(56px, 8vw, 140px);
+  font-size: clamp(24px, 2.1vw, 36px);
+  line-height: 1.25;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+}
+.cinematic-page .cinematic-payment-story .marketing-scroll-reveal-word {
+  --word-progress: 1;
+  color: #fff;
+  font-weight: inherit;
+  opacity: calc(0.2 + var(--word-progress, 1) * 0.8);
+}
+.cinematic-page .cinematic-payment-film {
+  position: relative;
+  aspect-ratio: 1588 / 658;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #272626;
+  isolation: isolate;
+}
+.cinematic-page .cinematic-payment-film video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1588 / 658;
+}
+.cinematic-page .cinematic-film-control {
+  display: none;
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgb(255 255 255 / 32%);
+  background: linear-gradient(135deg, rgb(255 255 255 / 22%), rgb(255 255 255 / 7%)), rgb(20 27 35 / 38%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+  color: #fff;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+.cinematic-page .cinematic-payment-film[data-enhanced] .cinematic-film-control {
+  display: flex;
+}
+.cinematic-page .cinematic-film-control:hover {
+  background-color: rgb(20 27 35 / 55%);
+  border-color: rgb(255 255 255 / 52%);
+}
+.cinematic-page .cinematic-film-control:active {
+  transform: scale(0.94);
+}
+.cinematic-page .cinematic-film-control:focus-visible {
+  outline-offset: -5px;
+}
+.cinematic-page .cinematic-film-control svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  stroke-width: 1.5px;
+}
+.cinematic-page .cinematic-film-control .lucide-play {
+  margin-left: 2px;
+}
+.cinematic-page .cinematic-film-error {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  max-width: calc(100% - 92px);
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: rgb(29 28 28 / 85%);
+  font-size: 14px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cinematic-page[data-motion="sequence"] .cinematic-stage {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    overflow: clip;
+  }
+  .cinematic-page[data-motion="sequence"] .cinematic-media {
+    width: min(100%, 177.777778svh);
+    aspect-ratio: 16 / 9;
+  }
+  .cinematic-page[data-motion="sequence"] .cinematic-visual {
+    position: absolute;
+    inset: 0;
+  }
+  .cinematic-page[data-motion="sequence"] .cinematic-scene {
+    position: absolute;
+    /* Cover from the first paint, before the scroll measurements are applied. */
+    width: max(100vw, 177.777778svh);
+    height: max(56.25vw, 100svh);
+    left: calc((100% - max(100vw, 177.777778svh)) / 2);
+    top: calc((100svh - max(56.25vw, 100svh)) / 2);
+  }
+  .cinematic-page[data-motion="sequence"] .cinematic-visual[data-drawn="true"] .cinematic-canvas {
+    opacity: 1;
+  }
+  .cinematic-page[data-motion="sequence"] .cinematic-visual[data-endpoint="true"] .cinematic-endpoint {
+    opacity: 1;
+  }
+  .cinematic-page[data-motion="sequence"] .cinematic-visual[data-artwork="true"] .cinematic-artwork-layer {
+    opacity: 1;
+    background: transparent;
+  }
+  /* Only the dashboard remains after handoff. A translated full-scene rectangle
+     leaves a subpixel vertical seam underneath the transparent tab column. */
+  .cinematic-page[data-motion="sequence"] .cinematic-visual[data-artwork="true"] {
+    background: transparent;
+  }
+  .cinematic-page[data-motion="sequence"]
+    .cinematic-visual[data-artwork="true"]
+    :is(.cinematic-scene, .cinematic-endpoint) {
+    visibility: hidden;
+  }
+  .cinematic-page[data-motion="sequence"] .cinematic-opening {
+    position: absolute;
+    inset: 0;
+  }
+  .cinematic-page[data-motion="sequence"] .cinematic-hero-copy {
+    position: absolute;
+    top: 16%;
+    left: 5%;
+    right: 5%;
+    padding: 0;
+  }
+  .cinematic-page[data-motion="sequence"] .cinematic-flow {
+    position: absolute;
+    top: 13%;
+    left: 8.5%;
+    width: 28.5%;
+    padding: 0;
+    display: block;
+    opacity: 0;
+    background: transparent;
+  }
+  .cinematic-page[data-motion="sequence"] .cinematic-feature-static {
+    display: none;
+  }
+  .cinematic-page[data-motion="sequence"] .cinematic-feature-sequence {
+    display: block;
+  }
+  .cinematic-page[data-motion="sequence"] .cinematic-feature-sequence[data-enabled="true"] {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .cinematic-page[data-motion="sequence"] .cinematic-feature-sequence .cinematic-feature-control {
+    right: auto;
+    left: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cinematic-page .cinematic-feature-preview,
+  .cinematic-page .cinematic-feature-layer,
+  .cinematic-page .cinematic-feature-layer > video {
+    transition: none;
+  }
+}
+
+@media (max-width: 1100px) and (min-width: 821px) {
+  .cinematic-page .cinematic-header-inner {
+    gap: 12px;
+    width: min(88%, 156.444444svh);
+  }
+  .cinematic-page .cinematic-navigation {
+    gap: 0;
+  }
+  .cinematic-page .cinematic-flow-items {
+    margin-top: 24px;
+  }
+  .cinematic-page .cinematic-flow summary {
+    padding-block: 10px;
+  }
+  .cinematic-page .cinematic-flow details p {
+    padding-bottom: 14px;
+  }
+}
+
+@media (max-width: 820px) {
+  .cinematic-page .cinematic-payment-story {
+    padding-block: 40px 80px;
+  }
+  .cinematic-page .cinematic-payment-story-content,
+  .cinematic-page .cinematic-payment-story .landing-clients-heading {
+    width: calc(100% - 48px);
+  }
+  .cinematic-page .cinematic-payment-story .marketing-scroll-reveal {
+    width: 100%;
+    margin-bottom: 40px;
+    font-size: clamp(22px, 4vw, 30px);
+  }
+  .cinematic-page .cinematic-payment-film {
+    border-radius: 8px;
+  }
+  .cinematic-page .cinematic-film-control {
+    right: 10px;
+    bottom: 10px;
+  }
+  .cinematic-page .cinematic-header {
+    height: 56px;
+  }
+  .cinematic-page .cinematic-header-inner {
+    width: auto;
+    margin-left: 24px;
+    margin-right: 20px;
+  }
+  .cinematic-page .cinematic-flow {
+    scroll-margin-top: 76px;
+  }
+  .cinematic-page .cinematic-brand {
+    width: 92px;
+    height: 30px;
+  }
+  .cinematic-page :is(.cinematic-navigation, .cinematic-sign-in) {
+    display: none;
+  }
+  .cinematic-page .cinematic-menu-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 5px;
+    background: transparent;
+  }
+  .cinematic-page .cinematic-menu-trigger:hover {
+    background: rgb(var(--cinematic-nav-hover-rgb, 255 255 255) / 12%);
+  }
+  .cinematic-page .cinematic-hero-copy {
+    padding: 36px 24px 64px;
+  }
+  .cinematic-page .cinematic-hero-copy h1 {
+    max-width: 620px;
+    margin-inline: auto;
+    font-size: clamp(30px, 5.2vw, 42px);
+  }
+  .cinematic-page .cinematic-hero-copy p {
+    max-width: 510px;
+    margin-inline: auto;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .cinematic-page .cinematic-desktop-break {
+    display: none;
+  }
+  .cinematic-page .cinematic-flow {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 24px 24px 48px;
+  }
+  .cinematic-page .cinematic-flow h2 {
+    font-size: 38px;
+  }
+  .cinematic-page .cinematic-flow summary {
+    font-size: 15px;
+  }
+  .cinematic-page .cinematic-flow details p {
+    font-size: 14px;
+  }
+  .cinematic-page .cinematic-flow-link {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 820px) and (prefers-reduced-motion: no-preference) {
+  .cinematic-page[data-motion="sequence"] .cinematic-media {
+    /* The landscape scene can extend outside the phone; its dashboard fits
+       inside 24px gutters at the end. The stage clips only the surrounding art. */
+    left: 50%;
+    margin-inline: 0;
+    transform: translateX(-50%);
+  }
+  .cinematic-page[data-motion="sequence"] .cinematic-opening {
+    left: calc((100% - 100vw) / 2);
+    right: auto;
+    width: 100vw;
+    height: 100svh;
+  }
+  .cinematic-page[data-motion="sequence"] .cinematic-hero-copy {
+    top: clamp(88px, 14svh, 120px);
+    left: 24px;
+    right: 24px;
+    padding: 0;
+  }
+  .cinematic-page[data-motion="sequence"] .cinematic-flow {
+    padding: 0;
+    background: transparent;
+  }
+  .cinematic-page[data-motion="sequence"] .cinematic-feature-sequence .cinematic-feature-control {
+    right: 10px;
+    left: auto;
+    bottom: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cinematic-page .cinematic-payment-story .marketing-scroll-reveal-word {
+    opacity: 1;
+  }
+  .cinematic-page * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+
+/* After the one-time intro, keep the original hero above the finished flow.
+   Both sections now scroll normally; the card does not rewind or resize. */
+.cinematic-page[data-motion="sequence"][data-intro-complete="true"] .cinematic-stage {
+  position: relative;
+}
+.cinematic-page[data-motion="sequence"][data-intro-complete="true"] .cinematic-return-hero {
+  display: block;
+  position: relative;
+  height: 100svh;
+  overflow: clip;
+}
+.cinematic-page .cinematic-return-hero > picture {
+  position: absolute;
+  inset: 0;
+}
+.cinematic-page .cinematic-return-hero > picture > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cinematic-page[data-motion="sequence"] .cinematic-return-hero .cinematic-hero-copy {
+  top: min(9vw, 16svh);
+  left: 50%;
+  right: auto;
+  width: min(90%, 160svh);
+  transform: translateX(-50%);
+}
+@media (max-width: 820px) {
+  .cinematic-page[data-motion="sequence"] .cinematic-return-hero .cinematic-hero-copy {
+    top: clamp(88px, 14svh, 120px);
+    left: 24px;
+    right: 24px;
+    width: auto;
+    transform: none;
+  }
+}

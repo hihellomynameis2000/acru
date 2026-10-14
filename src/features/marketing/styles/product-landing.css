@@ -1,0 +1,104 @@
+.product-landing :is(h1, h2) {
+  white-space: pre-line;
+}
+.product-landing .pl-hero-frame {
+  aspect-ratio: 1.19;
+}
+.product-landing .pl-feature-frame {
+  aspect-ratio: 0.94;
+  background: #35454c;
+}
+.product-landing :is(.pl-feature-frame, .pl-hero-frame) > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.product-landing.pl-card-gradient .pl-hero-frame {
+  aspect-ratio: 1752 / 1597;
+}
+.product-landing.pl-card-gradient .pl-feature-frame {
+  aspect-ratio: 1770 / 1560;
+  background: transparent;
+}
+.product-landing.pl-card-gradient .po-art-frame > img {
+  transform: none;
+}
+.product-landing .po-section-heading p {
+  max-width: 620px;
+  margin-inline: auto;
+}
+.product-landing .pl-resource-heading {
+  padding-block: 160px 70px;
+}
+.product-landing .pl-resource-heading p {
+  color: #bbb;
+  margin-top: 24px;
+}
+.product-landing .pl-guides {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  padding-bottom: 120px;
+}
+.product-landing .pl-guides img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+.product-landing .pl-guides article > span {
+  color: #aeb7bf;
+  font-size: 13px;
+}
+.product-landing .pl-guides h2 {
+  font-size: 28px;
+  margin-block: 18px;
+}
+.product-landing .pl-guides p {
+  color: #bbb;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.product-landing .pl-guides summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  cursor: pointer;
+  margin-block: 24px;
+  color: #9ad6f7;
+}
+.product-landing .pl-guides summary::-webkit-details-marker {
+  display: none;
+}
+.product-landing .pl-guides summary svg {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  fill: currentColor;
+}
+.product-landing .pl-guides details section {
+  border-top: 1px solid #ffffff18;
+  padding-block: 20px;
+}
+.product-landing .pl-guides h3 {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+.product-landing .pl-faq-page {
+  padding-bottom: 120px;
+  max-width: 900px;
+}
+@media (max-width: 760px) {
+  .product-landing .pl-resource-heading {
+    padding-top: 120px;
+  }
+  .product-landing .pl-guides {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .product-landing .po-actions {
+    flex-wrap: wrap;
+  }
+}

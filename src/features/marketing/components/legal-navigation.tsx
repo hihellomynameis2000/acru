@@ -1,7 +1,9 @@
 "use client";
 
 import { PrintIcon } from "@shopify/polaris-icons";
-import { type MouseEvent, useEffect, useMemo, useState } from "react";
+import { type MouseEvent, useEffect, useMemo, useRef, useState } from "react";
+
+import { legalTocScrollTop } from "./legal-toc-scroll";
 
 export type LegalNavigationItem = {
   id: string;
@@ -32,6 +34,47 @@ function NavigationLinks({
 export function LegalTableOfContents({ items }: { items: LegalNavigationItem[] }) {
   const sectionIds = useMemo(() => items.map((item) => item.id), [items]);
   const [activeId, setActiveId] = useState(sectionIds[0] ?? "");
+  const desktopNavigationRef = useRef<HTMLElement>(null);
+  const mobileNavigationRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const navigations = [desktopNavigationRef.current, mobileNavigationRef.current].filter(
+      (navigation): navigation is HTMLElement => navigation !== null
+    );
+    let frame = 0;
+    const revealActiveLink = () => {
+      frame = 0;
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      for (const navigation of navigations) {
+        const link = navigation.querySelector<HTMLElement>('[aria-current="location"]');
+        if (!link) continue;
+        const viewport = navigation.getBoundingClientRect();
+        const item = link.getBoundingClientRect();
+        const top = legalTocScrollTop({
+          viewportTop: viewport.top + navigation.clientTop,
+          viewportHeight: navigation.clientHeight,
+          scrollTop: navigation.scrollTop,
+          scrollHeight: navigation.scrollHeight,
+          itemTop: item.top,
+          itemHeight: item.height
+        });
+        // scrollIntoView would also move the policy itself. Move only this list.
+        if (top !== null) navigation.scrollTo({ top, behavior: reducedMotion ? "instant" : "smooth" });
+      }
+    };
+    const requestReveal = () => {
+      if (!frame) frame = window.requestAnimationFrame(revealActiveLink);
+    };
+    const observer = new ResizeObserver(requestReveal);
+    for (const navigation of navigations) observer.observe(navigation);
+    requestReveal();
+    window.addEventListener("resize", requestReveal);
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      observer.disconnect();
+      window.removeEventListener("resize", requestReveal);
+    };
+  }, [activeId]);
 
   useEffect(() => {
     const sections = sectionIds
@@ -91,7 +134,7 @@ export function LegalTableOfContents({ items }: { items: LegalNavigationItem[] }
     <>
       <aside className="legal-toc" aria-label="On this page">
         <p>On this page</p>
-        <nav>
+        <nav ref={desktopNavigationRef}>
           <NavigationLinks activeId={activeId} items={items} onNavigate={handleNavigate} />
         </nav>
         <a className="legal-toc-contact" href="mailto:legal@acru.com">
@@ -104,7 +147,7 @@ export function LegalTableOfContents({ items }: { items: LegalNavigationItem[] }
           <span>On this page</span>
           <span>{items.length} sections</span>
         </summary>
-        <nav aria-label="On this page">
+        <nav aria-label="On this page" ref={mobileNavigationRef}>
           <NavigationLinks activeId={activeId} items={items} onNavigate={handleNavigate} />
         </nav>
       </details>

@@ -37,7 +37,7 @@ import {
   ShieldCheckMarkIcon as ShieldCheck,
   ShieldPendingIcon as ShieldEllipsis,
   MobileIcon as Smartphone,
-  MagicIcon as Sparkles,
+  PayoutIcon,
   UploadIcon as Upload,
   PersonAddIcon as UserPlus,
   TeamIcon as Users,
@@ -972,7 +972,9 @@ function BankingSettings({ notify }: { notify: (message: string) => void }) {
             </button>
           </article>
           <article>
-            <span className="settings-bank-logo wells">WF</span>
+            <span className="settings-bank-logo wells">
+              <Landmark />
+            </span>
             <div>
               <strong>Wells Fargo</strong>
               <small>Business checking · •••• 7788</small>
@@ -1023,7 +1025,7 @@ function BankingSettings({ notify }: { notify: (message: string) => void }) {
           <div className="settings-preference-row compact">
             <div>
               <span className="settings-row-icon">
-                <ZapIcon />
+                <PayoutIcon />
               </span>
               <span>
                 <strong>Instant payouts</strong>
@@ -1133,10 +1135,6 @@ function BankingSettings({ notify }: { notify: (message: string) => void }) {
       ) : null}
     </div>
   );
-}
-
-function ZapIcon() {
-  return <Sparkles />;
 }
 
 function BankModal({ onClose, onComplete }: { onClose: () => void; onComplete: () => void }) {

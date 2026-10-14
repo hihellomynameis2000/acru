@@ -1,12 +1,13 @@
 import Link from "next/link";
 
-import { MarketingFooter, MarketingHeader } from "@/features/marketing/components/marketing-shell";
+import { LegalHeader } from "@/features/marketing/components/legal-header";
+import { LandingFooter } from "@/features/marketing/components/landing-editorial";
 import { legalDocumentList } from "@/features/marketing/data/legal";
 
 export function LegalCenter() {
   return (
-    <div className="marketing-page legal-page">
-      <MarketingHeader />
+    <div className="marketing-page cinematic-page legal-page">
+      <LegalHeader />
       <main className="legal-center">
         <header className="legal-center-hero">
           <p>Trust and transparency</p>
@@ -57,7 +58,7 @@ export function LegalCenter() {
           </div>
         </section>
       </main>
-      <MarketingFooter />
+      <LandingFooter onHomepage={false} />
     </div>
   );
 }

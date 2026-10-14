@@ -1,0 +1,211 @@
+{
+  "description": "Official assets downloaded unchanged. SVG dimensions are viewBox dimensions. No raster upscaling was performed. Existing NMI, Authorize.net, Plaid, Shopify, and WooCommerce assets were not changed.",
+  "assets": [
+    {
+      "brand": "BigCommerce",
+      "file": "bigcommerce.svg",
+      "width": 500,
+      "height": 125,
+      "source": "https://dam.bigcommerce.com/m/179d5d0a14041025/original/BC_Wordmark_Black.svg",
+      "sourcePage": "https://www.bigcommerce.com/",
+      "status": "ready"
+    },
+    {
+      "brand": "Zen Cart",
+      "file": "zen-cart.png",
+      "width": 254,
+      "height": 68,
+      "source": "https://www.zen-cart.com/assets/images/logo/zen-cart-logo.png",
+      "sourcePage": "https://www.zen-cart.com/",
+      "status": "low-resolution-use-text-fallback"
+    },
+    {
+      "brand": "WP EasyCart",
+      "file": "wp-easycart.png",
+      "width": 1500,
+      "height": 359,
+      "source": "https://www.wpeasycart.com/wp-content/uploads/2026/10/wpec-v6-logo-dark.png",
+      "sourcePage": "https://www.wpeasycart.com/",
+      "status": "ready"
+    },
+    {
+      "brand": "CheckoutChamp",
+      "file": "checkoutchamp.png",
+      "width": 209,
+      "height": 40,
+      "source": "https://checkoutchamp.com/assets/images/logo.png",
+      "sourcePage": "https://checkoutchamp.com/",
+      "status": "low-resolution-use-text-fallback"
+    },
+    {
+      "brand": "ClickFunnels",
+      "file": "clickfunnels.svg",
+      "width": 188,
+      "height": 26,
+      "source": "https://statics.myclickfunnels.com/workspace/Yjxavr/image/9334147/file/c994abfb442009ab7811e359f1b50170.svg",
+      "sourcePage": "https://www.clickfunnels.com/",
+      "status": "ready"
+    },
+    {
+      "brand": "HighLevel",
+      "file": "gohighlevel.svg",
+      "width": 172,
+      "height": 38,
+      "source": "https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/6a3d48e8e4daecfbb47f2a0b.svg",
+      "sourcePage": "https://www.gohighlevel.com/",
+      "status": "ready"
+    },
+    {
+      "brand": "sticky.io",
+      "file": "sticky-io.svg",
+      "width": 697.77,
+      "height": 195.58,
+      "source": "https://www.sticky.io/hubfs/Sticky.io-Wordmark-Black.svg",
+      "sourcePage": "https://www.sticky.io/",
+      "status": "ready"
+    },
+    {
+      "brand": "Chargebee",
+      "file": "chargebee.svg",
+      "width": 187,
+      "height": 26,
+      "source": "https://www.chargebee.com/static/resources/brand/chargebee-logo-black.svg",
+      "sourcePage": "https://www.chargebee.com/",
+      "status": "ready"
+    },
+    {
+      "brand": "ChargeOver",
+      "file": "chargeover.svg",
+      "width": 286.61,
+      "height": 32.56,
+      "source": "https://cdn.prod.website-files.com/6321d2582ab71d22a64bc62a/644057efb119c9e35c4f0c12_main-logo.svg",
+      "sourcePage": "https://chargeover.com/",
+      "status": "ready"
+    },
+    {
+      "brand": "Recurly",
+      "file": "recurly.svg",
+      "width": 330,
+      "height": 22,
+      "source": "https://images.ctfassets.net/wob906kz2qeo/7gtRjvi42TTBRLG2ozH9jP/2e232637f06695afc796bcb0ed2bc4b1/footer-logo.svg",
+      "sourcePage": "https://recurly.com/",
+      "status": "official-yellow-logo-with-tagline-prefer-text-on-light-background"
+    },
+    {
+      "brand": "PayWhirl",
+      "file": "paywhirl.svg",
+      "width": 267.3,
+      "height": 35.2,
+      "source": "https://paywhirl.com/images/misc/pw_logo_dark.svg",
+      "sourcePage": "https://paywhirl.com/",
+      "status": "ready"
+    },
+    {
+      "brand": "PayKickstart",
+      "file": "paykickstart.png",
+      "width": 2188,
+      "height": 436,
+      "source": "https://paykickstart.com/wp-content/uploads/2025/11/paykickstart-logo-new.png",
+      "sourcePage": "https://paykickstart.com/",
+      "status": "ready"
+    },
+    {
+      "brand": "SubscriptionFlow",
+      "file": "subscriptionflow.svg",
+      "width": 2088.84,
+      "height": 633.6,
+      "source": "https://www.subscriptionflow.com/wp-content/uploads/2022/02/SF-logo.svg",
+      "sourcePage": "https://www.subscriptionflow.com/",
+      "status": "ready"
+    },
+    {
+      "brand": "SubscriptionFlow",
+      "file": "subscriptionflow.png",
+      "width": 167,
+      "height": 132,
+      "source": "https://pipedrive.subscriptionflow.com/logo.png",
+      "sourcePage": "https://pipedrive.subscriptionflow.com/",
+      "status": "superseded-by-svg-do-not-use"
+    },
+    {
+      "brand": "Hiveage",
+      "file": "hiveage.png",
+      "width": 1260,
+      "height": 400,
+      "source": "https://www.hiveage.com/hiveage-logos.zip",
+      "archiveMember": "hiveage-logos/Hiveage-logo-regular.png",
+      "sourcePage": "https://www.hiveage.com/press-kit/",
+      "status": "ready"
+    },
+    {
+      "brand": "Formstack",
+      "file": "formstack.svg",
+      "width": 192.19,
+      "height": 68.03,
+      "source": "https://cdn.prod.website-files.com/5ebb0930dd82631397ddca92/685b02e910b8b9e4bb7de167_logo-Formstack-by-Intellistack.svg",
+      "sourcePage": "https://www.formstack.com/",
+      "status": "ready"
+    },
+    {
+      "brand": "Gravity Forms",
+      "file": "gravity-forms.png",
+      "width": 774,
+      "height": 400,
+      "source": "https://www.gravityforms.com/wp-content/uploads/2021/09/gravity-forms-logo-horizontal-744.png",
+      "sourcePage": "https://www.gravityforms.com/",
+      "status": "ready"
+    },
+    {
+      "brand": "123FormBuilder",
+      "file": "123formbuilder.png",
+      "width": 1950,
+      "height": 565,
+      "source": "https://www.123formbuilder.com/wp-content/uploads/2024/09/Horizontal-Logo%20123FormBuilder%20-%20coloured.png",
+      "sourcePage": "https://www.123formbuilder.com/brand-guidelines/",
+      "status": "ready"
+    },
+    {
+      "brand": "Chargent",
+      "file": "chargent.png",
+      "width": 500,
+      "height": 156,
+      "source": "https://appfrontier.com/wp-content/uploads/2024/05/Chargent-logo-horizontal.png",
+      "sourcePage": "https://appfrontier.com/trust",
+      "status": "ready"
+    },
+    {
+      "brand": "Docusign",
+      "file": "docusign.svg",
+      "width": 1200,
+      "height": 241.4,
+      "source": "https://www.docusign.com/assets/images/docusign-logo.svg",
+      "sourcePage": "https://www.docusign.com/",
+      "status": "ready"
+    },
+    {
+      "brand": "Checkfront",
+      "file": "checkfront.svg",
+      "width": 329.7,
+      "height": 60.6,
+      "source": "https://www.checkfront.com/wp-content/themes/checkfront-2022/public/images/Checkfront_Color.svg?id=0df703521d22474c7f902aeeec81459a",
+      "sourcePage": "https://www.checkfront.com/",
+      "status": "ready"
+    },
+    {
+      "brand": "Bastion",
+      "file": "bastion.svg",
+      "width": 165,
+      "height": 48,
+      "source": "https://bastion.com/",
+      "extraction": "Decoded original inline data:image/svg+xml background of the element named Bastion Logo, unchanged",
+      "status": "ready"
+    }
+  ],
+  "unresolved": [
+    {
+      "brand": "Adobe Commerce",
+      "sourcePage": "https://business.adobe.com/products/commerce.html",
+      "reason": "No verified downloadable Commerce logo obtained. Use text fallback; do not substitute the retired Magento logo."
+    }
+  ]
+}
